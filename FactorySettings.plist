@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>FileTreeRoot</key>
+	<string>/Users/tkurita/Dev/Projects/FileTree/Stationery</string>
+	<key>HistoryMax</key>
+	<integer>5</integer>
+</dict>
+</plist>

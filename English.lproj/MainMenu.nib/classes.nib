@@ -1,0 +1,44 @@
+{
+    IBClasses = (
+        {CLASS = AppController; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {conflictErrorAction = id; reloadData = id; reloadFileTreeNodes = id; }; 
+            CLASS = FileTreeDataSource; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                "_outline" = id; 
+                applyAllSwitch = id; 
+                cancelForItemButton = id; 
+                conflictErrorWindow = id; 
+                conflictMessage = id; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {
+            ACTIONS = {
+                deleteSelection = id; 
+                dupulicateSelection = id; 
+                makeFolder = id; 
+                openSelection = id; 
+                renameSelection = id; 
+            }; 
+            CLASS = FileTreeView; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {searchColumnIdentifier = id; searchField = id; }; 
+            SUPERCLASS = NSOutlineView; 
+        }, 
+        {
+            ACTIONS = {
+                deleteSelection = id; 
+                dupulicateSelection = id; 
+                openSelection = id; 
+                renameSelection = id; 
+                revealSelection = id; 
+            }; 
+            CLASS = FirstResponder; 
+            LANGUAGE = ObjC; 
+            SUPERCLASS = NSObject; 
+        }
+    ); 
+    IBVersion = 1; 
+}

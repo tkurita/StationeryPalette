@@ -1,0 +1,688 @@
+// !$*UTF8*$!
+{
+	089C165DFE840E0CC02AAC07 /* English */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {772, 692}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRect = "{{0, 0}, {772, 692}}";
+			sepNavWindowFrame = "{{15, 112}, {811, 821}}";
+		};
+	};
+	29B97313FDCFA39411CA2CEA /* Project object */ = {
+		activeBuildConfigurationName = Release;
+		activeExecutable = 2C9C305E0A8B83F400C679B8 /* StationeryPalette */;
+		activeTarget = 8D1107260486CEB800E47090 /* StationeryPalette */;
+		addToTargets = (
+			8D1107260486CEB800E47090 /* StationeryPalette */,
+		);
+		breakpoints = (
+			2CDF2C8C0B2DC204005AD565 /* FileTreeDataSource.m:138 */,
+			2CDF2DD50B2DD958005AD565 /* FileTreeNode.m:240 */,
+			2C614D320B2EE48500B3EC9B /* FileTreeDataSource.m:197 */,
+			2C614D6A0B2EEB6100B3EC9B /* FileTreeDataSource.m:259 */,
+			2C614D6F0B2EEBD000B3EC9B /* FileTreeNode.m:315 */,
+			2C0D98270B3000D400B0182D /* FileTreeDataSource.m:554 */,
+			2C0D989C0B300C1D00B0182D /* FileTreeDataSource.m:502 */,
+			2C4589AC0B37D6B80020C796 /* FileTreeNode.m:326 */,
+			2C458E5D0B37FD720020C796 /* FileTreeDataSource.m:51 */,
+			2CE07A6D0B3A7B130071555D /* FileTreeDataSource.m:618 */,
+			2CE07AA20B3A7E620071555D /* FileTreeDataSource.m:249 */,
+			2CD6897E0B3C462E008B45F9 /* FileTreeWindowController.m:76 */,
+		);
+		breakpointsGroup = 2C1BAF6B0AC23D640011E405 /* XCBreakpointsBucket */;
+		codeSenseManager = 2C9C30730A8B840500C679B8 /* Code sense */;
+		executables = (
+			2C9C305E0A8B83F400C679B8 /* StationeryPalette */,
+		);
+		perUserDictionary = {
+			"PBXConfiguration.PBXBreakpointsDataSource.v1:1CA1AED706398EBD00589147" = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXBreakpointsDataSource_BreakpointID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					20,
+					341,
+					20,
+					292,
+					63,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXBreakpointsDataSource_ActionID,
+					PBXBreakpointsDataSource_TypeID,
+					PBXBreakpointsDataSource_BreakpointID,
+					PBXBreakpointsDataSource_UseID,
+					PBXBreakpointsDataSource_LocationID,
+					PBXBreakpointsDataSource_ConditionID,
+					PBXBreakpointsDataSource_ContinueID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					582,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 188723711;
+			PBXWorkspaceStateSaveDate = 188723711;
+		};
+		sourceControlManager = 2C9C30720A8B840500C679B8 /* Source Control */;
+		userBookmarkGroup = 2C8DECB80B293B2600286D63 /* PBXBookmarkGroup */;
+		userBuildSettings = {
+		};
+	};
+	29B97316FDCFA39411CA2CEA /* main.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {908, 710}}";
+			sepNavSelRange = "{139, 15}";
+			sepNavVisRect = "{{0, 0}, {908, 710}}";
+			sepNavWindowFrame = "{{38, 73}, {947, 839}}";
+		};
+	};
+	2C0D98270B3000D400B0182D /* FileTreeDataSource.m:554 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		delayBeforeContinue = 0;
+		fileReference = 2C9C307B0A8B897E00C679B8 /* FileTreeDataSource.m */;
+		functionName = "-trashPromisedFiles:";
+		hitCount = 1;
+		lineNumber = 554;
+		location = FileTreeDataSource.ob;
+		modificationTime = 188499534.729451;
+		state = 1;
+	};
+	2C0D989C0B300C1D00B0182D /* FileTreeDataSource.m:502 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		delayBeforeContinue = 0;
+		fileReference = 2C9C307B0A8B897E00C679B8 /* FileTreeDataSource.m */;
+		functionName = "-copyPromisedFile:replacing:";
+		hitCount = 1;
+		lineNumber = 502;
+		location = FileTreeDataSource.ob;
+		modificationTime = 188499534.983931;
+		state = 1;
+	};
+	2C1BA9260AC0482E0011E405 /* FileTreeNode.m */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.objc;
+		name = FileTreeNode.m;
+		path = /Users/tkurita/Dev/Projects/StationeryPalette/trunk/FileTreeNode.m;
+		sourceTree = "<absolute>";
+	};
+	2C1BAD650AC181900011E405 /* TreeNode.h */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.h;
+		name = TreeNode.h;
+		path = /Users/tkurita/Dev/Projects/StationeryPalette/trunk/TreeNode.h;
+		sourceTree = "<absolute>";
+	};
+	2C1BAF6B0AC23D640011E405 /* XCBreakpointsBucket */ = {
+		isa = XCBreakpointsBucket;
+		name = "プロジェクトブレークポイント";
+		objects = (
+			2CDF2C8C0B2DC204005AD565 /* FileTreeDataSource.m:138 */,
+			2CDF2DD50B2DD958005AD565 /* FileTreeNode.m:240 */,
+			2C614D320B2EE48500B3EC9B /* FileTreeDataSource.m:197 */,
+			2C614D6A0B2EEB6100B3EC9B /* FileTreeDataSource.m:259 */,
+			2C614D6F0B2EEBD000B3EC9B /* FileTreeNode.m:315 */,
+			2C0D98270B3000D400B0182D /* FileTreeDataSource.m:554 */,
+			2C0D989C0B300C1D00B0182D /* FileTreeDataSource.m:502 */,
+			2C4589AC0B37D6B80020C796 /* FileTreeNode.m:326 */,
+			2C458E5D0B37FD720020C796 /* FileTreeDataSource.m:51 */,
+			2CE07A6D0B3A7B130071555D /* FileTreeDataSource.m:618 */,
+			2CE07AA20B3A7E620071555D /* FileTreeDataSource.m:249 */,
+			2CD6897E0B3C462E008B45F9 /* FileTreeWindowController.m:76 */,
+		);
+	};
+	2C1E924A0B3841330086DB87 /* FileTreeDataSource.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {685, 752}}";
+			sepNavSelRange = "{818, 6}";
+			sepNavVisRect = "{{0, 332}, {685, 407}}";
+			sepNavWindowFrame = "{{643, 107}, {659, 824}}";
+		};
+	};
+	2C1E924B0B3841330086DB87 /* FileTreeDataSource.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {951, 13008}}";
+			sepNavSelRange = "{18305, 6}";
+			sepNavVisRect = "{{0, 9501}, {685, 407}}";
+			sepNavWindowFrame = "{{391, 69}, {712, 869}}";
+		};
+	};
+	2C1E924C0B3841330086DB87 /* FileTreeNode.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {734, 1232}}";
+			sepNavSelRange = "{403, 11}";
+			sepNavVisRect = "{{0, 0}, {716, 709}}";
+			sepNavWindowFrame = "{{122, 100}, {755, 838}}";
+		};
+	};
+	2C1E924D0B3841330086DB87 /* FileTreeNode.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {891, 10912}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRect = "{{0, 0}, {891, 603}}";
+			sepNavWindowFrame = "{{159, 182}, {930, 732}}";
+		};
+	};
+	2C1E924E0B3841330086DB87 /* FileTreeView.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {685, 544}}";
+			sepNavSelRange = "{259, 21}";
+			sepNavVisRect = "{{0, 0}, {685, 407}}";
+			sepNavWindowFrame = "{{231, 97}, {659, 808}}";
+		};
+	};
+	2C1E924F0B3841330086DB87 /* FileTreeView.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {951, 6176}}";
+			sepNavSelRange = "{6483, 0}";
+			sepNavVisRect = "{{0, 3565}, {685, 407}}";
+			sepNavWindowFrame = "{{297, 93}, {915, 843}}";
+		};
+	};
+	2C1E92500B3841330086DB87 /* FileTreeViewDataSource.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {804, 679}}";
+			sepNavSelRange = "{94, 615}";
+			sepNavVisRect = "{{0, 0}, {620, 679}}";
+			sepNavWindowFrame = "{{607, 80}, {659, 808}}";
+		};
+	};
+	2C1E92520B3841330086DB87 /* ImageAndTextCell.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1119, 2064}}";
+			sepNavSelRange = "{3458, 138}";
+			sepNavVisRect = "{{0, 1285}, {891, 500}}";
+			sepNavWindowFrame = "{{61, 262}, {930, 629}}";
+		};
+	};
+	2C1E92530B3841330086DB87 /* NDAlias.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {753, 4816}}";
+			sepNavSelRange = "{16195, 16}";
+			sepNavVisRect = "{{0, 0}, {753, 687}}";
+			sepNavWindowFrame = "{{38, 111}, {792, 801}}";
+		};
+	};
+	2C1E92540B3841330086DB87 /* NDAlias.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {891, 5120}}";
+			sepNavSelRange = "{3435, 10}";
+			sepNavVisRect = "{{0, 2768}, {891, 500}}";
+			sepNavWindowFrame = "{{26, 251}, {930, 629}}";
+		};
+	};
+	2C1E92550B3841330086DB87 /* NSArray_Extensions.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {902, 747}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRect = "{{0, 0}, {902, 747}}";
+			sepNavWindowFrame = "{{15, 57}, {941, 876}}";
+		};
+	};
+	2C1E92560B3841330086DB87 /* NSArray_Extensions.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {876, 1072}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRect = "{{0, 0}, {876, 714}}";
+			sepNavWindowFrame = "{{38, 69}, {915, 843}}";
+		};
+	};
+	2C1E92570B3841330086DB87 /* NSOutlineView_Extensions.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {876, 714}}";
+			sepNavSelRange = "{98, 16}";
+			sepNavVisRect = "{{0, 0}, {876, 714}}";
+			sepNavWindowFrame = "{{15, 90}, {915, 843}}";
+		};
+	};
+	2C1E92580B3841330086DB87 /* NSOutlineView_Extensions.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {876, 714}}";
+			sepNavSelRange = "{750, 10}";
+			sepNavVisRect = "{{0, 0}, {876, 714}}";
+			sepNavWindowFrame = "{{38, 69}, {915, 843}}";
+		};
+	};
+	2C1E925A0B3841330086DB87 /* NSURL+NDCarbonUtilities.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1147, 3152}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRect = "{{0, 0}, {876, 714}}";
+			sepNavWindowFrame = "{{15, 90}, {915, 843}}";
+		};
+	};
+	2C1E925B0B3841330086DB87 /* PathExtra.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {853, 738}}";
+			sepNavSelRange = "{118, 0}";
+			sepNavVisRect = "{{0, 0}, {853, 738}}";
+			sepNavWindowFrame = "{{15, 66}, {892, 867}}";
+		};
+	};
+	2C1E925C0B3841330086DB87 /* PathExtra.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {853, 2304}}";
+			sepNavSelRange = "{742, 39}";
+			sepNavVisRect = "{{0, 0}, {853, 738}}";
+			sepNavWindowFrame = "{{568, 67}, {892, 867}}";
+		};
+	};
+	2C1E943A0B38B4670086DB87 /* Reload.png */ = {
+		uiCtxt = {
+			sepNavWindowFrame = "{{38, 104}, {659, 808}}";
+		};
+	};
+	2C270B070B38BEBC00955F77 /* new_folder.icns */ = {
+		uiCtxt = {
+			sepNavWindowFrame = "{{61, 83}, {659, 808}}";
+		};
+	};
+	2C270B0B0B38BFAB00955F77 /* rename.png */ = {
+		uiCtxt = {
+			sepNavWindowFrame = "{{84, 62}, {659, 808}}";
+		};
+	};
+	2C270BC20B39201200955F77 /* TreeNode.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {750, 912}}";
+			sepNavSelRange = "{1144, 12}";
+			sepNavVisRect = "{{0, 251}, {750, 661}}";
+			sepNavWindowFrame = "{{15, 143}, {789, 790}}";
+		};
+	};
+	2C270BC30B39201200955F77 /* TreeNode.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {727, 3360}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRect = "{{0, 0}, {716, 709}}";
+			sepNavWindowFrame = "{{173, 92}, {755, 838}}";
+		};
+	};
+	2C270C7E0B39794000955F77 /* AddItem.png */ = {
+		uiCtxt = {
+			sepNavWindowFrame = "{{61, 83}, {659, 808}}";
+		};
+	};
+	2C270C800B39794500955F77 /* Reveal.tiff */ = {
+		uiCtxt = {
+			sepNavWindowFrame = "{{559, 117}, {659, 808}}";
+		};
+	};
+	2C4493B80B3BD77800D6F290 /* KeyedUnarchiveFromDataTransformer.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {750, 661}}";
+			sepNavSelRange = "{37, 33}";
+			sepNavVisRect = "{{0, 0}, {750, 661}}";
+			sepNavWindowFrame = "{{61, 101}, {789, 790}}";
+		};
+	};
+	2C4493B90B3BD77800D6F290 /* KeyedUnarchiveFromDataTransformer.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {932, 468}}";
+			sepNavSelRange = "{321, 0}";
+			sepNavVisRect = "{{0, 0}, {932, 468}}";
+			sepNavWindowFrame = "{{224, 53}, {550, 763}}";
+		};
+	};
+	2C44959B0B3BF70200D6F290 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2C1E924D0B3841330086DB87 /* FileTreeNode.m */;
+		name = "renameChild [self saveOrderView:nil];";
+		rLen = 30;
+		rLoc = 6407;
+		rType = 0;
+		vrLen = 746;
+		vrLoc = 5745;
+	};
+	2C450B580AF787E700A3E94A /* memo.rd */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {841, 4744}}";
+			sepNavSelRange = "{321, 6}";
+			sepNavVisRect = "{{0, 0}, {726, 697}}";
+			sepNavWindowFrame = "{{365, 112}, {765, 826}}";
+		};
+	};
+	2C4588B40B37CF4F0020C796 /* English */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {874, 1056}}";
+			sepNavSelRange = "{2015, 0}";
+			sepNavVisRect = "{{0, 0}, {843, 368}}";
+			sepNavWindowFrame = "{{319, 154}, {882, 497}}";
+		};
+	};
+	2C4589AC0B37D6B80020C796 /* FileTreeNode.m:326 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		delayBeforeContinue = 0;
+		fileReference = 2C1BA9260AC0482E0011E405 /* FileTreeNode.m */;
+		functionName = "-createFolderAtIndex:withName:";
+		hitCount = 1;
+		lineNumber = 326;
+		modificationTime = 188499652.187373;
+		state = 1;
+	};
+	2C458ABB0B37E6A70020C796 /* AppController.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {822, 269}}";
+			sepNavSelRange = "{153, 0}";
+			sepNavVisRect = "{{0, 0}, {822, 269}}";
+			sepNavWindowFrame = "{{38, 514}, {861, 398}}";
+		};
+	};
+	2C458ABC0B37E6A70020C796 /* AppController.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {932, 1296}}";
+			sepNavSelRange = "{2743, 0}";
+			sepNavVisRect = "{{0, 700}, {932, 596}}";
+			sepNavWindowFrame = "{{197, 121}, {865, 817}}";
+		};
+	};
+	2C458AD70B37F1450020C796 /* FactorySettings.plist */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1023, 745}}";
+			sepNavSelRange = "{186, 12}";
+			sepNavVisRect = "{{0, 0}, {1023, 745}}";
+			sepNavWindowFrame = "{{15, 59}, {1062, 874}}";
+		};
+	};
+	2C458C630B37F7D40020C796 /* FileTreeWindowController.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {804, 448}}";
+			sepNavSelRange = "{284, 13}";
+			sepNavVisRect = "{{0, 0}, {755, 354}}";
+			sepNavWindowFrame = "{{141, 334}, {794, 483}}";
+		};
+	};
+	2C458C640B37F7D40020C796 /* FileTreeWindowController.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1504, 7376}}";
+			sepNavSelRange = "{5703, 0}";
+			sepNavVisRect = "{{0, 2142}, {932, 422}}";
+			sepNavWindowFrame = "{{231, 62}, {821, 876}}";
+		};
+	};
+	2C458C6B0B37F7F10020C796 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 29B97319FDCFA39411CA2CEA /* English */;
+		name = "MainMenu.nib (English)";
+	};
+	2C458C6D0B37F8000020C796 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 2C1BAD650AC181900011E405 /* TreeNode.h */;
+	};
+	2C458E5D0B37FD720020C796 /* FileTreeDataSource.m:51 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		delayBeforeContinue = 0;
+		fileReference = 2C9C307B0A8B897E00C679B8 /* FileTreeDataSource.m */;
+		functionName = "-init";
+		hitCount = 1;
+		lineNumber = 51;
+		location = FileTreeDataSource.ob;
+		modificationTime = 188499535.164229;
+		state = 1;
+	};
+	2C614D320B2EE48500B3EC9B /* FileTreeDataSource.m:197 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		delayBeforeContinue = 0;
+		fileReference = 2C9C307B0A8B897E00C679B8 /* FileTreeDataSource.m */;
+		functionName = "-askCopyOrMoveDidEnd:returnCode:contextInfo:";
+		hitCount = 1;
+		lineNumber = 197;
+		location = FileTreeDataSource.ob;
+		modificationTime = 188499534.55625;
+		state = 1;
+	};
+	2C614D6A0B2EEB6100B3EC9B /* FileTreeDataSource.m:259 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		delayBeforeContinue = 0;
+		fileReference = 2C9C307B0A8B897E00C679B8 /* FileTreeDataSource.m */;
+		functionName = "-addNodeFromPath:withReplacing:";
+		hitCount = 1;
+		lineNumber = 259;
+		location = FileTreeDataSource.ob;
+		modificationTime = 188499534.643156;
+		state = 1;
+	};
+	2C614D6F0B2EEBD000B3EC9B /* FileTreeNode.m:315 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		delayBeforeContinue = 0;
+		fileReference = 2C1BA9260AC0482E0011E405 /* FileTreeNode.m */;
+		functionName = "-createChildWithCopyingPath:atIndex:withReplacing:";
+		hitCount = 1;
+		lineNumber = 315;
+		modificationTime = 188499652.176968;
+		state = 1;
+	};
+	2C8DECB80B293B2600286D63 /* PBXBookmarkGroup */ = {
+		isa = PBXBookmarkGroup;
+		children = (
+			2C8DED510B296B0400286D63 /* PBXTextBookmark */,
+			2C458C6B0B37F7F10020C796 /* PBXBookmark */,
+			2C458C6D0B37F8000020C796 /* PBXBookmark */,
+			2C44959B0B3BF70200D6F290 /* PBXTextBookmark */,
+		);
+		name = Root;
+	};
+	2C8DED510B296B0400286D63 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2C9C307B0A8B897E00C679B8 /* FileTreeDataSource.m */;
+		name = fileTreeView;
+		rLen = 0;
+		rLoc = 20718;
+		rType = 0;
+		vrLen = 1003;
+		vrLoc = 12070;
+	};
+	2C9C305E0A8B83F400C679B8 /* StationeryPalette */ = {
+		isa = PBXExecutable;
+		activeArgIndex = 2147483647;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = StationeryPalette;
+		savedGlobals = {
+		};
+		sourceDirectories = (
+		);
+		variableFormatDictionary = {
+			"fileCreator-OSType--[FileListController isVisible:]" = 5;
+			"fileType-OSType--[FileListController isVisible:]" = 5;
+			"mod_key_status-UInt32-isOptionKeyDown" = 1;
+			"targertBit-UInt32-isOptionKeyDown" = 1;
+		};
+	};
+	2C9C30720A8B840500C679B8 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+		};
+		scmType = "";
+	};
+	2C9C30730A8B840500C679B8 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	2C9C307B0A8B897E00C679B8 /* FileTreeDataSource.m */ = {
+		isa = PBXFileReference;
+		fileEncoding = "-2147483647";
+		lastKnownFileType = sourcecode.c.objc;
+		name = FileTreeDataSource.m;
+		path = /Users/tkurita/Dev/Projects/StationeryPalette/trunk/FileTreeDataSource.m;
+		sourceTree = "<absolute>";
+		wrapsLines = 1;
+	};
+	2CB0558A0B3A9EE400315976 /* InsertionLocation.applescript */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {902, 782}}";
+			sepNavSelRange = "{1396, 0}";
+			sepNavVisRect = "{{0, 0}, {902, 747}}";
+			sepNavWindowFrame = "{{15, 57}, {941, 876}}";
+		};
+	};
+	2CB057C60B3AAE7B00315976 /* DropBox.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {748, 832}}";
+			sepNavSelRange = "{235, 23}";
+			sepNavVisRect = "{{0, 0}, {685, 407}}";
+			sepNavWindowFrame = "{{622, 63}, {712, 869}}";
+		};
+	};
+	2CB057C70B3AAE7B00315976 /* DropBox.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {771, 468}}";
+			sepNavSelRange = "{202, 20}";
+			sepNavVisRect = "{{0, 0}, {771, 468}}";
+			sepNavWindowFrame = "{{615, 64}, {712, 869}}";
+		};
+	};
+	2CD6897E0B3C462E008B45F9 /* FileTreeWindowController.m:76 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		delayBeforeContinue = 0;
+		fileReference = 2C458C640B37F7D40020C796 /* FileTreeWindowController.m */;
+		functionName = "-addToNameHistory:";
+		hitCount = 1;
+		lineNumber = 76;
+		location = FileTreeWindowController.ob;
+		modificationTime = 188499623.383431;
+		state = 1;
+	};
+	2CDF2C8C0B2DC204005AD565 /* FileTreeDataSource.m:138 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		delayBeforeContinue = 0;
+		fileReference = 2C9C307B0A8B897E00C679B8 /* FileTreeDataSource.m */;
+		functionName = "-didEndSheet:returnCode:contextInfo:";
+		hitCount = 1;
+		lineNumber = 138;
+		location = FileTreeDataSource.ob;
+		modificationTime = 188499534.472615;
+		state = 1;
+	};
+	2CDF2DD50B2DD958005AD565 /* FileTreeNode.m:240 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		delayBeforeContinue = 0;
+		fileReference = 2C1BA9260AC0482E0011E405 /* FileTreeNode.m */;
+		functionName = "-removeChildWithPath:";
+		hitCount = 1;
+		lineNumber = 240;
+		modificationTime = 188499652.144926;
+		state = 1;
+	};
+	2CE07A6D0B3A7B130071555D /* FileTreeDataSource.m:618 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		delayBeforeContinue = 0;
+		fileReference = 2C1E924B0B3841330086DB87 /* FileTreeDataSource.m */;
+		functionName = "-fileTreeView:makeFolderAfter:";
+		hitCount = 1;
+		lineNumber = 618;
+		location = FileTreeDataSource.ob;
+		modificationTime = 188499534.259221;
+		state = 1;
+	};
+	2CE07AA20B3A7E620071555D /* FileTreeDataSource.m:249 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		delayBeforeContinue = 0;
+		fileReference = 2C1E924B0B3841330086DB87 /* FileTreeDataSource.m */;
+		functionName = "-cleanupDragMoveOrCopy";
+		hitCount = 1;
+		lineNumber = 249;
+		location = FileTreeDataSource.ob;
+		modificationTime = 188499534.347412;
+		state = 1;
+	};
+	32CA4F630368D1EE00C91783 /* StationeryPalette_Prefix.pch */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {890, 598}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRect = "{{0, 0}, {890, 598}}";
+			sepNavWindowFrame = "{{15, 206}, {929, 727}}";
+		};
+	};
+	8D1107260486CEB800E47090 /* StationeryPalette */ = {
+		activeExec = 0;
+		executables = (
+			2C9C305E0A8B83F400C679B8 /* StationeryPalette */,
+		);
+	};
+}
