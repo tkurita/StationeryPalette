@@ -1,7 +1,6 @@
-property LibraryFolder : "IGAGURI HD:Users:tkurita:Factories:Script factory:ProjectsX:StationeryPalette:library Scripts:"
-property FileSorter : load script file (LibraryFolder & "FileSorter")
-property GetInsertionContainer : load script file (LibraryFolder & "Get InsertionContainer")
-property FileUtil : load script file (LibraryFolder & "FileUtility")
+property FileSorter : load("FileSorter") of application "StationaryPaletteLib"
+property GetInsertionContainer : load("Get InsertionContainer") of application "StationaryPaletteLib"
+property FileUtil : load("FileUtility") of application "StationaryPaletteLib"
 
 property StationeryList : {}
 property nameHistoryObj : missing value
