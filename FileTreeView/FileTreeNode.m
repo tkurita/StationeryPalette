@@ -1,7 +1,7 @@
 #import "FileTreeNode.h"
 #import "PathExtra.h"
 
-static NSString *orderFileName = @"order.plist";
+NSString *ORDER_CHACHE_NAME = @"order.plist";
 
 @implementation FileTreeNodeData
 
@@ -538,7 +538,7 @@ static NSString *orderFileName = @"order.plist";
 	}
 	
 	NSDictionary *order_dict = [NSDictionary dictionaryWithObjectsAndKeys:order, @"order", nil];
-	NSString *orderFilePath = [[(FileTreeNodeData *)nodeData path] stringByAppendingPathComponent:orderFileName];
+	NSString *orderFilePath = [[(FileTreeNodeData *)nodeData path] stringByAppendingPathComponent:ORDER_CHACHE_NAME];
 	[order_dict writeToFile:orderFilePath atomically:YES];
 }
 
@@ -585,7 +585,7 @@ static NSString *orderFileName = @"order.plist";
 		enumerator = [contents_names objectEnumerator];
 		NSString *item_name, *item_path;
 		while (item_name = [enumerator nextObject]) {
-			if ([item_name isEqualToString:orderFileName]) continue;
+			if ([item_name isEqualToString:ORDER_CHACHE_NAME]) continue;
 			
 			if ([name_list containsObject:item_name]) continue;
 			
@@ -616,14 +616,14 @@ static NSString *orderFileName = @"order.plist";
 			NSString *child_path;
 			NSMutableArray* child_data_array = [NSMutableArray array];
 			while (child_name = [enumerator nextObject]) {
-				if ([child_name isEqualToString:orderFileName]) continue;
+				if ([child_name isEqualToString:ORDER_CHACHE_NAME]) continue;
 				
 				child_path = [path stringByAppendingPathComponent:child_name];
 				if ([child_path isVisible])
 					[child_data_array addObject:[FileTreeNode fileTreeNodeWithPath:child_path parent:self]];
 			}
 			
-			NSString *order_file_path = [[(FileTreeNodeData *)nodeData path] stringByAppendingPathComponent:orderFileName];
+			NSString *order_file_path = [[(FileTreeNodeData *)nodeData path] stringByAppendingPathComponent:ORDER_CHACHE_NAME];
 			NSArray *order = nil;
 			NSDictionary *order_dict = nil;
 			if ([file_manager fileExistsAtPath:order_file_path]) {

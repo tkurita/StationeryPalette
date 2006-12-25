@@ -115,7 +115,7 @@ static void addToolbarItem(NSMutableDictionary *theDict, NSString *identifier, N
 void cleanupFolderContents(NSString *path)
 {
 	NSFileManager *file_manager = [NSFileManager defaultManager];
-	[file_manager removeFileAtPath:[path stringByAppendingPathComponent:@"order.plist"] handler:nil];
+	[file_manager removeFileAtPath:[path stringByAppendingPathComponent:ORDER_CHACHE_NAME] handler:nil];
 	
 	NSDirectoryEnumerator *enumerator = [file_manager enumeratorAtPath:path];
 	NSString *file_name;

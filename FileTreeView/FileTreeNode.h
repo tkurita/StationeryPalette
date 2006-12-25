@@ -2,6 +2,8 @@
 #import "TreeNode.h"
 #import "NDAlias.h"
 
+extern NSString *ORDER_CHACHE_NAME;
+
 @interface FileTreeNodeData : TreeNodeData {
 	NSString *_path;
 	NSDictionary *_attributes;
