@@ -29,6 +29,7 @@
 			2CE07AA20B3A7E620071555D /* FileTreeDataSource.m:249 */,
 			2CD6897E0B3C462E008B45F9 /* FileTreeWindowController.m:76 */,
 			2CA09CE00B3FDE220043BE9D /* AppController.m:47 */,
+			2CEBB1C00B4005D800040DD0 /* PathExtra.m:7 */,
 		);
 		breakpointsGroup = 2C1BAF6B0AC23D640011E405 /* XCBreakpointsBucket */;
 		codeSenseManager = 2C9C30730A8B840500C679B8 /* Code sense */;
@@ -90,6 +91,9 @@
 			2CEBAF1A0B3FF1A600040DD0 = 2CEBAF1A0B3FF1A600040DD0 /* PBXTextBookmark */;
 			2CEBB13C0B4003A300040DD0 /* PBXBookmark */ = 2CEBB13C0B4003A300040DD0 /* PBXBookmark */;
 			2CEBB15B0B40044A00040DD0 /* PBXTextBookmark */ = 2CEBB15B0B40044A00040DD0 /* PBXTextBookmark */;
+			2CEBB1BE0B4005D400040DD0 /* PBXBookmark */ = 2CEBB1BE0B4005D400040DD0 /* PBXBookmark */;
+			2CEBB1C40B4005E700040DD0 /* PBXTextBookmark */ = 2CEBB1C40B4005E700040DD0 /* PBXTextBookmark */;
+			2CEBB1C50B4005E700040DD0 /* PBXTextBookmark */ = 2CEBB1C50B4005E700040DD0 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 2C9C30720A8B840500C679B8 /* Source Control */;
 		userBookmarkGroup = 2C8DECB80B293B2600286D63 /* PBXBookmarkGroup */;
@@ -165,6 +169,7 @@
 			2CE07AA20B3A7E620071555D /* FileTreeDataSource.m:249 */,
 			2CD6897E0B3C462E008B45F9 /* FileTreeWindowController.m:76 */,
 			2CA09CE00B3FDE220043BE9D /* AppController.m:47 */,
+			2CEBB1C00B4005D800040DD0 /* PathExtra.m:7 */,
 		);
 	};
 	2C1E924A0B3841330086DB87 /* FileTreeDataSource.h */ = {
@@ -287,19 +292,17 @@
 			sepNavWindowFrame = "{{15, 90}, {915, 843}}";
 		};
 	};
-	2C1E925B0B3841330086DB87 /* PathExtra.h */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {853, 738}}";
-			sepNavSelRange = "{118, 0}";
-			sepNavVisRect = "{{0, 0}, {853, 738}}";
-			sepNavWindowFrame = "{{15, 66}, {892, 867}}";
-		};
-	};
 	2C1E925C0B3841330086DB87 /* PathExtra.m */ = {
+		isa = PBXFileReference;
+		fileEncoding = "-2147483647";
+		lastKnownFileType = sourcecode.c.objc;
+		name = PathExtra.m;
+		path = /Users/tkurita/Dev/Projects/StationeryPalette/trunk/FileTreeView/PathExtra.m;
+		sourceTree = "<absolute>";
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {853, 2304}}";
-			sepNavSelRange = "{742, 39}";
-			sepNavVisRect = "{{0, 0}, {853, 738}}";
+			sepNavSelRange = "{2963, 0}";
+			sepNavVisRect = "{{0, 1043}, {853, 738}}";
 			sepNavWindowFrame = "{{568, 67}, {892, 867}}";
 		};
 	};
@@ -403,8 +406,8 @@
 	2C458ABC0B37E6A70020C796 /* AppController.m */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {951, 976}}";
-			sepNavSelRange = "{110, 0}";
-			sepNavVisRect = "{{0, 0}, {826, 688}}";
+			sepNavSelRange = "{613, 0}";
+			sepNavVisRect = "{{0, 288}, {826, 688}}";
 			sepNavWindowFrame = "{{197, 121}, {865, 817}}";
 		};
 	};
@@ -738,6 +741,44 @@
 		rType = 0;
 		vrLen = 1614;
 		vrLoc = 0;
+	};
+	2CEBB1BE0B4005D400040DD0 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 2C1E925C0B3841330086DB87 /* PathExtra.m */;
+	};
+	2CEBB1C00B4005D800040DD0 /* PathExtra.m:7 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		delayBeforeContinue = 0;
+		fileReference = 2C1E925C0B3841330086DB87 /* PathExtra.m */;
+		functionName = "-isVisible";
+		hitCount = 0;
+		lineNumber = 7;
+		modificationTime = 188745176.502663;
+		state = 1;
+	};
+	2CEBB1C40B4005E700040DD0 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2C1E925C0B3841330086DB87 /* PathExtra.m */;
+		name = "PathExtra.m: isVisible";
+		rLen = 2879;
+		rLoc = 105;
+		rType = 0;
+		vrLen = 1503;
+		vrLoc = 2175;
+	};
+	2CEBB1C50B4005E700040DD0 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2C458ABC0B37E6A70020C796 /* AppController.m */;
+		name = "AppController.m: applicationWillBecomeActive:";
+		rLen = 0;
+		rLoc = 613;
+		rType = 0;
+		vrLen = 1909;
+		vrLoc = 417;
 	};
 	32CA4F630368D1EE00C91783 /* StationeryPalette_Prefix.pch */ = {
 		uiCtxt = {
