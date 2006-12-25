@@ -1,5 +1,3 @@
-/* DropBox */
-
 #import <Cocoa/Cocoa.h>
 
 @protocol DropBoxDragAndDrop

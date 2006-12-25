@@ -48,11 +48,7 @@
 		2CB057C80B3AAE7B00315976 /* DropBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB057C60B3AAE7B00315976 /* DropBox.m */; };
 		2CEBB13A0B40036300040DD0 /* DonationReminder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEBB1390B40036300040DD0 /* DonationReminder.framework */; };
 		2CEBB14D0B40042100040DD0 /* DonationReminder.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2CEBB1390B40036300040DD0 /* DonationReminder.framework */; };
-		2CEBB1EF0B40078600040DD0 /* PaletteWindowController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2CEBB1E70B40078600040DD0 /* PaletteWindowController.h */; };
-		2CEBB1F10B40078600040DD0 /* PathExtra.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2CEBB1E90B40078600040DD0 /* PathExtra.h */; };
 		2CEBB1F20B40078600040DD0 /* PathExtra.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEBB1EA0B40078600040DD0 /* PathExtra.m */; };
-		2CEBB1F30B40078600040DD0 /* StringExtra.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2CEBB1EB0B40078600040DD0 /* StringExtra.h */; };
-		2CEBB1F50B40078600040DD0 /* WindowVisibilityController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2CEBB1ED0B40078600040DD0 /* WindowVisibilityController.h */; };
 		8D11072A0486CEB800E47090 /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 29B97318FDCFA39411CA2CEA /* MainMenu.nib */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
@@ -67,10 +63,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				2CEBB14D0B40042100040DD0 /* DonationReminder.framework in CopyFiles */,
-				2CEBB1EF0B40078600040DD0 /* PaletteWindowController.h in CopyFiles */,
-				2CEBB1F10B40078600040DD0 /* PathExtra.h in CopyFiles */,
-				2CEBB1F30B40078600040DD0 /* StringExtra.h in CopyFiles */,
-				2CEBB1F50B40078600040DD0 /* WindowVisibilityController.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,7 +108,7 @@
 		2C4588B40B37CF4F0020C796 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; lineEnding = 0; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2C458ABB0B37E6A70020C796 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
 		2C458ABC0B37E6A70020C796 /* AppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
-		2C458AD70B37F1450020C796 /* FactorySettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = FactorySettings.plist; sourceTree = "<group>"; };
+		2C458AD70B37F1450020C796 /* FactorySettings.plist */ = {isa = PBXFileReference; explicitFileType = text.plist; fileEncoding = 4; path = FactorySettings.plist; sourceTree = "<group>"; };
 		2C458C630B37F7D40020C796 /* FileTreeWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileTreeWindowController.h; sourceTree = "<group>"; };
 		2C458C640B37F7D40020C796 /* FileTreeWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileTreeWindowController.m; sourceTree = "<group>"; };
 		2C458C910B37F88B0020C796 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/FileTreeWindow.nib; sourceTree = "<group>"; };

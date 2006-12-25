@@ -1,9 +1,16 @@
 #import "DropBox.h"
 
+#define useLog 0
+
 @implementation DropBox
+
+/*
 - (id)initWithFrame:(NSRect)rect
 {
-    self = [super initWithFrame:rect];
+#if useLog
+	NSLog(@"initWithFrame DropBox");
+#endif	
+	self = [super initWithFrame:rect];
     if(self) {
         NSArray* array = 
             [NSArray arrayWithObject:NSFilenamesPboardType];
@@ -11,12 +18,25 @@
     }
     return self;
 }
+*/
+
+- (void)awakeFromNib
+{
+#if useLog
+	NSLog(@"awakeFromNib in DropBox");
+#endif
+	NSArray* array = 
+		[NSArray arrayWithObject:NSFilenamesPboardType];
+	[self registerForDraggedTypes:array];
+}
 
 - (unsigned int)draggingEntered:(id <NSDraggingInfo>)sender
 {
     NSPasteboard *pboard = [sender draggingPasteboard];
     NSArray *filenames = [pboard propertyListForType:NSFilenamesPboardType];
-    //NSLog(@"draggingEntered: filenames: %@", [filenames description]);
+#if useLog
+    NSLog(@"draggingEntered: filenames: %@", [filenames description]);
+#endif	
     int dragOperation = NSDragOperationNone;
     if ([filenames count] == 1) {
         
@@ -40,7 +60,9 @@
     NSPasteboard *pboard = [sender draggingPasteboard];
     NSArray *filenames = [pboard propertyListForType:NSFilenamesPboardType];
     BOOL didPerformDragOperation = NO;
-    //NSLog(@"performDragOperation: filenames: %@", [filenames description]);
+#if useLog
+    NSLog(@"performDragOperation: filenames: %@", [filenames description]);
+#endif	
     if ([filenames count]) {
 		didPerformDragOperation = [delegate dropBox:self acceptDrop:sender item:[filenames lastObject]];
     }
