@@ -1,6 +1,7 @@
 #import "AppController.h"
+
 #import "FileTreeWindowController.h"
-#include <Carbon/Carbon.h>
+#import "DonationReminder/DonationReminder.h"
 
 #define useLog 0
 
@@ -52,6 +53,8 @@
 {
 	windowController = [[FileTreeWindowController alloc] initWithWindowNibName:@"FileTreeWindow"];
 	[windowController showWindow:self];
+	id reminderWindow = [DonationReminder remindDonation];
+	if (reminderWindow != nil) [NSApp activateIgnoringOtherApps:YES];
 }
 
 @end
