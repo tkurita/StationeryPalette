@@ -50,6 +50,7 @@
         }, 
         {
             ACTIONS = {
+                "" = id; 
                 deleteSelection = id; 
                 dupulicateSelection = id; 
                 openSelection = id; 

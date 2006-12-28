@@ -118,7 +118,7 @@
 		2CB0558A0B3A9EE400315976 /* InsertionLocation.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; path = InsertionLocation.applescript; sourceTree = "<group>"; };
 		2CB057C60B3AAE7B00315976 /* DropBox.m */ = {isa = PBXFileReference; fileEncoding = "-2147483647"; lastKnownFileType = sourcecode.c.objc; path = DropBox.m; sourceTree = "<group>"; };
 		2CB057C70B3AAE7B00315976 /* DropBox.h */ = {isa = PBXFileReference; fileEncoding = "-2147483647"; lastKnownFileType = sourcecode.c.h; path = DropBox.h; sourceTree = "<group>"; };
-		2CEBB1390B40036300040DD0 /* DonationReminder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DonationReminder.framework; path = ../../DonationReminder/trunk/build/Release/DonationReminder.framework; sourceTree = SOURCE_ROOT; };
+		2CEBB1390B40036300040DD0 /* DonationReminder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = DonationReminder.framework; path = ../DonationReminder.framework; sourceTree = SOURCE_ROOT; };
 		2CEBB1E70B40078600040DD0 /* PaletteWindowController.h */ = {isa = PBXFileReference; fileEncoding = "-2147483647"; lastKnownFileType = sourcecode.c.h; path = PaletteWindowController.h; sourceTree = "<group>"; };
 		2CEBB1E80B40078600040DD0 /* PaletteWindowController.m */ = {isa = PBXFileReference; fileEncoding = "-2147483647"; lastKnownFileType = sourcecode.c.objc; path = PaletteWindowController.m; sourceTree = "<group>"; };
 		2CEBB1E90B40078600040DD0 /* PathExtra.h */ = {isa = PBXFileReference; fileEncoding = "-2147483647"; lastKnownFileType = sourcecode.c.h; path = PathExtra.h; sourceTree = "<group>"; };

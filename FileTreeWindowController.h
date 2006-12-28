@@ -24,4 +24,7 @@
 - (IBAction)cancelAction:(id)sender;
 - (IBAction)copyStationery:(id)sender;
 
+- (void)showWindowWithFinderSelection:(id)sender;
+- (void)showWindowWithDirectory:(NSString *)folderPath;
+
 @end

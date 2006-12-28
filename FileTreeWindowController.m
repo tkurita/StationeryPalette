@@ -293,10 +293,9 @@ void cleanupFolderContents(NSString *path)
 }
 
 #pragma mark override NSWindowController
-- (IBAction)showWindow:(id)sender
+- (void)showWindowWithFinderSelection:(id)sender
 {
-	[super showWindow:sender];
-	
+	[self showWindow:sender];
 	NSDictionary *error_dict = nil;
 	NSAppleEventDescriptor *scriptResult = [insertionLocationScript executeAndReturnError:&error_dict];
 	if (error_dict != nil) {
@@ -308,6 +307,36 @@ void cleanupFolderContents(NSString *path)
 	NSString *path = [scriptResult stringValue];
 	[self setInsertionLocation:path];
 	[saveLocationField setStringValue:path];
+
+}
+
+- (void)showWindowWithDirectory:(NSString *)folderPath
+{
+	[self showWindow:self];
+	[self setInsertionLocation:folderPath];
+	[saveLocationField setStringValue:folderPath];	
+}
+
+- (IBAction)showWindow:(id)sender
+{
+#if useLog
+	NSLog(@"start showWindow");
+#endif	
+	[super showWindow:sender];
+#if useLog
+	NSLog(@"after super showWindow");
+#endif	
+//	NSDictionary *error_dict = nil;
+//	NSAppleEventDescriptor *scriptResult = [insertionLocationScript executeAndReturnError:&error_dict];
+//	if (error_dict != nil) {
+//		#if useLog
+//		NSLog([error_dict description]);
+//		#endif
+//		showScriptError(error_dict);
+//	}
+//	NSString *path = [scriptResult stringValue];
+//	[self setInsertionLocation:path];
+//	[saveLocationField setStringValue:path];
 	
 	NSArray *selected_items = nil;
 	if (isFirstOpen) {
@@ -403,8 +432,7 @@ void cleanupFolderContents(NSString *path)
 	previousSelectionName = nil;
 	[[NSNotificationCenter defaultCenter] addObserver:self 
 		selector:@selector(selectionDidChange:) name:NSOutlineViewSelectionDidChangeNotification object:fileTreeView];
-//	[[NSNotificationCenter defaultCenter] addObserver:self 
-//		selector:@selector(selectionIsChanging:) name:NSOutlineViewSelectionIsChangingNotification object:fileTreeView];
+
 }
 
 #pragma mark delegate of Tool Bar

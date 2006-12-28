@@ -1,5 +1,6 @@
 #import "AppController.h"
 
+#import "PathExtra.h"
 #import "FileTreeWindowController.h"
 #import "DonationReminder/DonationReminder.h"
 
@@ -19,7 +20,7 @@
 
 - (void)applicationWillBecomeActive:(NSNotification *)aNotification
 {
-	if (![[windowController window] isVisible]) [windowController showWindow:self];
+	if (![[windowController window] isVisible]) [windowController showWindowWithFinderSelection:self];
 }
 
 - (void)applicationWillFinishLaunching:(NSNotification *)aNotification
@@ -49,12 +50,72 @@
 	}
 }
 
+NSString *containerPathWithDirectory(NSString *dirPath)
+{
+	NSWorkspace *workspace = [NSWorkspace sharedWorkspace];
+	if ([workspace isFilePackageAtPath:dirPath]) {
+		return [dirPath stringByDeletingLastPathComponent];
+	}
+	return dirPath;
+}
+
+NSString *resolveContainerPath(NSString *path)
+{
+	NSWorkspace *workspace = [NSWorkspace sharedWorkspace];
+	NSFileManager *file_manager = [NSFileManager defaultManager];
+	NSDictionary *file_info = [file_manager fileAttributesAtPath:path traverseLink:NO];
+	NSString *file_type = [file_info objectForKey:NSFileType];
+
+	if ([file_type isEqualToString:NSFileTypeDirectory]) {
+		return [workspace isFilePackageAtPath:path] ? [path stringByDeletingLastPathComponent] : path;
+	}
+	
+	NSString *original_path = path;
+	BOOL is_directory = NO;
+	if ([file_type isEqualToString:NSFileTypeSymbolicLink]) {
+		original_path = [file_manager pathContentOfSymbolicLinkAtPath:path];
+		file_info = [file_manager fileAttributesAtPath:original_path traverseLink:NO];
+		is_directory = [[file_info objectForKey:NSFileType] isEqualToString:NSFileTypeDirectory];
+	}
+	else if ([file_type isEqualToString:NSFileTypeRegular]){
+		NSDictionary *dict = [path infoResolvingAliasFile];
+		if ([[dict objectForKey:@"WasAliased"] boolValue]) {
+			original_path = [dict objectForKey:@"ResolvedPath"];
+			is_directory = [[dict objectForKey:@"IsDirectory"] boolValue] ;
+		}
+	}
+
+	if (is_directory && ![workspace isFilePackageAtPath:original_path])
+		return original_path;
+		
+	return [path stringByDeletingLastPathComponent];
+}
+
+- (void)showWindowForFolder:(NSPasteboard *)pboard userData:(NSString *)data error:(NSString **)error
+{
+	NSArray *types = [pboard types];
+	NSArray *file_names;
+	if (![types containsObject:NSFilenamesPboardType] 
+			|| !(file_names = [pboard propertyListForType:NSFilenamesPboardType])) {
+        *error = NSLocalizedString(@"Error: Pasteboard doesn't contain file paths.",
+                   @"Pasteboard couldn't give string.");
+        return;
+    }
+	
+	NSString *file_path = resolveContainerPath([file_names lastObject]);
+	[windowController showWindowWithDirectory:file_path];
+	[NSApp activateIgnoringOtherApps:YES];
+}
+
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
 	windowController = [[FileTreeWindowController alloc] initWithWindowNibName:@"FileTreeWindow"];
-	[windowController showWindow:self];
-	id reminderWindow = [DonationReminder remindDonation];
-	if (reminderWindow != nil) [NSApp activateIgnoringOtherApps:YES];
+	[NSApp setServicesProvider:self];
+	if (![[windowController window] isVisible]) {
+		[windowController showWindowWithFinderSelection:self];
+		[NSApp activateIgnoringOtherApps:YES];
+	}
+	[DonationReminder remindDonation];
 }
 
 @end
