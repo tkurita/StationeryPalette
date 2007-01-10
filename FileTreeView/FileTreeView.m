@@ -60,7 +60,6 @@ static OSStatus inputText(EventHandlerCallRef nextHandler, EventRef theEvent, vo
 	UniChar *dataPtr = (UniChar *)malloc(dataSize);
 	err = GetEventParameter(theEvent, kEventParamTextInputSendText, typeUnicodeText, NULL, dataSize, NULL, dataPtr);
 	NSString *aString =[[NSString alloc] initWithBytes:dataPtr length:dataSize encoding:NSUnicodeStringEncoding];
-	//NSLog([NSString stringWithFormat:@"aString : %@", aString]);
 	[(id)userData insertTextInputSendText:aString];
 	free(dataPtr);
 #if useLog	
@@ -239,23 +238,25 @@ bail:
 			EventHandlerUPP handlerUPP = NewEventHandlerUPP(inputText);
 			OSStatus err = InstallApplicationEventHandler(handlerUPP, 1, &spec, (void*)self, &textInputEventHandler);
 			DisposeEventHandlerUPP(handlerUPP);
-			NSAssert1(err = noErr, @"Fail to install TextInputEvent with error :%d", err);
+			NSAssert1(err == noErr, @"Fail to install TextInputEvent with error :%d", err);
 			isInstalledTextInputEvent = YES;
 		}
 		
 		NSString *before_string = [NSString stringWithString:[fieldEditor string]];
-		#if useLog
+	#if useLog
 		NSLog([NSString stringWithFormat:@"before String : %@", before_string]);
-		#endif
+	#endif
 		[fieldEditor interpretKeyEvents:[NSArray arrayWithObject:keyEvent]];
 		NSString *after_string = [fieldEditor string];
-		#if useLog
+		
+	#if useLog
 		NSLog([NSString stringWithFormat:@"after String : %@", after_string]);
-		#endif
+	#endif
+	
 		isUsingInputWindow = [before_string isEqualToString:after_string];
-		#if useLog
+	#if useLog
 		printf("isUsingInputWindow : %d\n", isUsingInputWindow);
-		#endif
+	#endif
 		if (!isUsingInputWindow) {
 			[self findForString:after_string ];
 		}
@@ -282,7 +283,6 @@ bail:
 		id item = [self itemAtRow:i];
 		id display_name = [dataSource outlineView:self objectValueForTableColumn:column byItem:item];
 		if (NSOrderedSame == [display_name compare:aString options:NSCaseInsensitiveSearch range:NSMakeRange(0, [aString length])]) {
-			NSLog(display_name);
 			[self selectRowIndexes:[NSIndexSet indexSetWithIndex:i] byExtendingSelection:NO];
 			break;
 		}
