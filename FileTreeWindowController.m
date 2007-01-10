@@ -239,8 +239,8 @@ void cleanupFolderContents(NSString *path)
 	NSString *label;
 	NSString *tool_tip;
 	
-	label = NSLocalizedString(@"Add Stationery", @"Toolbar's label for AddItem");
-	tool_tip = NSLocalizedString(@"Add a new stationery with choosing a file.", @"Toolbar's tool tip for AddItem");
+	label = NSLocalizedString(@"Add template", @"Toolbar's label for AddItem");
+	tool_tip = NSLocalizedString(@"Add a new template with choosing a file.", @"Toolbar's tool tip for AddItem");
 	addToolbarItem(toolbarItems, @"AddItem", label, label, tool_tip,
 		self,@selector(setImage:),[NSImage imageNamed:@"AddItem.png"],@selector(addItem:),NULL);
 
@@ -265,7 +265,7 @@ void cleanupFolderContents(NSString *path)
 		fileTreeView, @selector(setImage:),[NSImage imageNamed:@"Reveal.tiff"],@selector(revealSelection:),NULL);
 
 	label = NSLocalizedString(@"Reload", @"Toolbar's label for Reload");
-	tool_tip = NSLocalizedString(@"Reload stationery folder.", @"Toolbar's tool tip for Reload");		
+	tool_tip = NSLocalizedString(@"Reload templates.", @"Toolbar's tool tip for Reload");		
 	addToolbarItem(toolbarItems, @"Reload", label, label, tool_tip,
 		fileTreeDataSource, @selector(setImage:),[NSImage imageNamed:@"DarkBlueReload.png"], 
 		@selector(reloadFileTreeNodes:), NULL);

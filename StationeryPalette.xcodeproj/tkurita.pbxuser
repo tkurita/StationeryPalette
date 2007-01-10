@@ -76,8 +76,8 @@
 					PBXFileDataSource_Target_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 188969179;
-			PBXWorkspaceStateSaveDate = 188969179;
+			PBXPerProjectTemplateStateSaveDate = 190089029;
+			PBXWorkspaceStateSaveDate = 190089029;
 		};
 		sourceControlManager = 2C9C30720A8B840500C679B8 /* Source Control */;
 		userBookmarkGroup = 2C8DECB80B293B2600286D63 /* PBXBookmarkGroup */;
@@ -202,22 +202,6 @@
 			sepNavWindowFrame = "{{61, 262}, {930, 629}}";
 		};
 	};
-	2C1E92530B3841330086DB87 /* NDAlias.h */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {753, 4816}}";
-			sepNavSelRange = "{16195, 16}";
-			sepNavVisRect = "{{0, 928}, {753, 687}}";
-			sepNavWindowFrame = "{{38, 111}, {792, 801}}";
-		};
-	};
-	2C1E92540B3841330086DB87 /* NDAlias.m */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {891, 5120}}";
-			sepNavSelRange = "{0, 0}";
-			sepNavVisRect = "{{0, 0}, {891, 500}}";
-			sepNavWindowFrame = "{{26, 251}, {930, 629}}";
-		};
-	};
 	2C1E92550B3841330086DB87 /* NSArray_Extensions.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {902, 747}}";
@@ -248,22 +232,6 @@
 			sepNavSelRange = "{750, 10}";
 			sepNavVisRect = "{{0, 0}, {876, 714}}";
 			sepNavWindowFrame = "{{38, 69}, {915, 843}}";
-		};
-	};
-	2C1E92590B3841330086DB87 /* NSURL+NDCarbonUtilities.h */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1476, 2752}}";
-			sepNavSelRange = "{6972, 43}";
-			sepNavVisRect = "{{0, 0}, {735, 571}}";
-			sepNavWindowFrame = "{{84, 170}, {774, 700}}";
-		};
-	};
-	2C1E925A0B3841330086DB87 /* NSURL+NDCarbonUtilities.m */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1147, 3152}}";
-			sepNavSelRange = "{1465, 28}";
-			sepNavVisRect = "{{0, 858}, {876, 714}}";
-			sepNavWindowFrame = "{{456, 95}, {915, 843}}";
 		};
 	};
 	2C1E925C0B3841330086DB87 /* PathExtra.m */ = {
@@ -330,6 +298,14 @@
 		modificationTime = 188929826.056722;
 		state = 1;
 	};
+	2C3C5F480B54887D00F5AEC3 /* HelpSetup.plist */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1000, 571}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRect = "{{0, 0}, {735, 571}}";
+			sepNavWindowFrame = "{{38, 212}, {774, 700}}";
+		};
+	};
 	2C4493B80B3BD77800D6F290 /* KeyedUnarchiveFromDataTransformer.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {750, 661}}";
@@ -359,8 +335,8 @@
 	2C4588B40B37CF4F0020C796 /* English */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {874, 1056}}";
-			sepNavSelRange = "{2015, 0}";
-			sepNavVisRect = "{{0, 0}, {843, 368}}";
+			sepNavSelRange = "{1027, 0}";
+			sepNavVisRect = "{{0, 211}, {676, 458}}";
 			sepNavWindowFrame = "{{319, 154}, {882, 497}}";
 		};
 	};
@@ -396,17 +372,17 @@
 	};
 	2C458AD70B37F1450020C796 /* FactorySettings.plist */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {797, 393}}";
-			sepNavSelRange = "{228, 0}";
-			sepNavVisRect = "{{0, 0}, {461, 393}}";
+			sepNavIntBoundsRect = "{{0, 0}, {797, 458}}";
+			sepNavSelRange = "{325, 10}";
+			sepNavVisRect = "{{0, 0}, {676, 458}}";
 			sepNavWindowFrame = "{{50, 416}, {500, 522}}";
 		};
 	};
 	2C458C630B37F7D40020C796 /* FileTreeWindowController.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {804, 496}}";
-			sepNavSelRange = "{876, 0}";
-			sepNavVisRect = "{{0, 126}, {755, 354}}";
+			sepNavSelRange = "{746, 10}";
+			sepNavVisRect = "{{0, 38}, {676, 458}}";
 			sepNavWindowFrame = "{{141, 334}, {794, 483}}";
 		};
 	};
@@ -532,8 +508,8 @@
 	};
 	2CA09BF10B3FCF000043BE9D /* History.rd */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1421, 8520}}";
-			sepNavSelRange = "{436, 0}";
+			sepNavIntBoundsRect = "{{0, 0}, {1421, 8560}}";
+			sepNavSelRange = "{66, 0}";
 			sepNavVisRect = "{{0, 0}, {657, 570}}";
 			sepNavWindowFrame = "{{15, 234}, {696, 699}}";
 		};
@@ -630,9 +606,9 @@
 	};
 	2CEBB1EA0B40078600040DD0 /* PathExtra.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {932, 3120}}";
-			sepNavSelRange = "{156, 40}";
-			sepNavVisRect = "{{0, 0}, {932, 547}}";
+			sepNavIntBoundsRect = "{{0, 0}, {762, 3120}}";
+			sepNavSelRange = "{347, 5}";
+			sepNavVisRect = "{{0, 0}, {735, 571}}";
 			sepNavWindowFrame = "{{61, 191}, {774, 700}}";
 		};
 	};
@@ -649,5 +625,12 @@
 		executables = (
 			2C9C305E0A8B83F400C679B8 /* StationeryPalette */,
 		);
+	};
+	8D1107310486CEB800E47090 /* Info.plist */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {797, 864}}";
+			sepNavSelRange = "{1217, 10}";
+			sepNavVisRect = "{{0, 403}, {676, 458}}";
+		};
 	};
 }
