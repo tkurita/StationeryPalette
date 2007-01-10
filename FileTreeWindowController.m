@@ -290,6 +290,7 @@ void cleanupFolderContents(NSString *path)
 	NSArray *index_pathes = [selected_items valueForKey:@"indexPath"];
 	NSData *archived_index_pathes = [NSKeyedArchiver archivedDataWithRootObject:index_pathes];
 	[user_defaults setObject:archived_index_pathes forKey:@"FileTreeViewSelection"];
+	[NSApp hide:self];	
 }
 
 #pragma mark override NSWindowController
