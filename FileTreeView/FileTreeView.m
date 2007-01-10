@@ -151,8 +151,13 @@ BOOL shouldBeginFindForKeyEvent(NSEvent *keyEvent)
 #endif	
 	if (!isUsingInputWindow) {
 		isFindBegin = NO;
-		RemoveEventHandler(textInputEventHandler);
-		isInstalledTextInputEvent = NO;
+		// it seems that RemoveEventHandler is not required -- 2007-01-10
+		/* 
+		OSStatus err = RemoveEventHandler(textInputEventHandler);
+		if (err != noErr) {
+			NSLog([NSString stringWithFormat:@"Fail to Remove EventHandler with : %d", err]);
+		}
+		*/
 		isUsingInputWindow = NO;
 		[self stopResetTimer];
 	}
@@ -223,7 +228,6 @@ bail:
 		#endif
 		[self stopResetTimer];
 		fieldEditor = [[self window] fieldEditor:YES forObject:self];
-		//[fieldEditor setDelegate:self];
 		
 		if (!isFindBegin) {
 			[fieldEditor setString:@""];
@@ -233,12 +237,9 @@ bail:
 		if (!isInstalledTextInputEvent) {
 			EventTypeSpec spec = { kEventClassTextInput, kEventTextInputUnicodeForKeyEvent };
 			EventHandlerUPP handlerUPP = NewEventHandlerUPP(inputText);
-			OSStatus err = InstallApplicationEventHandler(handlerUPP, 1, &spec, (void*)self, NULL);
+			OSStatus err = InstallApplicationEventHandler(handlerUPP, 1, &spec, (void*)self, &textInputEventHandler);
 			DisposeEventHandlerUPP(handlerUPP);
-			if (err != noErr) {
-				NSLog(@"fail to InstallApplicationEventHandler");
-				return;
-			}
+			NSAssert1(err = noErr, @"Fail to install TextInputEvent with error :%d", err);
 			isInstalledTextInputEvent = YES;
 		}
 		
@@ -270,7 +271,9 @@ bail:
 }
 
 - (void)findForString:(NSString *)aString {
+#if useLog
 	NSLog([NSString stringWithFormat:@"start findForString:%@", aString]);
+#endif
 	
 	NSTableColumn *column = [self tableColumnWithIdentifier:searchColumnIdentifier];
 	int nrows = [self numberOfRows];
