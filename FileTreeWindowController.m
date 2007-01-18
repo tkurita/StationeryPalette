@@ -189,7 +189,7 @@ void cleanupFolderContents(NSString *path)
 			contextInfo:[source_node retain]];
 		return;
 	}
-
+	[[NSWorkspace sharedWorkspace] noteFileSystemChanged:target_path];
 	[self performOperationAfterCopy:target_path sourceNode:source_node];
 }
 
