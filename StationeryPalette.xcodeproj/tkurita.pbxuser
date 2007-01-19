@@ -76,14 +76,22 @@
 					PBXFileDataSource_Target_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 190815367;
-			PBXWorkspaceStateSaveDate = 190815367;
+			PBXPerProjectTemplateStateSaveDate = 190859057;
+			PBXWorkspaceStateSaveDate = 190859057;
 		};
 		perUserProjectItems = {
-			2C1050C30B5F9CC9003C9F18 /* PBXBookmark */ = 2C1050C30B5F9CC9003C9F18 /* PBXBookmark */;
-			2C1050CC0B5F9DA5003C9F18 /* PBXTextBookmark */ = 2C1050CC0B5F9DA5003C9F18 /* PBXTextBookmark */;
-			2C1050CE0B5F9DA5003C9F18 /* PBXTextBookmark */ = 2C1050CE0B5F9DA5003C9F18 /* PBXTextBookmark */;
-			2C1050CF0B5F9DA5003C9F18 /* PBXTextBookmark */ = 2C1050CF0B5F9DA5003C9F18 /* PBXTextBookmark */;
+			2C1052B90B60478C003C9F18 /* PBXBookmark */ = 2C1052B90B60478C003C9F18 /* PBXBookmark */;
+			2C1052C80B604B8E003C9F18 /* PBXBookmark */ = 2C1052C80B604B8E003C9F18 /* PBXBookmark */;
+			2C1052C90B604B8E003C9F18 /* PBXTextBookmark */ = 2C1052C90B604B8E003C9F18 /* PBXTextBookmark */;
+			2C1052CC0B604B8E003C9F18 /* PBXTextBookmark */ = 2C1052CC0B604B8E003C9F18 /* PBXTextBookmark */;
+			2C1052CE0B604B8E003C9F18 /* PBXTextBookmark */ = 2C1052CE0B604B8E003C9F18 /* PBXTextBookmark */;
+			2C1052CF0B604B8E003C9F18 /* PBXTextBookmark */ = 2C1052CF0B604B8E003C9F18 /* PBXTextBookmark */;
+			2C1052D50B604BF3003C9F18 /* PBXTextBookmark */ = 2C1052D50B604BF3003C9F18 /* PBXTextBookmark */;
+			2C1052D60B604BF3003C9F18 /* PBXTextBookmark */ = 2C1052D60B604BF3003C9F18 /* PBXTextBookmark */;
+			2C1052D70B604BF3003C9F18 /* PBXTextBookmark */ = 2C1052D70B604BF3003C9F18 /* PBXTextBookmark */;
+			2C1052DC0B604C17003C9F18 /* PBXTextBookmark */ = 2C1052DC0B604C17003C9F18 /* PBXTextBookmark */;
+			2C1052DD0B604C17003C9F18 /* PBXTextBookmark */ = 2C1052DD0B604C17003C9F18 /* PBXTextBookmark */;
+			2C1052E20B604C21003C9F18 /* PBXTextBookmark */ = 2C1052E20B604C21003C9F18 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 2C9C30720A8B840500C679B8 /* Source Control */;
 		userBookmarkGroup = 2C8DECB80B293B2600286D63 /* PBXBookmarkGroup */;
@@ -113,39 +121,111 @@
 		modificationTime = 188929660.435825;
 		state = 1;
 	};
-	2C1050C30B5F9CC9003C9F18 /* PBXBookmark */ = {
+	2C1052B90B60478C003C9F18 /* PBXBookmark */ = {
 		isa = PBXBookmark;
 		fRef = 2C458C640B37F7D40020C796 /* FileTreeWindowController.m */;
 	};
-	2C1050CC0B5F9DA5003C9F18 /* PBXTextBookmark */ = {
+	2C1052C80B604B8E003C9F18 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 2C458C640B37F7D40020C796 /* FileTreeWindowController.m */;
+	};
+	2C1052C90B604B8E003C9F18 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 2C458C640B37F7D40020C796 /* FileTreeWindowController.m */;
-		name = "FileTreeWindowController.m: 192";
+		name = "FileTreeWindowController.m: 146";
 		rLen = 0;
-		rLoc = 6869;
+		rLoc = 5400;
 		rType = 0;
-		vrLen = 869;
-		vrLoc = 6259;
+		vrLen = 1434;
+		vrLoc = 4516;
 	};
-	2C1050CE0B5F9DA5003C9F18 /* PBXTextBookmark */ = {
+	2C1052CC0B604B8E003C9F18 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 2C458C640B37F7D40020C796 /* FileTreeWindowController.m */;
-		name = "- (void)makeFileWithSelectedStationery";
-		rLen = 39;
-		rLoc = 5780;
+		name = "NSFileManager *file_manager = [NSFileManager defaultManager];";
+		rLen = 61;
+		rLoc = 6009;
 		rType = 0;
-		vrLen = 991;
-		vrLoc = 5707;
+		vrLen = 723;
+		vrLoc = 5592;
 	};
-	2C1050CF0B5F9DA5003C9F18 /* PBXTextBookmark */ = {
+	2C1052CE0B604B8E003C9F18 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 2C458C640B37F7D40020C796 /* FileTreeWindowController.m */;
-		name = "- (void)performOperationAfterCopy:(NSString *)targetPath sourceNode:(FileTreeNode *)node";
-		rLen = 89;
-		rLoc = 4790;
+		name = "FileTreeWindowController.m: 193";
+		rLen = 0;
+		rLoc = 7389;
 		rType = 0;
-		vrLen = 647;
-		vrLoc = 4767;
+		vrLen = 1010;
+		vrLoc = 5778;
+	};
+	2C1052CF0B604B8E003C9F18 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2C458C640B37F7D40020C796 /* FileTreeWindowController.m */;
+		name = "FileTreeWindowController.m: 205";
+		rLen = 0;
+		rLoc = 7390;
+		rType = 0;
+		vrLen = 954;
+		vrLoc = 6494;
+	};
+	2C1052D50B604BF3003C9F18 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2C458C640B37F7D40020C796 /* FileTreeWindowController.m */;
+		name = "FileTreeWindowController.m: 146";
+		rLen = 0;
+		rLoc = 5400;
+		rType = 0;
+		vrLen = 1450;
+		vrLoc = 4516;
+	};
+	2C1052D60B604BF3003C9F18 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2C458C640B37F7D40020C796 /* FileTreeWindowController.m */;
+		name = "NSFileManager *file_manager = [NSFileManager defaultManager];";
+		rLen = 61;
+		rLoc = 6009;
+		rType = 0;
+		vrLen = 723;
+		vrLoc = 5608;
+	};
+	2C1052D70B604BF3003C9F18 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2C458C640B37F7D40020C796 /* FileTreeWindowController.m */;
+		name = "FileTreeWindowController.m: 205";
+		rLen = 0;
+		rLoc = 7390;
+		rType = 0;
+		vrLen = 954;
+		vrLoc = 6510;
+	};
+	2C1052DC0B604C17003C9F18 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "warning: ‘NSFileManager’ may not respond to ‘-fileAttributesAtPath:’";
+		fRef = 2C458C640B37F7D40020C796 /* FileTreeWindowController.m */;
+		rLen = 1;
+		rLoc = 141;
+		rType = 1;
+	};
+	2C1052DD0B604C17003C9F18 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2C458C640B37F7D40020C796 /* FileTreeWindowController.m */;
+		name = "FileTreeWindowController.m: 142";
+		rLen = 0;
+		rLoc = 5098;
+		rType = 0;
+		vrLen = 1147;
+		vrLoc = 4362;
+	};
+	2C1052E20B604C21003C9F18 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2C458C640B37F7D40020C796 /* FileTreeWindowController.m */;
+		name = "FileTreeWindowController.m: 149";
+		rLen = 0;
+		rLoc = 5449;
+		rType = 0;
+		vrLen = 950;
+		vrLoc = 4763;
 	};
 	2C1BA9260AC0482E0011E405 /* FileTreeNode.m */ = {
 		isa = PBXFileReference;
@@ -428,10 +508,10 @@
 	};
 	2C458C640B37F7D40020C796 /* FileTreeWindowController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1504, 7840}}";
-			sepNavSelRange = "{4790, 89}";
-			sepNavVisRect = "{{0, 2127}, {782, 355}}";
-			sepNavWindowFrame = "{{479, 62}, {821, 876}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1504, 8016}}";
+			sepNavSelRange = "{7390, 0}";
+			sepNavVisRect = "{{0, 2957}, {782, 747}}";
+			sepNavWindowFrame = "{{521, 62}, {821, 876}}";
 		};
 	};
 	2C458C6B0B37F7F10020C796 /* PBXBookmark */ = {

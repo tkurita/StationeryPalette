@@ -469,7 +469,6 @@
 							<array>
 								<string>29B97314FDCFA39411CA2CEA</string>
 								<string>080E96DDFE201D6D7F000001</string>
-								<string>2C1E92490B3841330086DB87</string>
 								<string>2CEBB1E60B40078600040DD0</string>
 								<string>29B97315FDCFA39411CA2CEA</string>
 								<string>29B97317FDCFA39411CA2CEA</string>
@@ -483,13 +482,13 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>48</integer>
-									<integer>42</integer>
+									<integer>6</integer>
+									<integer>2</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 408}, {382, 726}}</string>
+							<string>{{0, 0}, {382, 726}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -529,7 +528,7 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>2C6E31DD0B5B6951005E8FBD</string>
+				<string>2C1052B80B604750003C9F18</string>
 				<string>11E0B1FE06471DED0097A5F4</string>
 			</array>
 			<key>ToolbarConfiguration</key>
@@ -560,6 +559,8 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>1C0AD2B3069F1EA900FABCE6</string>
+		<string>2C9C30940A8C166300C679B8</string>
 		<string>/Users/tkurita/Dev/Projects/StationeryPalette/trunk/StationeryPalette.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
@@ -584,7 +585,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string></string>
+								<string>&lt;エディタがありません&gt;</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -642,7 +643,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>2C9C30940A8C166300C679B8</string>
-				<string>2CF933E60B54B571008A67D4</string>
+				<string>2C1052D00B604B8E003C9F18</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
@@ -1004,9 +1005,9 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C0AD2B3069F1EA900FABCE6</string>
-				<string>2CF933E70B54B571008A67D4</string>
+				<string>2C1052DE0B604C17003C9F18</string>
 				<string>1CD0528B0623707200166675</string>
-				<string>2CF933E80B54B571008A67D4</string>
+				<string>2C1052DF0B604C17003C9F18</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.run</string>
@@ -1089,7 +1090,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>2CEBB1890B4004F900040DD0</string>
-				<string>2CF934020B54C006008A67D4</string>
+				<string>2C1050DB0B5F9E23003C9F18</string>
 				<string>1C78EAB2065D492600B07095</string>
 				<string>1CD052920623707200166675</string>
 			</array>

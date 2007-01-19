@@ -136,8 +136,19 @@ void cleanupFolderContents(NSString *path)
 
 - (void)performOperationAfterCopy:(NSString *)targetPath sourceNode:(FileTreeNode *)node
 {
+	NSWorkspace *workspace = [NSWorkspace sharedWorkspace];
+	NSFileManager *file_manager = [NSFileManager defaultManager];
+
+	NSMutableDictionary *file_info = [[file_manager fileAttributesAtPath:targetPath traverseLink:NO] mutableCopy];
+	[file_info setObject:[NSDate date] forKey:NSFileModificationDate];
+	[file_info setObject:[NSDate date] forKey:NSFileCreationDate];
+	if (![file_manager changeFileAttributes:file_info atPath:targetPath])
+		NSLog([NSString stringWithFormat:@"Fail to change attribute of %@", targetPath]);
+
+	[workspace noteFileSystemChanged:targetPath];
+
 	if (shouldOpenFile) {
-		[[NSWorkspace sharedWorkspace] openFile:targetPath];
+		[workspace openFile:targetPath];
 	}
 	[self addToNameHistory:[targetPath lastPathComponent]];
 	if ([[node nodeData] isContainer] ) {
@@ -160,7 +171,7 @@ void cleanupFolderContents(NSString *path)
 	if ([file_manager fileExistsAtPath:target_path]) {
 		[file_manager removeFileAtPath:target_path handler:nil];
 	}
-	
+		
 	[file_manager copyPath:source_path toPath:target_path handler:nil];
 	[self performOperationAfterCopy:target_path sourceNode:source_node];
 }
@@ -189,7 +200,7 @@ void cleanupFolderContents(NSString *path)
 			contextInfo:[source_node retain]];
 		return;
 	}
-	[[NSWorkspace sharedWorkspace] noteFileSystemChanged:target_path];
+	
 	[self performOperationAfterCopy:target_path sourceNode:source_node];
 }
 
