@@ -20,21 +20,60 @@ NSString *ORDER_CHACHE_NAME = @"order.plist";
 	return [[[[self class] alloc] initWithPath:path] autorelease];
 }
 
-- (void)updateDisplayName
+- (BOOL)updateDisplayName
 {
 	NSFileManager *file_manager = [NSFileManager defaultManager];
-	[self setDisplayName:[file_manager displayNameAtPath:[alias path]]];
+	NSString *current_name = [file_manager displayNameAtPath:[alias path]];
+	if (![displayName isEqualToString:current_name]) {
+		[self setDisplayName:current_name];
+		return YES;
+	}
+	
+	return NO;
 }
 
 - (void)dealloc
 {
 	[_path release];
 	[_attributes release];
-	[_displayName release];
+	[displayName release];
 	[_iconImage release];
-	[_kind release];
+	[kind release];
 	[alias release];
 	[super dealloc];
+}
+
+- (BOOL)updateAttributes
+{
+	BOOL is_updated = NO;
+	NSFileManager *file_manager = [NSFileManager defaultManager];
+	NSString *a_path = [alias path];
+	NSString *current_name = [file_manager displayNameAtPath:a_path];
+	if (![displayName isEqualToString:current_name]) {
+		[self setDisplayName:current_name];
+		is_updated = YES;
+	}
+	
+	NSString *current_kind;
+	OSStatus err = LSCopyKindStringForURL((CFURLRef)[NSURL fileURLWithPath:a_path], (CFStringRef *)&current_kind);
+	NSAssert1(err == noErr, @"Fail to get kind of : %@", current_kind);
+	[current_kind autorelease];
+	if (![kind isEqualToString:current_kind]) {
+		[self setKind:current_kind];
+		is_updated = YES;
+	}
+	
+	if (is_updated) {
+		NSWorkspace *workspace = [NSWorkspace sharedWorkspace];
+		NSImage *icon = [workspace iconForFile:a_path];
+		[icon setSize:NSMakeSize(16, 16)];
+		[self setIconImage:icon];
+		[self setAttributes:[file_manager fileAttributesAtPath:a_path traverseLink:YES]];
+		_isContainer = ([_attributes objectForKey:NSFileType] == NSFileTypeDirectory) && 
+			(![workspace isFilePackageAtPath:a_path]);
+	}
+	
+	return is_updated;
 }
 
 - (void)loadFileInfo
@@ -94,11 +133,11 @@ NSString *ORDER_CHACHE_NAME = @"order.plist";
 	return [alias path];
 }
 
-- (void)setDisplayName:(NSString*)displayName
+- (void)setDisplayName:(NSString*)aName
 {
-	[displayName retain];
-	[_displayName release];
-	_displayName = displayName;
+	[aName retain];
+	[displayName release];
+	displayName = aName;
 }
 
 - (void)setAttributes:(NSDictionary *)attributes
@@ -127,19 +166,19 @@ NSString *ORDER_CHACHE_NAME = @"order.plist";
 
 - (NSString *)displayName
 {
-	return _displayName;
+	return displayName;
 }
 
-- (void)setKind:(NSString *)kind
+- (void)setKind:(NSString *)aKind
 {
-	[kind retain];
-	[_kind release];
-	_kind = kind;
+	[aKind retain];
+	[kind release];
+	kind = aKind;
 }
 
 - (NSString *)kind
 {
-	return _kind;
+	return kind;
 }
 
 - (NSString *)originalPath
@@ -555,26 +594,26 @@ NSString *ORDER_CHACHE_NAME = @"order.plist";
 	return [[self nodeData] path];
 }
 
-- (void)reloadChildrenWithView:(NSOutlineView *)view
+- (BOOL) updateChildrenWithView:(NSOutlineView *)view
 {
-	if (! _isChildrenLoaded) return;
-	
-	//check children's path
+	BOOL is_updated = NO;
 	NSString *folder_path = [self path];
 	NSEnumerator *enumerator = [[self children] objectEnumerator];
 	NSMutableArray *name_list = [NSMutableArray array];
 	FileTreeNode *child;
-	BOOL isUpdated = NO;
+	
 	while (child = [enumerator nextObject]) {
 		NSString *child_path = [child path];
 		NSString *child_folder = [child_path stringByDeletingLastPathComponent];
 		if ([child_folder isEqualToString:folder_path] ) {
 			[name_list addObject:[child_path lastPathComponent]];
-			if ([[child nodeData] isContainer]) [child reloadChildrenWithView:view];
+			
+			//if ([[child nodeData] isContainer]) [child reloadChildrenWithView:view];
+			[child reloadChildrenWithView:view];
 		}
 		else {
 			[self removeChild:child];
-			isUpdated = YES;
+			is_updated = YES;
 		}
 	}
 	
@@ -593,12 +632,24 @@ NSString *ORDER_CHACHE_NAME = @"order.plist";
 			if (! [item_path isVisible]) continue;
 			
 			[self addChild:[FileTreeNode fileTreeNodeWithPath:item_path parent:self]];
-			isUpdated = YES;
+			is_updated = YES;
 		}
 	}
 	
-	if (isUpdated) [self saveOrderWithView:view];
+	return is_updated;
+}
 
+- (void)reloadChildrenWithView:(NSOutlineView *)view
+{
+	BOOL is_updated = [[self nodeData] updateAttributes];
+	
+	if ( _isChildrenLoaded) {
+		if ([self updateChildrenWithView:view]) {
+			is_updated = YES;
+		}
+	}
+	
+	if (is_updated) [self saveOrderWithView:view];
 }
 
 - (void)loadChildren
