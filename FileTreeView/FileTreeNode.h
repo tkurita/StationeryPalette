@@ -7,9 +7,9 @@ extern NSString *ORDER_CHACHE_NAME;
 @interface FileTreeNodeData : TreeNodeData {
 	NSString *_path;
 	NSDictionary *_attributes;
-	NSString *_displayName;	
+	NSString *displayName;	
 	NSImage *_iconImage;
-	NSString *_kind;
+	NSString *kind;
 	BOOL _isContainer;
 	NDAlias *alias;
 }
