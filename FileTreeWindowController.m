@@ -151,12 +151,15 @@ void cleanupFolderContents(NSString *path)
 		[workspace openFile:targetPath];
 	}
 	[self addToNameHistory:[targetPath lastPathComponent]];
-	if ([[node nodeData] isContainer] ) {
-		cleanupFolderContents(targetPath);
-	}
-	else {
+	
+	if ([[[node nodeData] fileType] isEqualToString:NSFileTypeRegular] ) {
 		[targetPath setStationeryFlag:NO];
 	}
+	else {
+		if ([[node nodeData] isContainer])
+			cleanupFolderContents(targetPath);
+	}
+
 	[self close];
 }
 

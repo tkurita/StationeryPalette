@@ -17,6 +17,8 @@ extern NSString *ORDER_CHACHE_NAME;
 + (id)fileTreeNodeDataWithPath:(NSString *)path;
 - (id)initWithPath:(NSString *)path;
 - (void)loadFileInfo;
+- (NSDictionary *)attributes;
+- (NSString *)fileType;
 
 #pragma mark accessors
 - (BOOL)isContainer;

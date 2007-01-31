@@ -140,6 +140,16 @@ NSString *ORDER_CHACHE_NAME = @"order.plist";
 	displayName = aName;
 }
 
+- (NSString *)fileType
+{
+	return [_attributes objectForKey:NSFileType];
+}
+
+- (NSDictionary *)attributes
+{
+	return _attributes;
+}
+
 - (void)setAttributes:(NSDictionary *)attributes
 {
 	[attributes retain];
