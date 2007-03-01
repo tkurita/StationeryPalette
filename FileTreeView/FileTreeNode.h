@@ -18,7 +18,7 @@ extern NSString *ORDER_CHACHE_NAME;
 - (id)initWithPath:(NSString *)path;
 - (void)loadFileInfo;
 - (NSDictionary *)attributes;
-- (NSString *)fileType;
+- (NSString *)typeForPboard;
 
 #pragma mark accessors
 - (BOOL)isContainer;
@@ -29,6 +29,8 @@ extern NSString *ORDER_CHACHE_NAME;
 - (NSString *)kind;
 - (void)setAlias:(NDAlias *)theAlias;
 - (NSString *)originalPath;
+- (NSString *)typeCode;
+- (NSString *)fileType;
 
 // private
 - (BOOL)setPath:(NSString *)path;

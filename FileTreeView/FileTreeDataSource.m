@@ -7,7 +7,7 @@
 #import "NSArray_Extensions.h"
 #include "FileTreeView.h"
 
-#define useLog 0
+#define useLog 1
 
 static NSString *MovedNodesType = @"MOVED_Nodes_TYPE";
 
@@ -59,14 +59,16 @@ BOOL isOptionKeyDown()
 {
 	
 	[_outline setAutoresizesOutlineColumn:NO];
-	/* setup imageAndText Cell for displayName column */
 	[_outline setSearchColumnIdenteifier:@"displayName"];
-	/* set drag & drop properties */
+
 	[_outline registerForDraggedTypes: 
 		[NSArray arrayWithObjects:MovedNodesType, NSFilenamesPboardType, nil]];
-	[_outline setDraggingSourceOperationMask:NSDragOperationEvery forLocal:NO];
-	
-    //[_outline setDraggingSourceOperationMask:NSDragOperationAll_Obsolete forLocal:NO];
+			
+	[_outline setDraggingSourceOperationMask:NSDragOperationCopy|NSDragOperationDelete forLocal:NO];
+	//[_outline setDraggingSourceOperationMask:NSDragOperationDelete forLocal:NO];
+	//[_outline setDraggingSourceOperationMask:NSDragOperationEvery forLocal:NO];
+	//[_outline setDraggingSourceOperationMask:NSDragOperationNone forLocal:YES];
+	//[_outline setDraggingSourceOperationMask:NSDragOperationAll_Obsolete forLocal:NO];
 	conflictMessageTemplate = [[conflictMessage stringValue] retain];;
 }
 
@@ -398,27 +400,30 @@ BOOL isOptionKeyDown()
 - (BOOL)outlineView:(NSOutlineView *)olv
 			writeItems:(NSArray*)items toPasteboard:(NSPasteboard*)pboard
 {
-    draggedNodes = items;
+#if useLog
+	NSLog(@"start outlineView:writeItems:toPasteboard:");
+#endif
+	draggedNodes = items;
     
-    // Provide data for our custom type, and simple NSStrings.
-    //[pboard declareTypes:[NSArray arrayWithObjects: MovedNodesType, NSStringPboardType, NSFilesPromisePboardType, nil] owner:self];
+//	[pboard declareTypes: 
+//		[NSArray arrayWithObjects:MovedNodesType, NSStringPboardType, 
+//				NSFilesPromisePboardType, NSFilenamesPboardType, nil] owner:self];
 	[pboard declareTypes: 
-		[NSArray arrayWithObjects:MovedNodesType, NSStringPboardType, 
-				NSFilenamesPboardType, NSFilesPromisePboardType, nil] owner:self];
+		[NSArray arrayWithObjects:MovedNodesType, 
+				 NSFilesPromisePboardType, nil] owner:self];
+
 	
     // the actual data doesn't matter 
 	// since MovedNodesType drags aren't recognized by anyone but us!.
     [pboard setData:[NSData data] forType:MovedNodesType]; 
     
-    // Put string data on the pboard... notice you candrag into TextEdit!
-    [pboard setString: [draggedNodes description] forType: NSStringPboardType];
-    
-    // Put the promised type we handle on the pasteboard.
-    [pboard setPropertyList:[NSArray arrayWithObjects:@"txt", nil] 
-			forType:NSFilesPromisePboardType];
-	
-	[pboard setPropertyList:[items valueForKey:@"path"] forType:NSFilenamesPboardType];
-	
+    //[pboard setString: [draggedNodes description] forType: NSStringPboardType];
+	//[pboard setPropertyList:[items valueForKey:@"path"] forType:NSFilenamesPboardType];
+		
+	//	[pboard setPropertyList:[NSArray array] forType:NSFilesPromisePboardType];
+	//[pboard setPropertyList:[NSArray arrayWithObjects:@"dic", nil] forType:NSFilesPromisePboardType];
+	[pboard setPropertyList:[items valueForKeyPath:@"nodeData.typeForPboard"] forType:NSFilesPromisePboardType];
+
     return YES;
 }
 
@@ -432,9 +437,9 @@ BOOL isOptionKeyDown()
 	
 	BOOL isOnDropTypeProposal = childIndex==NSOutlineViewDropOnItemIndex;
 #if useLog
-    NSLog(@"start validateDrop");
-	NSLog(@"childIndex : %i", childIndex);
-	NSLog(@"NSOutlineViewDropOnItemIndex : %i", NSOutlineViewDropOnItemIndex);
+//    NSLog(@"start validateDrop");
+//	NSLog(@"childIndex : %i", childIndex);
+//	NSLog(@"NSOutlineViewDropOnItemIndex : %i", NSOutlineViewDropOnItemIndex);
 #endif
 
 	if (isOnDropTypeProposal) {
@@ -493,15 +498,16 @@ BOOL isOptionKeyDown()
 	FileTreeNode *aNode;
 	NSString *sourcePath;
 	NSString *destinationPath;
+	NSString *a_name;
 	promisedFiles = [[NSMutableArray alloc] init];
 	
 	while (aNode = [aEnumerator nextObject]) {
 		sourcePath = [[aNode nodeData] path];
-		destinationPath = [[dropDestination path] 
-			stringByAppendingPathComponent:[sourcePath lastPathComponent]];
+		a_name = [sourcePath lastPathComponent];
+		destinationPath = [[dropDestination path] stringByAppendingPathComponent:a_name];
 		NSDictionary *promised_file_dict = [NSDictionary dictionaryWithObjectsAndKeys:
 					aNode, @"sourceNode", destinationPath, @"destination", nil];
-		[filenames addObject:destinationPath];
+		[filenames addObject:a_name];
 		[promisedFiles addObject:promised_file_dict];
 	}
 	return ([filenames count] ? filenames : nil);
@@ -510,6 +516,7 @@ BOOL isOptionKeyDown()
 - (void)copyPromisedFile:(NSDictionary *)promisedInfo replacing:(BOOL)replaceFlag
 {
 	if (promisedInfo != nil) {
+		currentOperationName = @"copying";
 		NSFileManager *file_manager = [NSFileManager defaultManager];
 		NSString *destinationPath = [promisedInfo objectForKey:@"destination"];
 		NSString *sourcePath = [[promisedInfo objectForKey:@"sourceNode"] path];
@@ -522,11 +529,14 @@ BOOL isOptionKeyDown()
 				BOOL isSingle = (restItemsCount <= 1);
 				[applyAllSwitch setHidden:isSingle];
 				[cancelForItemButton setHidden:isSingle];
+				[self setupConflictMessage:[sourcePath lastPathComponent]];
 				[afterSheetInvocation setArgument:&promisedInfo atIndex:2];
+				[iconInConflictErrorWindow setImage:
+						[[NSWorkspace sharedWorkspace] iconForFile:sourcePath]];
 				[NSApp beginSheet: conflictErrorWindow
 					modalForWindow: [_outline window]
 					modalDelegate: self
-					didEndSelector: @selector(didEndSheet:returnCode:contextInfo:)
+					didEndSelector: @selector(didEndAskReplaceSheet:returnCode:contextInfo:)
 					contextInfo: nil];
 				return;
 			}
@@ -757,7 +767,7 @@ BOOL isOptionKeyDown()
 - (BOOL)outlineView:(NSOutlineView*)outlineView isItemExpandable:(id)item
 {
 #if useLog
-	NSLog([NSString stringWithFormat:@"start isItemExpandable for item : %@", [item description]]);
+	//NSLog([NSString stringWithFormat:@"start isItemExpandable for item : %@", [item description]]);
 #endif
 	if (!item) {
 		item = [self getRootInfo];
@@ -783,7 +793,7 @@ BOOL isOptionKeyDown()
 - (id)outlineView:(NSOutlineView*)outlineView child:(int)index ofItem:(id)item
 {
 #if useLog
-	NSLog([NSString stringWithFormat:@"start child:%d ofItem: %@",index, [item description]]);
+	//NSLog([NSString stringWithFormat:@"start child:%d ofItem: %@",index, [item description]]);
 #endif
 	if (!item) {
 		item = [self getRootInfo];
@@ -798,14 +808,9 @@ BOOL isOptionKeyDown()
 		byItem:(id)item
 {
 #if useLog
-	NSLog(@"start objectValueForTableColumn");
+	//NSLog(@"start objectValueForTableColumn");
 #endif
 	id identifier = [tableColumn identifier];
-#if useLog
-	NSLog(@"identifier %@", identifier);
-	NSLog([item description]);
-#endif
-	
 	return [[item nodeData] valueForKey:identifier];
 }
 

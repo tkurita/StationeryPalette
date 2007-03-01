@@ -145,6 +145,20 @@ NSString *ORDER_CHACHE_NAME = @"order.plist";
 	return [_attributes objectForKey:NSFileType];
 }
 
+- (NSString *)typeCode
+{
+	return NSFileTypeForHFSTypeCode([_attributes objectForKey:NSFileHFSTypeCode]);
+}
+
+- (NSString *)typeForPboard
+{
+	NSString *a_type = [self typeCode];
+	if (! a_type) {
+		a_type = [[self path] pathExtension];
+	}
+	return a_type;
+}
+
 - (NSDictionary *)attributes
 {
 	return _attributes;
@@ -190,6 +204,7 @@ NSString *ORDER_CHACHE_NAME = @"order.plist";
 {
 	return kind;
 }
+
 
 - (NSString *)originalPath
 {

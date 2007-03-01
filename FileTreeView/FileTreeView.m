@@ -3,7 +3,7 @@
 #import "NSOutlineView_Extensions.h"
 #import "ImageAndTextCell.h"
 
-#define useLog 0
+#define useLog 1
 
 @implementation FileTreeView
 
@@ -21,7 +21,8 @@
 	mainColumnID = @"displayName";
 		
 	NSTableColumn *column = [self tableColumnWithIdentifier:mainColumnID];
-    ImageAndTextCell *imageAndTextCell = [[[ImageAndTextCell alloc] init] autorelease];
+    ImageAndTextCell *imageAndTextCell = [[[ImageAndTextCell alloc] init] 
+															autorelease];
     [imageAndTextCell setEditable: YES];
     [column setDataCell:imageAndTextCell];
 }
@@ -40,6 +41,25 @@
 	}
 }
 
+- (NSArray *)namesOfPromisedFilesDroppedAtDestination:(NSURL *)dropDestination
+{
+	NSLog(@"start namesOfPromisedFilesDroppedAtDestination in FileTreeView");
+	NSLog([dropDestination description]);
+	return [super namesOfPromisedFilesDroppedAtDestination:dropDestination];
+}
+
+- (void)pasteboard:(NSPasteboard *)pboard provideDataForType:(NSString *)type 
+{
+	NSLog([NSString stringWithFormat:@"pasteboard:provideDataForType:%@",type]);
+    // Finder shouldn't do this, but other applications that you want to support as drag targets might
+    // in this case you have to create the file - preferably at a temporary location - so that the drag target application can copy it
+    if ([type isEqualToString:NSFilenamesPboardType]) {
+        //NSArray *fileNameList = [NSArray arrayWithObject:[NSTemporaryDirectory() stringByAppendingPathComponent:@"aFile.jpg"]];
+        //[pboard setPropertyList:[draggedNodes valueForKey:@"path"] forType:NSFilenamesPboardType];
+		
+    }
+}
+
 #pragma mark accessors
 - (void)setSearchColumnIdenteifier:(id)identifier
 {
@@ -49,7 +69,7 @@
 }
 
 
-#pragma mark keytype find
+#pragma mark key-type search
 static OSStatus inputText(EventHandlerCallRef nextHandler, EventRef theEvent, void* userData)
 {
 #if useLog    
