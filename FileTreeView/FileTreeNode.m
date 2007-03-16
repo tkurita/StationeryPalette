@@ -223,15 +223,13 @@ NSString *ORDER_CHACHE_NAME = @"order.plist";
  
 		url = CFURLCreateWithFileSystemPath(NULL /*allocator*/, (CFStringRef)source_path,
                          kCFURLPOSIXPathStyle, NO /*isDirectory*/);
-		if (url != NULL)
-		{
+		if (url != NULL) {
 			FSRef fsRef;
-			if (CFURLGetFSRef(url, &fsRef))
-			{
+			if (CFURLGetFSRef(url, &fsRef)) {
 				Boolean targetIsFolder, wasAliased;
 				if (FSResolveAliasFile (&fsRef, true /*resolveAliasChains*/, 
-					&targetIsFolder, &wasAliased) == noErr && wasAliased)
-				{
+						&targetIsFolder, &wasAliased) == noErr && wasAliased) {
+						
 					CFURLRef resolvedUrl = CFURLCreateFromFSRef(NULL, &fsRef);
 					if (resolvedUrl != NULL) {
 						resolved_path = (NSString*)CFURLCopyFileSystemPath(resolvedUrl,

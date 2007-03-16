@@ -163,6 +163,13 @@ void cleanupFolderContents(NSString *path)
 	[self close];
 }
 
+- (void)operationAfterCopyWithNotification:(NSNotification *)notification
+{
+	NSDictionary *info = [notification userInfo];
+	[self performOperationAfterCopy:[info objectForKey:@"destination"]
+						 sourceNode:[info objectForKey:@"sourceNode"]];
+}
+
 - (void)savePanelDidEnd:(NSSavePanel *)sheet returnCode:(int)returnCode  contextInfo:(FileTreeNode *)source_node
 {
 	[source_node autorelease];
@@ -446,7 +453,12 @@ void cleanupFolderContents(NSString *path)
 	untitledName = [[fileNameField stringValue] retain];
 	previousSelectionName = nil;
 	[[NSNotificationCenter defaultCenter] addObserver:self 
-		selector:@selector(selectionDidChange:) name:NSOutlineViewSelectionDidChangeNotification object:fileTreeView];
+		selector:@selector(selectionDidChange:) 
+		name:NSOutlineViewSelectionDidChangeNotification object:fileTreeView];
+
+	[[NSNotificationCenter defaultCenter] addObserver:self 
+		selector:@selector(operationAfterCopyWithNotification:) 
+		name:@"NewFileNotification" object:fileTreeDataSource];
 
 }
 

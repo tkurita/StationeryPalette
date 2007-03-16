@@ -7,7 +7,7 @@
 #import "NSArray_Extensions.h"
 #include "FileTreeView.h"
 
-#define useLog 1
+#define useLog 0
 
 static NSString *MovedNodesType = @"MOVED_Nodes_TYPE";
 
@@ -166,7 +166,7 @@ BOOL isOptionKeyDown()
 		[NSString stringWithFormat:conflictMessageTemplate, fileName, currentOperationName]];
 }
 #pragma mark methods of subcontract of drag&drop
-- (void)setupAfterSheetInvocation:(SEL)aSelector
+- (NSInvocation *)setupAfterSheetInvocation:(SEL)aSelector
 {
 	if (afterSheetInvocation) {
 		[afterSheetInvocation release];
@@ -177,6 +177,8 @@ BOOL isOptionKeyDown()
 	[afterSheetInvocation setSelector:aSelector];
 	[afterSheetInvocation retainArguments];
 	[afterSheetInvocation setTarget:self];
+	
+	return afterSheetInvocation;
 }
 
 - (void)setupNodeOperationInvocation:(SEL)aSelector
@@ -519,7 +521,8 @@ BOOL isOptionKeyDown()
 		currentOperationName = @"copying";
 		NSFileManager *file_manager = [NSFileManager defaultManager];
 		NSString *destinationPath = [promisedInfo objectForKey:@"destination"];
-		NSString *sourcePath = [[promisedInfo objectForKey:@"sourceNode"] path];
+		FileTreeNode *sourceNode = [promisedInfo objectForKey:@"sourceNode"];
+		NSString *sourcePath = [sourceNode path];
 		if (![file_manager copyPath:sourcePath toPath:destinationPath handler:nil] ) {
 			if (replaceFlag) {
 				[file_manager removeFileAtPath:destinationPath handler:nil];
@@ -543,6 +546,12 @@ BOOL isOptionKeyDown()
 
 		}
 		else {
+			[[NSNotificationCenter defaultCenter] 
+				postNotificationName:@"NewFileNotification" 
+				object:self
+				userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
+							destinationPath, @"destination", sourceNode, @"sourceNode", nil]];
+			
 			if (!applyAllFlag) replaceFlag = NO;
 			restItemsCount--;
 			[self copyPromisedFile:[nodeEnumerator nextObject] replacing:replaceFlag];
@@ -559,13 +568,13 @@ BOOL isOptionKeyDown()
 	if (promisedFiles == nil) return;
 	
 	nodeEnumerator = [[promisedFiles objectEnumerator] retain];
-	[self setupAfterSheetInvocation:@selector(copyPromisedFile:replacing:)];
+	NSInvocation *invocation = [self setupAfterSheetInvocation:@selector(copyPromisedFile:replacing:)];
 	id next_item = [nodeEnumerator nextObject];
-	[afterSheetInvocation setArgument:&next_item atIndex:2];
+	[invocation setArgument:&next_item atIndex:2];
 	BOOL replaceFlag = NO;
-	[afterSheetInvocation setArgument:&replaceFlag atIndex:3];
+	[invocation setArgument:&replaceFlag atIndex:3];
 	restItemsCount = [promisedFiles count];
-	[afterSheetInvocation invoke];
+	[invocation invoke];
 }
 
 - (void)trashPromisedFiles:(id)sourceView

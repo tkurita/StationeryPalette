@@ -3,7 +3,7 @@
 #import "NSOutlineView_Extensions.h"
 #import "ImageAndTextCell.h"
 
-#define useLog 1
+#define useLog 0
 
 @implementation FileTreeView
 
@@ -41,12 +41,14 @@
 	}
 }
 
+/*
 - (NSArray *)namesOfPromisedFilesDroppedAtDestination:(NSURL *)dropDestination
 {
 	NSLog(@"start namesOfPromisedFilesDroppedAtDestination in FileTreeView");
 	NSLog([dropDestination description]);
 	return [super namesOfPromisedFilesDroppedAtDestination:dropDestination];
 }
+*/
 
 - (void)pasteboard:(NSPasteboard *)pboard provideDataForType:(NSString *)type 
 {
