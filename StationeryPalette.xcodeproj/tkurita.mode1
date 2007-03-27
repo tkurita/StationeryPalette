@@ -185,168 +185,7 @@
 	<key>Notifications</key>
 	<array/>
 	<key>OpenEditors</key>
-	<array>
-		<dict>
-			<key>Content</key>
-			<dict>
-				<key>PBXProjectModuleGUID</key>
-				<string>2C53943D0B97388F00AD1841</string>
-				<key>PBXProjectModuleLabel</key>
-				<string>FileTreeNode.m</string>
-				<key>PBXSplitModuleInNavigatorKey</key>
-				<dict>
-					<key>Split0</key>
-					<dict>
-						<key>PBXProjectModuleGUID</key>
-						<string>2C53943E0B97388F00AD1841</string>
-						<key>PBXProjectModuleLabel</key>
-						<string>FileTreeNode.m</string>
-						<key>_historyCapacity</key>
-						<integer>0</integer>
-						<key>bookmark</key>
-						<string>2C0715770BAAF969001278A1</string>
-						<key>history</key>
-						<array>
-							<string>2C5394D50B9799E600AD1841</string>
-						</array>
-					</dict>
-					<key>SplitCount</key>
-					<string>1</string>
-				</dict>
-				<key>StatusBarVisibility</key>
-				<true/>
-			</dict>
-			<key>Geometry</key>
-			<dict>
-				<key>Frame</key>
-				<string>{{0, 20}, {709, 621}}</string>
-				<key>PBXModuleWindowStatusBarHidden2</key>
-				<false/>
-				<key>RubberWindowFrame</key>
-				<string>390 224 709 662 0 0 1440 938 </string>
-			</dict>
-		</dict>
-		<dict>
-			<key>Content</key>
-			<dict>
-				<key>PBXProjectModuleGUID</key>
-				<string>2C0714950BAAF3A9001278A1</string>
-				<key>PBXProjectModuleLabel</key>
-				<string>FileTreeWindowController.h</string>
-				<key>PBXSplitModuleInNavigatorKey</key>
-				<dict>
-					<key>Split0</key>
-					<dict>
-						<key>PBXProjectModuleGUID</key>
-						<string>2C0714960BAAF3A9001278A1</string>
-						<key>PBXProjectModuleLabel</key>
-						<string>FileTreeWindowController.h</string>
-						<key>_historyCapacity</key>
-						<integer>0</integer>
-						<key>bookmark</key>
-						<string>2C0715780BAAF969001278A1</string>
-						<key>history</key>
-						<array>
-							<string>2C0714970BAAF3A9001278A1</string>
-						</array>
-					</dict>
-					<key>SplitCount</key>
-					<string>1</string>
-				</dict>
-				<key>StatusBarVisibility</key>
-				<true/>
-			</dict>
-			<key>Geometry</key>
-			<dict>
-				<key>Frame</key>
-				<string>{{0, 20}, {794, 386}}</string>
-				<key>PBXModuleWindowStatusBarHidden2</key>
-				<false/>
-				<key>RubberWindowFrame</key>
-				<string>141 390 794 427 0 0 1440 938 </string>
-			</dict>
-		</dict>
-		<dict>
-			<key>Content</key>
-			<dict>
-				<key>PBXProjectModuleGUID</key>
-				<string>2C5394430B97389000AD1841</string>
-				<key>PBXProjectModuleLabel</key>
-				<string>FileTreeNode.h</string>
-				<key>PBXSplitModuleInNavigatorKey</key>
-				<dict>
-					<key>Split0</key>
-					<dict>
-						<key>PBXProjectModuleGUID</key>
-						<string>2C5394440B97389000AD1841</string>
-						<key>PBXProjectModuleLabel</key>
-						<string>FileTreeNode.h</string>
-						<key>_historyCapacity</key>
-						<integer>0</integer>
-						<key>bookmark</key>
-						<string>2C0715790BAAF969001278A1</string>
-						<key>history</key>
-						<array>
-							<string>2C5394D70B9799E600AD1841</string>
-						</array>
-					</dict>
-					<key>SplitCount</key>
-					<string>1</string>
-				</dict>
-				<key>StatusBarVisibility</key>
-				<true/>
-			</dict>
-			<key>Geometry</key>
-			<dict>
-				<key>Frame</key>
-				<string>{{0, 20}, {755, 741}}</string>
-				<key>PBXModuleWindowStatusBarHidden2</key>
-				<false/>
-				<key>RubberWindowFrame</key>
-				<string>122 155 755 782 0 0 1440 938 </string>
-			</dict>
-		</dict>
-		<dict>
-			<key>Content</key>
-			<dict>
-				<key>PBXProjectModuleGUID</key>
-				<string>2C6256A00B971E5C00CEDBB2</string>
-				<key>PBXProjectModuleLabel</key>
-				<string>FileTreeView.m</string>
-				<key>PBXSplitModuleInNavigatorKey</key>
-				<dict>
-					<key>Split0</key>
-					<dict>
-						<key>PBXProjectModuleGUID</key>
-						<string>2C6256A10B971E5C00CEDBB2</string>
-						<key>PBXProjectModuleLabel</key>
-						<string>FileTreeView.m</string>
-						<key>_historyCapacity</key>
-						<integer>0</integer>
-						<key>bookmark</key>
-						<string>2C07157A0BAAF969001278A1</string>
-						<key>history</key>
-						<array>
-							<string>2C5394D80B9799E600AD1841</string>
-						</array>
-					</dict>
-					<key>SplitCount</key>
-					<string>1</string>
-				</dict>
-				<key>StatusBarVisibility</key>
-				<true/>
-			</dict>
-			<key>Geometry</key>
-			<dict>
-				<key>Frame</key>
-				<string>{{0, 20}, {644, 697}}</string>
-				<key>PBXModuleWindowStatusBarHidden2</key>
-				<false/>
-				<key>RubberWindowFrame</key>
-				<string>483 194 644 738 0 0 1440 938 </string>
-			</dict>
-		</dict>
-	</array>
+	<array/>
 	<key>PerspectiveWidths</key>
 	<array>
 		<integer>931</integer>
@@ -644,13 +483,13 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>6</integer>
-									<integer>2</integer>
+									<integer>48</integer>
+									<integer>42</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 0}, {382, 726}}</string>
+							<string>{{0, 179}, {382, 726}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -690,7 +529,7 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>2C0714670BAAE666001278A1</string>
+				<string>2CCDFCBA0BB8C69C00182922</string>
 				<string>11E0B1FE06471DED0097A5F4</string>
 			</array>
 			<key>ToolbarConfiguration</key>
@@ -721,20 +560,7 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>2C07157B0BAAF969001278A1</string>
-		<string>2C0714E20BAAF645001278A1</string>
-		<string>2C0714E30BAAF645001278A1</string>
-		<string>2C0714DF0BAAF645001278A1</string>
-		<string>2C9C30940A8C166300C679B8</string>
-		<string>1C530D57069F1CE1000CFCEE</string>
-		<string>1C0AD2B3069F1EA900FABCE6</string>
-		<string>2C6256A00B971E5C00CEDBB2</string>
-		<string>2C5394430B97389000AD1841</string>
-		<string>2C0714950BAAF3A9001278A1</string>
 		<string>/Users/tkurita/Dev/Projects/StationeryPalette/trunk/StationeryPalette.xcodeproj</string>
-		<string>2C53943D0B97388F00AD1841</string>
-		<string>2CD949EA0A8C5A110029C487</string>
-		<string>1CD10A99069EF8BA00B06720</string>
 	</array>
 	<key>WindowString</key>
 	<string>28 150 399 785 0 0 1440 938 </string>
@@ -775,6 +601,8 @@
 							<string>518pt</string>
 						</dict>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXBuildLogShowsTranscriptDefaultKey</key>
@@ -938,7 +766,7 @@
 			<key>WindowToolGUID</key>
 			<string>1CD10A99069EF8BA00B06720</string>
 			<key>WindowToolIsVisible</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>FirstTimeWindowDisplayed</key>
@@ -966,7 +794,7 @@
 												<key>PBXProjectModuleGUID</key>
 												<string>1CDD528C0622207200134675</string>
 												<key>PBXProjectModuleLabel</key>
-												<string>FileTreeNode.m</string>
+												<string>DropBox.m</string>
 												<key>StatusBarVisibility</key>
 												<true/>
 											</dict>
@@ -1124,7 +952,7 @@
 			<key>WindowToolGUID</key>
 			<string>2CD949EA0A8C5A110029C487</string>
 			<key>WindowToolIsVisible</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>FirstTimeWindowDisplayed</key>
