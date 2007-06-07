@@ -227,6 +227,7 @@ void cleanupFolderContents(NSString *path)
 
 - (IBAction)copyStationery:(id)sender
 {
+	shouldOpenFile = NO;
 	[self makeFileWithSelectedStationery];
 }
 
