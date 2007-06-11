@@ -147,7 +147,8 @@ NSString *ORDER_CHACHE_NAME = @"order.plist";
 
 - (NSString *)typeCode
 {
-	return NSFileTypeForHFSTypeCode([_attributes objectForKey:NSFileHFSTypeCode]);
+	return NSFileTypeForHFSTypeCode([[_attributes objectForKey:NSFileHFSTypeCode]
+											unsignedLongValue]);
 }
 
 - (NSString *)typeForPboard
