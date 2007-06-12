@@ -20,6 +20,7 @@
 /* End PBXAppleScriptBuildPhase section */
 
 /* Begin PBXBuildFile section */
+		2C17FD290C1AFE75008E63D6 /* ServicesMenu.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2C17FD280C1AFE75008E63D6 /* ServicesMenu.strings */; };
 		2C1E925D0B3841330086DB87 /* FileTreeDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1E924B0B3841330086DB87 /* FileTreeDataSource.m */; };
 		2C1E925E0B3841330086DB87 /* FileTreeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1E924D0B3841330086DB87 /* FileTreeNode.m */; };
 		2C1E925F0B3841330086DB87 /* FileTreeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1E924F0B3841330086DB87 /* FileTreeView.m */; };
@@ -77,6 +78,7 @@
 		29B97319FDCFA39411CA2CEA /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/MainMenu.nib; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		2C17FD240C1AFE6A008E63D6 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/ServicesMenu.strings; sourceTree = "<group>"; };
 		2C1E924A0B3841330086DB87 /* FileTreeDataSource.h */ = {isa = PBXFileReference; fileEncoding = "-2147483647"; lastKnownFileType = sourcecode.c.h; path = FileTreeDataSource.h; sourceTree = "<group>"; };
 		2C1E924B0B3841330086DB87 /* FileTreeDataSource.m */ = {isa = PBXFileReference; fileEncoding = "-2147483647"; lastKnownFileType = sourcecode.c.objc; path = FileTreeDataSource.m; sourceTree = "<group>"; };
 		2C1E924C0B3841330086DB87 /* FileTreeNode.h */ = {isa = PBXFileReference; fileEncoding = "-2147483647"; lastKnownFileType = sourcecode.c.h; path = FileTreeNode.h; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 				2C4589950B37CFA40020C796 /* Localizable.strings */,
 				2C458AD70B37F1450020C796 /* FactorySettings.plist */,
 				2CB0558A0B3A9EE400315976 /* InsertionLocation.applescript */,
+				2C17FD280C1AFE75008E63D6 /* ServicesMenu.strings */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 				2C270C850B39795900955F77 /* ToolbarDeleteIcon.icns in Resources */,
 				2C270C880B3979A300955F77 /* MakeFolder.png in Resources */,
 				2C3C5F490B54887D00F5AEC3 /* HelpSetup.plist in Resources */,
+				2C17FD290C1AFE75008E63D6 /* ServicesMenu.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,6 +411,14 @@
 				29B97319FDCFA39411CA2CEA /* English */,
 			);
 			name = MainMenu.nib;
+			sourceTree = "<group>";
+		};
+		2C17FD280C1AFE75008E63D6 /* ServicesMenu.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2C17FD240C1AFE6A008E63D6 /* English */,
+			);
+			name = ServicesMenu.strings;
 			sourceTree = "<group>";
 		};
 		2C4589950B37CFA40020C796 /* Localizable.strings */ = {

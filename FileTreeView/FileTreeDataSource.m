@@ -439,7 +439,7 @@ BOOL isOptionKeyDown()
 	
 	BOOL isOnDropTypeProposal = childIndex==NSOutlineViewDropOnItemIndex;
 #if useLog
-//    NSLog(@"start validateDrop");
+    NSLog(@"start validateDrop");
 //	NSLog(@"childIndex : %i", childIndex);
 //	NSLog(@"NSOutlineViewDropOnItemIndex : %i", NSOutlineViewDropOnItemIndex);
 #endif
@@ -517,6 +517,9 @@ BOOL isOptionKeyDown()
 
 - (void)copyPromisedFile:(NSDictionary *)promisedInfo replacing:(BOOL)replaceFlag
 {
+#if useLog
+	NSLog(@"start copyPromisedFile");
+#endif	
 	if (promisedInfo != nil) {
 		currentOperationName = @"copying";
 		NSFileManager *file_manager = [NSFileManager defaultManager];

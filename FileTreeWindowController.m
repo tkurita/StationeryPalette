@@ -261,7 +261,7 @@ void cleanupFolderContents(NSString *path)
 	NSString *label;
 	NSString *tool_tip;
 	
-	label = NSLocalizedString(@"Add template", @"Toolbar's label for AddItem");
+	label = NSLocalizedString(@"Add Template", @"Toolbar's label for AddItem");
 	tool_tip = NSLocalizedString(@"Add a new template with choosing a file.", @"Toolbar's tool tip for AddItem");
 	addToolbarItem(toolbarItems, @"AddItem", label, label, tool_tip,
 		self,@selector(setImage:),[NSImage imageNamed:@"AddItem.png"],@selector(addItem:),NULL);
