@@ -450,6 +450,10 @@ void cleanupFolderContents(NSString *path)
 	
 	[fileTreeView setDoubleAction:@selector(openSelection:)];
 	
+	NSArray* array = 
+		[NSArray arrayWithObject:NSFilenamesPboardType];	
+	[saveToBox registerForDraggedTypes:array];
+	
 	isFirstOpen = YES;
 	untitledName = [[fileNameField stringValue] retain];
 	previousSelectionName = nil;

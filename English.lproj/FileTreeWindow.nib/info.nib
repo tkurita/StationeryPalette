@@ -23,11 +23,13 @@
 	</dict>
 	<key>IBLastGroupID</key>
 	<string>1</string>
+	<key>IBOldestOS</key>
+	<integer>3</integer>
 	<key>IBOpenObjects</key>
 	<array>
 		<integer>21</integer>
 	</array>
 	<key>IBSystem Version</key>
-	<string>8P135</string>
+	<string>8R218</string>
 </dict>
 </plist>
