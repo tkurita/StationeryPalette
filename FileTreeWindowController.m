@@ -398,7 +398,7 @@ void cleanupFolderContents(NSString *path)
 		untitled_name = [untitledName stringByAppendingPathExtension:path_extension];
 	}
 	[fileNameField setStringValue:untitled_name];
-	[fileNameField selectText:self];
+	//[fileNameField selectText:self]; //make initial first responder to be fileTreeView
 }
 
 - (void)selectionDidChange:(NSNotification *)notification
@@ -450,9 +450,8 @@ void cleanupFolderContents(NSString *path)
 	
 	[fileTreeView setDoubleAction:@selector(openSelection:)];
 	
-	NSArray* array = 
-		[NSArray arrayWithObject:NSFilenamesPboardType];	
-	[saveToBox registerForDraggedTypes:array];
+	[saveToBox setAcceptFileInfo:[NSArray arrayWithObject:
+		[NSDictionary dictionaryWithObject:NSFileTypeDirectory forKey:@"FileType"]]];
 	
 	isFirstOpen = YES;
 	untitledName = [[fileNameField stringValue] retain];
