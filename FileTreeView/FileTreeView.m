@@ -75,12 +75,16 @@
 static OSStatus inputText(EventHandlerCallRef nextHandler, EventRef theEvent, void* userData)
 {
 #if useLog    
-	NSLog(@"inputText");
+	NSLog(@"start inputText");
 #endif
 	UInt32 dataSize;
-	OSStatus err = GetEventParameter(theEvent, kEventParamTextInputSendText, typeUnicodeText, NULL, 0, &dataSize, NULL);
+	//OSStatus err = GetEventParameter(theEvent, kEventParamTextInputSendText, typeUnicodeText, NULL, 0, &dataSize, NULL);
+	OSStatus err = GetEventParameter(theEvent, kEventParamTextInputSendText, 
+									typeUTF16ExternalRepresentation, NULL, 0, &dataSize, NULL);
 	UniChar *dataPtr = (UniChar *)malloc(dataSize);
-	err = GetEventParameter(theEvent, kEventParamTextInputSendText, typeUnicodeText, NULL, dataSize, NULL, dataPtr);
+	//err = GetEventParameter(theEvent, kEventParamTextInputSendText, typeUnicodeText, NULL, dataSize, NULL, dataPtr);
+	err = GetEventParameter(theEvent, kEventParamTextInputSendText, 
+							typeUTF16ExternalRepresentation, NULL, dataSize, NULL, dataPtr);
 	NSString *aString =[[NSString alloc] initWithBytes:dataPtr length:dataSize encoding:NSUnicodeStringEncoding];
 	[(id)userData insertTextInputSendText:aString];
 	free(dataPtr);
@@ -138,8 +142,9 @@ BOOL shouldBeginFindForKeyEvent(NSEvent *keyEvent)
 	
 	if (isReturnOrEnterKeyEvent(keyEvent)) return NO;
 	
-	//space and tab and newlines are ignored
+	//tab and newlines are ignored but space is accepted
 	unichar character = [[keyEvent characters] characterAtIndex:0];
+	if (character == ' ') return YES;
 	if ([[NSCharacterSet whitespaceAndNewlineCharacterSet] characterIsMember:character]){
 		return NO;
 	}
@@ -214,8 +219,9 @@ BOOL shouldBeginFindForKeyEvent(NSEvent *keyEvent)
 - (void)insertTextInputSendText:(NSString *)aString
 {
 	if (isUsingInputWindow) {
-		[fieldEditor insertText:aString];
-		[self findForString:[fieldEditor string] ];
+		NSMutableString *target_string = [[aString mutableCopy] autorelease];
+		CFStringNormalize((CFMutableStringRef) target_string,  kCFStringNormalizationFormD);
+		[fieldEditor insertText:target_string];
 	}
 }
 
@@ -304,7 +310,9 @@ bail:
 	for (int i = 0; i< nrows; i++) {
 		id item = [self itemAtRow:i];
 		id display_name = [dataSource outlineView:self objectValueForTableColumn:column byItem:item];
-		if (NSOrderedSame == [display_name compare:aString options:NSCaseInsensitiveSearch range:NSMakeRange(0, [aString length])]) {
+		NSLog([NSString stringWithFormat:@"display_name:%@", display_name]);
+		if (NSOrderedSame == [display_name compare:aString options:NSCaseInsensitiveSearch 
+															range:NSMakeRange(0, [aString length])]) {
 			[self selectRowIndexes:[NSIndexSet indexSetWithIndex:i] byExtendingSelection:NO];
 			break;
 		}
