@@ -70,6 +70,10 @@
 	searchColumnIdentifier = identifier;
 }
 
+- (BOOL)isFindBegin
+{
+	return isFindBegin;
+}
 
 #pragma mark key-type search
 static OSStatus inputText(EventHandlerCallRef nextHandler, EventRef theEvent, void* userData)
@@ -78,11 +82,9 @@ static OSStatus inputText(EventHandlerCallRef nextHandler, EventRef theEvent, vo
 	NSLog(@"start inputText");
 #endif
 	UInt32 dataSize;
-	//OSStatus err = GetEventParameter(theEvent, kEventParamTextInputSendText, typeUnicodeText, NULL, 0, &dataSize, NULL);
 	OSStatus err = GetEventParameter(theEvent, kEventParamTextInputSendText, 
 									typeUTF16ExternalRepresentation, NULL, 0, &dataSize, NULL);
 	UniChar *dataPtr = (UniChar *)malloc(dataSize);
-	//err = GetEventParameter(theEvent, kEventParamTextInputSendText, typeUnicodeText, NULL, dataSize, NULL, dataPtr);
 	err = GetEventParameter(theEvent, kEventParamTextInputSendText, 
 							typeUTF16ExternalRepresentation, NULL, dataSize, NULL, dataPtr);
 	NSString *aString =[[NSString alloc] initWithBytes:dataPtr length:dataSize encoding:NSUnicodeStringEncoding];
@@ -192,7 +194,7 @@ BOOL shouldBeginFindForKeyEvent(NSEvent *keyEvent)
 - (void)stopResetTimer
 {
 #if useLog
-	NSLog(@"stop startResetTimer");
+	NSLog(@"start stopResetTimer");
 #endif	
 	if (resetTimer != nil) {
 		[resetTimer invalidate];
@@ -230,22 +232,15 @@ BOOL shouldBeginFindForKeyEvent(NSEvent *keyEvent)
 #if useLog	
 	NSLog([NSString stringWithFormat:@"start KeyDown with event : %@", [keyEvent description]]);
 #endif	
-	BOOL eatEvent = NO;
+
 	if (searchColumnIdentifier == nil) goto bail;
  	if (![self canChangeSelection]) goto bail;
 	
-	BOOL shouldFindFlag = shouldBeginFindForKeyEvent(keyEvent);
-	
-	if (isFindBegin) {
-		if (isUsingInputWindow) {
-			if (! isEscapeKeyEvent(keyEvent)) eatEvent = YES;
-		}
-		else if (shouldFindFlag) {
-			eatEvent = YES;
-		}
-	}
-	else if (shouldFindFlag) {
+	BOOL eatEvent;
+	if (isFindBegin && isUsingInputWindow) {
 		eatEvent = YES;
+	} else {
+		eatEvent = shouldBeginFindForKeyEvent(keyEvent);
 	}
 	
 bail:
