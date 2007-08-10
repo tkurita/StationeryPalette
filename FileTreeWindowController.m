@@ -399,6 +399,7 @@ void cleanupFolderContents(NSString *path)
 	}
 	[fileNameField setStringValue:untitled_name];
 	//[fileNameField selectText:self]; //make initial first responder to be fileTreeView
+	[[self window] makeFirstResponder:fileTreeView];
 }
 
 - (void)selectionDidChange:(NSNotification *)notification
