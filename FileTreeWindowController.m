@@ -345,6 +345,7 @@ void cleanupFolderContents(NSString *path)
 #if useLog
 	NSLog(@"start showWindow");
 #endif	
+	BOOL is_already_visible = [[self window] isVisible];
 	[super showWindow:sender];
 #if useLog
 	NSLog(@"after super showWindow");
@@ -385,7 +386,8 @@ void cleanupFolderContents(NSString *path)
 		selected_items = [fileTreeView allSelectedItems];
 	}
 	
-	if (selected_items == nil) return;
+	if ((selected_items == nil) || is_already_visible) return;
+	
 	if ([selected_items count] > 1) {
 		[fileNameField setStringValue:untitledName];
 		return;

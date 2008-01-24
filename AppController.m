@@ -98,7 +98,7 @@ NSString *resolveContainerPath(NSString *path)
 	if (![types containsObject:NSFilenamesPboardType] 
 			|| !(file_names = [pboard propertyListForType:NSFilenamesPboardType])) {
         *error = NSLocalizedString(@"Error: Pasteboard doesn't contain file paths.",
-                   @"Pasteboard couldn't give string.");
+								   @"Pasteboard couldn't give string.");
         return;
     }
 	
