@@ -7,7 +7,7 @@
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleGetInfoString</key>
-	<string>3.0.8b1 copyright 1998-2008, Tetsuro KURITA</string>
+	<string>3.0.8 copyright 1998-2008, Tetsuro KURITA</string>
 	<key>CFBundleHelpBookFolder</key>
 	<string>StationeryPaletteHelp</string>
 	<key>CFBundleIconFile</key>
