@@ -305,10 +305,13 @@ bail:
 	for (int i = 0; i< nrows; i++) {
 		id item = [self itemAtRow:i];
 		id display_name = [dataSource outlineView:self objectValueForTableColumn:column byItem:item];
+		#if useLog
 		NSLog([NSString stringWithFormat:@"display_name:%@", display_name]);
+		#endif
 		if (NSOrderedSame == [display_name compare:aString options:NSCaseInsensitiveSearch 
 															range:NSMakeRange(0, [aString length])]) {
 			[self selectRowIndexes:[NSIndexSet indexSetWithIndex:i] byExtendingSelection:NO];
+			[self scrollRowToVisible:i];
 			break;
 		}
 		
