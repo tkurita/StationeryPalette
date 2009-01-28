@@ -4,6 +4,7 @@
 #import "KeyedUnarchiveFromDataTransformer.h"
 #import "NSOutlineView_Extensions.h"
 #import "PathExtra.h"
+#import "Sparkle/SUUpdater.h"
 
 #define useLog 0
 
@@ -292,10 +293,17 @@ void cleanupFolderContents(NSString *path)
 		fileTreeDataSource, @selector(setImage:),[NSImage imageNamed:@"DarkBlueReload.png"], 
 		@selector(reloadFileTreeNodes:), NULL);
 
+	label = NSLocalizedString(@"Check for Updates", @"Toolbar's label for CheckForUpdates");
+	tool_tip = NSLocalizedString(@"Check for Updates of newest StationeryPalette.", @"Toolbar's tool tip for CheckForUpdates");			
+	addToolbarItem(toolbarItems,@"CheckForUpdates", label, label, tool_tip,
+				   [SUUpdater sharedUpdater] , @selector(setImage:),[NSImage imageNamed:@"CheckForUpdates.png"], 
+				   @selector(checkForUpdates:), NULL);	
+	
 	label = NSLocalizedString(@"Help", @"Toolbar's label for Help");
 	tool_tip = NSLocalizedString(@"Show StationaryPalette Help.", @"Toolbar's tool tip for Help");			
 	addToolbarItem(toolbarItems,@"Help", label, label, tool_tip,
 		self,@selector(setView:), helpButtonView, NULL, NULL);
+	
 	
 	[toolbar setDelegate:self];
 	[toolbar setAllowsUserCustomization:YES];
@@ -504,19 +512,17 @@ void cleanupFolderContents(NSString *path)
 // set of toolbar items.  It can also be called by the customization palette to display the default toolbar.    
 - (NSArray *)toolbarDefaultItemIdentifiers:(NSToolbar*)toolbar
 {
-    //return [NSArray arrayWithObjects:@"FontStyle",@"FontSize",NSToolbarSeparatorItemIdentifier,@"BlueLetter",NSToolbarPrintItemIdentifier,nil];
 	return [NSArray arrayWithObjects:@"AddItem", @"NewFolder", @"RenameItem", @"RemoveItem",  
 				NSToolbarFlexibleSpaceItemIdentifier,@"RevealInFinder", @"Reload", 
-				NSToolbarSeparatorItemIdentifier, @"Help", nil];
+				NSToolbarSeparatorItemIdentifier, @"CheckForUpdates", @"Help", nil];
 }
 
 // This method is required of NSToolbar delegates.  It returns an array holding identifiers for all allowed
 // toolbar items in this toolbar.  Any not listed here will not be available in the customization palette.
 - (NSArray *)toolbarAllowedItemIdentifiers:(NSToolbar*)toolbar
 {
-    //return [NSArray arrayWithObjects:@"FontStyle",@"FontSize",NSToolbarSeparatorItemIdentifier,@"BlueLetter", NSToolbarSpaceItemIdentifier,NSToolbarFlexibleSpaceItemIdentifier,NSToolbarPrintItemIdentifier,nil];
 	return [NSArray arrayWithObjects:@"AddItem", @"NewFolder", @"RenameItem", @"RemoveItem",
-				@"RevealInFinder", @"Reload", @"Help",
+				@"RevealInFinder", @"Reload",@"CheckForUpdates", @"Help",
 				NSToolbarSeparatorItemIdentifier, NSToolbarSpaceItemIdentifier, NSToolbarFlexibleSpaceItemIdentifier, nil];
 }
 

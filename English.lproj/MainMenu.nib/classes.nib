@@ -1,44 +1,64 @@
-{
-    IBClasses = (
-        {CLASS = AppController; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
-        {
-            ACTIONS = {conflictErrorAction = id; reloadData = id; reloadFileTreeNodes = id; }; 
-            CLASS = FileTreeDataSource; 
-            LANGUAGE = ObjC; 
-            OUTLETS = {
-                "_outline" = id; 
-                applyAllSwitch = id; 
-                cancelForItemButton = id; 
-                conflictErrorWindow = id; 
-                conflictMessage = id; 
-            }; 
-            SUPERCLASS = NSObject; 
-        }, 
-        {
-            ACTIONS = {
-                deleteSelection = id; 
-                dupulicateSelection = id; 
-                makeFolder = id; 
-                openSelection = id; 
-                renameSelection = id; 
-            }; 
-            CLASS = FileTreeView; 
-            LANGUAGE = ObjC; 
-            OUTLETS = {searchColumnIdentifier = id; searchField = id; }; 
-            SUPERCLASS = NSOutlineView; 
-        }, 
-        {
-            ACTIONS = {
-                deleteSelection = id; 
-                dupulicateSelection = id; 
-                openSelection = id; 
-                renameSelection = id; 
-                revealSelection = id; 
-            }; 
-            CLASS = FirstResponder; 
-            LANGUAGE = ObjC; 
-            SUPERCLASS = NSObject; 
-        }
-    ); 
-    IBVersion = 1; 
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IBClasses</key>
+	<array>
+		<dict>
+			<key>ACTIONS</key>
+			<dict>
+				<key>deleteSelection</key>
+				<string>id</string>
+				<key>dupulicateSelection</key>
+				<string>id</string>
+				<key>openSelection</key>
+				<string>id</string>
+				<key>renameSelection</key>
+				<string>id</string>
+				<key>revealSelection</key>
+				<string>id</string>
+			</dict>
+			<key>CLASS</key>
+			<string>FirstResponder</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>SUPERCLASS</key>
+			<string>NSObject</string>
+		</dict>
+		<dict>
+			<key>CLASS</key>
+			<string>NSObject</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+		</dict>
+		<dict>
+			<key>ACTIONS</key>
+			<dict>
+				<key>checkForUpdates</key>
+				<string>id</string>
+			</dict>
+			<key>CLASS</key>
+			<string>SUUpdater</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>OUTLETS</key>
+			<dict>
+				<key>delegate</key>
+				<string>id</string>
+			</dict>
+			<key>SUPERCLASS</key>
+			<string>NSObject</string>
+		</dict>
+		<dict>
+			<key>CLASS</key>
+			<string>AppController</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>SUPERCLASS</key>
+			<string>NSObject</string>
+		</dict>
+	</array>
+	<key>IBVersion</key>
+	<string>1</string>
+</dict>
+</plist>
