@@ -244,7 +244,7 @@ void cleanupFolderContents(NSString *path)
 {
 	if (returnCode == NSCancelButton) return;
 	[panel close];
-	FileTreeNode *selected_item = [fileTreeView selectedItem];
+	FileTreeNode *selected_item = (FileTreeNode *)[fileTreeView selectedItem];
 	[fileTreeDataSource fileTreeView:fileTreeView addNodesWithPathes:[panel filenames] afterNode:selected_item];
 }
 
@@ -435,6 +435,7 @@ void cleanupFolderContents(NSString *path)
 #endif	
 	[self setupToolbar];
 	[[self window] center];
+	[[self window] setCollectionBehavior:NSWindowCollectionBehaviorCanJoinAllSpaces];
 	[self setWindowFrameAutosaveName:@"StationaryPaletteMain"];
 	
 	/*set up AppleScript InsertionLocation*/
