@@ -625,7 +625,7 @@ NSString *ORDER_CHACHE_NAME = @"order.plist";
 	NSEnumerator *enumerator = [[self children] objectEnumerator];
 	NSMutableArray *name_list = [NSMutableArray array];
 	FileTreeNode *child;
-	
+	NSMutableArray *will_remove_children = [NSMutableArray array];
 	while (child = [enumerator nextObject]) {
 		NSString *child_path = [child path];
 		NSString *child_folder = [child_path stringByDeletingLastPathComponent];
@@ -636,9 +636,13 @@ NSString *ORDER_CHACHE_NAME = @"order.plist";
 			[child reloadChildrenWithView:view];
 		}
 		else {
-			[self removeChild:child];
-			is_updated = YES;
+			[will_remove_children addObject:child];
 		}
+	}
+	
+	if ([will_remove_children count]) {
+		[will_remove_children makeObjectsPerformSelector:@selector(removeFromParent)];
+		is_updated = YES;
 	}
 	
 	//find new items
