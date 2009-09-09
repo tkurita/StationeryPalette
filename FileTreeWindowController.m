@@ -358,17 +358,6 @@ void cleanupFolderContents(NSString *path)
 #if useLog
 	NSLog(@"after super showWindow");
 #endif	
-//	NSDictionary *error_dict = nil;
-//	NSAppleEventDescriptor *scriptResult = [insertionLocationScript executeAndReturnError:&error_dict];
-//	if (error_dict != nil) {
-//		#if useLog
-//		NSLog([error_dict description]);
-//		#endif
-//		showScriptError(error_dict);
-//	}
-//	NSString *path = [scriptResult stringValue];
-//	[self setInsertionLocation:path];
-//	[saveLocationField setStringValue:path];
 	
 	NSArray *selected_items = nil;
 	if (isFirstOpen) {
