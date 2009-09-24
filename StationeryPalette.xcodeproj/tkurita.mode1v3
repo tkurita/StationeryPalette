@@ -230,8 +230,6 @@
 			<key>Layout</key>
 			<array>
 				<dict>
-					<key>BecomeActive</key>
-					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -271,7 +269,6 @@
 							<array>
 								<string>29B97314FDCFA39411CA2CEA</string>
 								<string>080E96DDFE201D6D7F000001</string>
-								<string>2C7DC7C01057296F00579B20</string>
 								<string>2CEBB1E60B40078600040DD0</string>
 								<string>29B97315FDCFA39411CA2CEA</string>
 								<string>29B97317FDCFA39411CA2CEA</string>
@@ -285,22 +282,18 @@
 								<string>2CEBB1390B40036300040DD0</string>
 								<string>19C28FACFE9D520D11CA2CBB</string>
 								<string>1C37FBAC04509CD000000102</string>
-								<string>2C7DC76B10568D1C00579B20</string>
-								<string>2C7DC76C10568D1C00579B20</string>
-								<string>2C3B461B0F3065AB006455BA</string>
-								<string>2CEBB1390B40036300040DD0</string>
 								<string>1C37FABC05509CD000000102</string>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>6</integer>
-									<integer>2</integer>
+									<integer>36</integer>
+									<integer>29</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 0}, {286, 595}}</string>
+							<string>{{0, 250}, {286, 595}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -337,7 +330,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>FileTreeWindowController.m</string>
+								<string>Info.plist</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -345,19 +338,17 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>FileTreeWindowController.m</string>
+										<string>Info.plist</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>2C7DC80710572A2D00579B20</string>
+										<string>2CFB637E1061DC0D00A68C2B</string>
 										<key>history</key>
 										<array>
 											<string>2C3B470A0F309F1F006455BA</string>
 											<string>2C3B472D0F30A0BF006455BA</string>
-											<string>2C3B472E0F30A0BF006455BA</string>
 											<string>2C3B47750F3147B3006455BA</string>
 											<string>2C9E7E6E104B901500C5B158</string>
-											<string>2C9E7E6F104B901500C5B158</string>
 											<string>2C7DC70D105681DE00579B20</string>
 											<string>2C7DC7391056858700579B20</string>
 											<string>2C7DC75210568AE100579B20</string>
@@ -377,7 +368,9 @@
 											<string>2C7DC7F210572A2D00579B20</string>
 											<string>2C7DC7F310572A2D00579B20</string>
 											<string>2C7DC7F410572A2D00579B20</string>
-											<string>2C7DC7F510572A2D00579B20</string>
+											<string>2CFB637A1061DC0D00A68C2B</string>
+											<string>2CFB637B1061DC0D00A68C2B</string>
+											<string>2C3B472E0F30A0BF006455BA</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -391,44 +384,24 @@
 											<string>2C26ADC40F711B04002129BD</string>
 											<string>2CEFC9D31022D1D3003C67DB</string>
 											<string>2C7DC710105681DE00579B20</string>
-											<string>2C7DC711105681DE00579B20</string>
-											<string>2C7DC71C105681EB00579B20</string>
-											<string>2C7DC7261056832300579B20</string>
-											<string>2C7DC7271056832300579B20</string>
 											<string>2C7DC7291056832300579B20</string>
-											<string>2C7DC73B1056858700579B20</string>
-											<string>2C7DC73D1056858700579B20</string>
 											<string>2C7DC73F1056858700579B20</string>
-											<string>2C7DC7411056858700579B20</string>
-											<string>2C7DC75510568AE100579B20</string>
-											<string>2C7DC75610568AE100579B20</string>
-											<string>2C7DC75710568AE100579B20</string>
-											<string>2C7DC75810568AE100579B20</string>
 											<string>2C7DC76F10568D1C00579B20</string>
 											<string>2C7DC7AC105727A000579B20</string>
 											<string>2C7DC7AD105727A000579B20</string>
 											<string>2C7DC7AE105727A000579B20</string>
 											<string>2C7DC7AF105727A000579B20</string>
-											<string>2C7DC7B0105727A000579B20</string>
-											<string>2C7DC7B1105727A000579B20</string>
-											<string>2C7DC7B2105727A000579B20</string>
 											<string>2C7DC7F610572A2D00579B20</string>
 											<string>2C7DC7F710572A2D00579B20</string>
-											<string>2C7DC7F810572A2D00579B20</string>
 											<string>2C7DC7F910572A2D00579B20</string>
-											<string>2C7DC7FA10572A2D00579B20</string>
 											<string>2C7DC7FB10572A2D00579B20</string>
 											<string>2C7DC7FC10572A2D00579B20</string>
-											<string>2C7DC7FD10572A2D00579B20</string>
-											<string>2C7DC7FE10572A2D00579B20</string>
 											<string>2C7DC7FF10572A2D00579B20</string>
 											<string>2C7DC80010572A2D00579B20</string>
 											<string>2C7DC80110572A2D00579B20</string>
 											<string>2C7DC80210572A2D00579B20</string>
-											<string>2C7DC80310572A2D00579B20</string>
-											<string>2C7DC80410572A2D00579B20</string>
-											<string>2C7DC80510572A2D00579B20</string>
-											<string>2C7DC80610572A2D00579B20</string>
+											<string>2CFB637C1061DC0D00A68C2B</string>
+											<string>2CFB637D1061DC0D00A68C2B</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -486,9 +459,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>2C7DC713105681DE00579B20</string>
+				<string>2CFB637F1061DC0D00A68C2B</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>2C7DC714105681DE00579B20</string>
+				<string>2CFB63801061DC0D00A68C2B</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -634,13 +607,6 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>2C7DC7361056858200579B20</string>
-		<string>2C7DC718105681DE00579B20</string>
-		<string>2C7DC719105681DE00579B20</string>
-		<string>1C530D57069F1CE1000CFCEE</string>
-		<string>1CD10A99069EF8BA00B06720</string>
-		<string>1C78EAAD065D492600B07095</string>
-		<string>2C3B45C30F305DEF006455BA</string>
 		<string>/Users/tkurita/Dev/Projects/StationeryPalette/StationeryPalette/trunk/StationeryPalette.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
