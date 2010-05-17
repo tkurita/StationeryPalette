@@ -7,7 +7,13 @@
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleGetInfoString</key>
-	<string>3.1.1 copyright 1998-2009, Tetsuro KURITA</string>
+	<string>3.1.2 copyright 1998-2010, Tetsuro KURITA</string>
+	<key>CFBundleVersion</key>
+	<string>7</string>
+	<key>CFBundleShortVersionString</key>
+	<string>3.1.2</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>copyright 1998-2010, Tetsuro KURITA</string>
 	<key>CFBundleHelpBookFolder</key>
 	<string>StationeryPaletteHelp</string>
 	<key>CFBundleIconFile</key>
@@ -22,8 +28,6 @@
 	<string>APPL</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
-	<key>CFBundleVersion</key>
-	<string>3.1.1</string>
 	<key>LSUIElement</key>
 	<string>1</string>
 	<key>NSMainNibFile</key>
