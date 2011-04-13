@@ -55,6 +55,7 @@
 		2CEBB13A0B40036300040DD0 /* DonationReminder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEBB1390B40036300040DD0 /* DonationReminder.framework */; };
 		2CEBB14D0B40042100040DD0 /* DonationReminder.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2CEBB1390B40036300040DD0 /* DonationReminder.framework */; };
 		2CEBB1F20B40078600040DD0 /* PathExtra.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEBB1EA0B40078600040DD0 /* PathExtra.m */; };
+		2CF3F22D1354351D00872A83 /* StationeryPalette.icns in Resources */ = {isa = PBXBuildFile; fileRef = 2CF3F22C1354351D00872A83 /* StationeryPalette.icns */; };
 		2CFE96950C44B37A00B0D2A6 /* DropBox.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CB057C60B3AAE7B00315976 /* DropBox.h */; };
 		2CFE96B80C44B67800B0D2A6 /* DropBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB057C70B3AAE7B00315976 /* DropBox.m */; };
 		8D11072A0486CEB800E47090 /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 29B97318FDCFA39411CA2CEA /* MainMenu.nib */; };
@@ -162,6 +163,7 @@
 		2CEBB1EC0B40078600040DD0 /* StringExtra.m */ = {isa = PBXFileReference; fileEncoding = 2147483649; lastKnownFileType = sourcecode.c.objc; path = StringExtra.m; sourceTree = "<group>"; };
 		2CEBB1ED0B40078600040DD0 /* WindowVisibilityController.h */ = {isa = PBXFileReference; fileEncoding = 2147483649; lastKnownFileType = sourcecode.c.h; path = WindowVisibilityController.h; sourceTree = "<group>"; };
 		2CEBB1EE0B40078600040DD0 /* WindowVisibilityController.m */ = {isa = PBXFileReference; fileEncoding = 2147483649; lastKnownFileType = sourcecode.c.objc; path = WindowVisibilityController.m; sourceTree = "<group>"; };
+		2CF3F22C1354351D00872A83 /* StationeryPalette.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = StationeryPalette.icns; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* StationeryPalette_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationeryPalette_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; explicitFileType = text.plist; fileEncoding = 4; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* StationeryPalette.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StationeryPalette.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -251,6 +253,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2CF3F22C1354351D00872A83 /* StationeryPalette.icns */,
 				2C3B462B0F309A38006455BA /* dsa_pub.pem */,
 				2CA09BF20B3FD9250043BE9D /* Stationery.zip */,
 				2C3C5F480B54887D00F5AEC3 /* HelpSetup.plist */,
@@ -447,6 +450,7 @@
 				2C17FD290C1AFE75008E63D6 /* ServicesMenu.strings in Resources */,
 				2C3B462C0F309A39006455BA /* dsa_pub.pem in Resources */,
 				2C3B46310F309B01006455BA /* CheckForUpdates.png in Resources */,
+				2CF3F22D1354351D00872A83 /* StationeryPalette.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -525,7 +529,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
@@ -550,7 +554,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
 				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
