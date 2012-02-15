@@ -163,6 +163,11 @@
 		2CEBB1EC0B40078600040DD0 /* StringExtra.m */ = {isa = PBXFileReference; fileEncoding = 2147483649; lastKnownFileType = sourcecode.c.objc; path = StringExtra.m; sourceTree = "<group>"; };
 		2CEBB1ED0B40078600040DD0 /* WindowVisibilityController.h */ = {isa = PBXFileReference; fileEncoding = 2147483649; lastKnownFileType = sourcecode.c.h; path = WindowVisibilityController.h; sourceTree = "<group>"; };
 		2CEBB1EE0B40078600040DD0 /* WindowVisibilityController.m */ = {isa = PBXFileReference; fileEncoding = 2147483649; lastKnownFileType = sourcecode.c.objc; path = WindowVisibilityController.m; sourceTree = "<group>"; };
+		2CEF6B7014EC1DCD00C9A9B3 /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Japanese; path = Japanese.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2CEF6B7114EC1DDE00C9A9B3 /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Japanese; path = Japanese.lproj/MainMenu.nib; sourceTree = "<group>"; };
+		2CEF6B7214EC1E2200C9A9B3 /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Japanese; path = Japanese.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2CEF6B7314EC1EC200C9A9B3 /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Japanese; path = Japanese.lproj/ServicesMenu.strings; sourceTree = "<group>"; };
+		2CEF6B7414EC1F1400C9A9B3 /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Japanese; path = Japanese.lproj/FileTreeWindow.nib; sourceTree = "<group>"; };
 		2CF3F22C1354351D00872A83 /* StationeryPalette.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = StationeryPalette.icns; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* StationeryPalette_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationeryPalette_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; explicitFileType = text.plist; fileEncoding = 4; path = Info.plist; sourceTree = "<group>"; };
@@ -417,7 +422,14 @@
 			isa = PBXProject;
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "StationeryPalette" */;
 			compatibilityVersion = "Xcode 2.4";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* FileListTest */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -486,6 +498,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				089C165DFE840E0CC02AAC07 /* English */,
+				2CEF6B7014EC1DCD00C9A9B3 /* Japanese */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -494,6 +507,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				29B97319FDCFA39411CA2CEA /* English */,
+				2CEF6B7114EC1DDE00C9A9B3 /* Japanese */,
 			);
 			name = MainMenu.nib;
 			sourceTree = "<group>";
@@ -502,6 +516,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				2C17FD240C1AFE6A008E63D6 /* English */,
+				2CEF6B7314EC1EC200C9A9B3 /* Japanese */,
 			);
 			name = ServicesMenu.strings;
 			sourceTree = "<group>";
@@ -510,6 +525,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				2C4588B40B37CF4F0020C796 /* English */,
+				2CEF6B7214EC1E2200C9A9B3 /* Japanese */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -518,6 +534,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				2C458C910B37F88B0020C796 /* English */,
+				2CEF6B7414EC1F1400C9A9B3 /* Japanese */,
 			);
 			name = FileTreeWindow.nib;
 			sourceTree = "<group>";
@@ -588,7 +605,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1)";
-				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "ppc i386 ppc64 x86_64";
+				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "x86_64 i386 ppc";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;

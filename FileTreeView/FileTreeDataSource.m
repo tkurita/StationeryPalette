@@ -489,7 +489,7 @@ BOOL isOptionKeyDown()
     return YES;
 }
 
-- (NSArray *)outlineView:(NSTableView *)tv 
+- (NSArray *)outlineView:(NSOutlineView *)tv 
 			namesOfPromisedFilesDroppedAtDestination:(NSURL *)dropDestination 
 											forDraggedItems:(NSArray *)items {
 #if useLog

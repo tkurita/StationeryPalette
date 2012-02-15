@@ -52,7 +52,7 @@
 
 - (void)pasteboard:(NSPasteboard *)pboard provideDataForType:(NSString *)type 
 {
-	NSLog([NSString stringWithFormat:@"pasteboard:provideDataForType:%@",type]);
+	NSLog(@"pasteboard:provideDataForType:%@",type);
     // Finder shouldn't do this, but other applications that you want to support as drag targets might
     // in this case you have to create the file - preferably at a temporary location - so that the drag target application can copy it
     if ([type isEqualToString:NSFilenamesPboardType]) {

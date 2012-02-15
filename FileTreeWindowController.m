@@ -144,7 +144,7 @@ void cleanupFolderContents(NSString *path)
 	[file_info setObject:[NSDate date] forKey:NSFileModificationDate];
 	[file_info setObject:[NSDate date] forKey:NSFileCreationDate];
 	if (![file_manager changeFileAttributes:file_info atPath:targetPath])
-		NSLog([NSString stringWithFormat:@"Fail to change attribute of %@", targetPath]);
+		NSLog(@"Fail to change attribute of %@", targetPath);
 
 	[workspace noteFileSystemChanged:targetPath];
 
