@@ -56,7 +56,6 @@
 		2CEBB14D0B40042100040DD0 /* DonationReminder.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2CEBB1390B40036300040DD0 /* DonationReminder.framework */; };
 		2CEBB1F20B40078600040DD0 /* PathExtra.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEBB1EA0B40078600040DD0 /* PathExtra.m */; };
 		2CF3F22D1354351D00872A83 /* StationeryPalette.icns in Resources */ = {isa = PBXBuildFile; fileRef = 2CF3F22C1354351D00872A83 /* StationeryPalette.icns */; };
-		2CFE96950C44B37A00B0D2A6 /* DropBox.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CB057C60B3AAE7B00315976 /* DropBox.h */; };
 		2CFE96B80C44B67800B0D2A6 /* DropBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB057C70B3AAE7B00315976 /* DropBox.m */; };
 		8D11072A0486CEB800E47090 /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 29B97318FDCFA39411CA2CEA /* MainMenu.nib */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
@@ -166,7 +165,7 @@
 		2CEF6B7014EC1DCD00C9A9B3 /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Japanese; path = Japanese.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2CEF6B7114EC1DDE00C9A9B3 /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Japanese; path = Japanese.lproj/MainMenu.nib; sourceTree = "<group>"; };
 		2CEF6B7214EC1E2200C9A9B3 /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Japanese; path = Japanese.lproj/Localizable.strings; sourceTree = "<group>"; };
-		2CEF6B7314EC1EC200C9A9B3 /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Japanese; path = Japanese.lproj/ServicesMenu.strings; sourceTree = "<group>"; };
+		2CEF6B7314EC1EC200C9A9B3 /* Japanese */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = Japanese; path = Japanese.lproj/ServicesMenu.strings; sourceTree = "<group>"; };
 		2CEF6B7414EC1F1400C9A9B3 /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Japanese; path = Japanese.lproj/FileTreeWindow.nib; sourceTree = "<group>"; };
 		2CF3F22C1354351D00872A83 /* StationeryPalette.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = StationeryPalette.icns; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* StationeryPalette_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationeryPalette_Prefix.pch; sourceTree = "<group>"; };
@@ -387,7 +386,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CFE96950C44B37A00B0D2A6 /* DropBox.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,6 +396,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "StationeryPalette" */;
 			buildPhases = (
+				2CEF6BB614EC2C7000C9A9B3 /* ShellScript */,
 				2CFE968B0C44B36300B0D2A6 /* Headers */,
 				8D1107290486CEB800E47090 /* Resources */,
 				8D11072C0486CEB800E47090 /* Sources */,
@@ -467,6 +466,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2CEF6BB614EC2C7000C9A9B3 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/English.lproj/MainMenu.nib",
+				"$(SRCROOT)/English.lproj/FileTreeWindow.nib",
+				"$(SRCROOT)/Japanese.lproj/MainMenu.strings",
+				"$(SRCROOT)/Japanese.lproj/FileTreeWindow.strings",
+			);
+			outputPaths = (
+				"$(SRCROOT)/Japanese.lproj/MainMenu.nib",
+				"$(SRCROOT)/Japanese.lproj/FileTreeWindow.nib",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Extract English strings (use this to check if you added new strings to your nibs)\n#ibtool --generate-strings-file Resources/English.lproj/MainWindow.strings Resources/#English.lproj/MainWindow.xib\n# Generate Localized interface\n\nfunction generate_localized_interface\n{\nbase_lang=$1\ntarget_lang=$2\ntarget_nib=$3\n\nnib_basename=`basename ${target_nib} .nib` \nibtool --strings-file ${target_lang}.lproj/${nib_basename}.strings --write ${target_lang}.lproj/${target_nib} ${base_lang}.lproj/${target_nib}\nrm -rf ${target_lang}.lproj/${target_nib}/.svn\n}\n\ngenerate_localized_interface English Japanese MainMenu.nib\ngenerate_localized_interface English Japanese FileTreeWindow.nib\n\n\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8D11072C0486CEB800E47090 /* Sources */ = {
@@ -546,7 +567,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
@@ -571,7 +592,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
 				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
@@ -582,7 +603,7 @@
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_MODEL_TUNING = G5;
 				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "$(HOME)/Applications";
+				INSTALL_PATH = /Applications;
 				PRODUCT_NAME = StationeryPalette;
 				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;

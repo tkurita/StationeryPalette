@@ -7,7 +7,11 @@
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleGetInfoString</key>
-	<string>3.1.3 copyright 1998-2011, Tetsuro KURITA</string>
+	<string>3.1.4 copyright 1998-2012, Tetsuro KURITA</string>
+	<key>CFBundleShortVersionString</key>
+	<string>3.1.4</string>
+	<key>CFBundleVersion</key>
+	<string>9</string>
 	<key>CFBundleHelpBookFolder</key>
 	<string>StationeryPaletteHelp</string>
 	<key>CFBundleIconFile</key>
@@ -20,16 +24,12 @@
 	<string>${PRODUCT_NAME}</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
-	<key>CFBundleShortVersionString</key>
-	<string>3.1.3</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
-	<key>CFBundleVersion</key>
-	<string>8</string>
 	<key>LSUIElement</key>
 	<string>1</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>copyright 1998-2011, Tetsuro KURITA</string>
+	<string>copyright 1998-2012, Tetsuro KURITA</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
@@ -51,17 +51,31 @@
 			<string>showWindowForFolder</string>
 			<key>NSPortName</key>
 			<string>StationeryService</string>
+			<key>NSRequiredContext</key>
+			<dict>
+				<key>NSTextContent</key>
+				<string>FilePath</string>
+			</dict>
 			<key>NSSendTypes</key>
 			<array>
 				<string>NSFilenamesPboardType</string>
+			</array>
+			<key>NSSendFileTypes</key>
+			<array>
+				<string>public.item</string>
+				<string>public.folder</string>
+				<string>public.symlink</string>
+				<string>com.apple.alias-file</string>
 			</array>
 		</dict>
 	</array>
 	<key>SUCheckAtStartup</key>
 	<true/>
 	<key>SUFeedURL</key>
-	<string>http://homepage.mac.com/tkurita/scriptfactory/appcast/StationeryPalette.xml</string>
+	<string>http://www.script-factory.net/appcast/StationeryPalette.xml</string>
 	<key>SUPublicDSAKeyFile</key>
 	<string>dsa_pub.pem</string>
+	<key>DonationURL</key>
+	<string>http://www.script-factory.net/donationproxy.html</string>
 </dict>
 </plist>
