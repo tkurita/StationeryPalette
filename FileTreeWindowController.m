@@ -371,7 +371,7 @@ void cleanupFolderContents(NSString *path)
 			FileTreeNode *node = [fileTreeDataSource nodeWithIndexPath:index_path];
 			if (node) {
 				int row_index = [fileTreeView rowForItem:node];
-				[fileTreeView selectRow:row_index byExtendingSelection:YES];
+				[fileTreeView selectRowIndexes:[NSIndexSet indexSetWithIndex:row_index] byExtendingSelection:YES];
 				[fileTreeView scrollRowToVisible:row_index];
 				selected_items = [NSArray arrayWithObject:node];
 			}

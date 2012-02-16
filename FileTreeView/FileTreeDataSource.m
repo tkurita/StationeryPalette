@@ -673,7 +673,7 @@ BOOL isOptionKeyDown()
 	
 	if (new_item) {
 		int the_row = [ftv rowForItem:new_item];
-		[ftv selectRow:the_row byExtendingSelection:NO];
+		[ftv selectRowIndexes:[NSIndexSet indexSetWithIndex:the_row] byExtendingSelection:NO];
 		[ftv editColumn:[ftv columnWithIdentifier:@"displayName"] 
 				row:the_row withEvent:nil select:YES];
 	}
