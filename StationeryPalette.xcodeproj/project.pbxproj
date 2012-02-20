@@ -403,6 +403,7 @@
 				8D11072E0486CEB800E47090 /* Frameworks */,
 				2CB056360B3AA04500315976 /* AppleScript */,
 				2CEBB1440B40040600040DD0 /* CopyFiles */,
+				2CE1A18814F286BD00CD5808 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -468,6 +469,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		2CE1A18814F286BD00CD5808 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = "/bin/bash -l";
+			shellScript = "if [ \"$BUILD_STYLE\" = 'Release' ]; then\ncd $BUILT_PRODUCTS_DIR\nSetupHelpBook $FULL_PRODUCT_NAME\nfi\n";
+		};
 		2CEF6BB614EC2C7000C9A9B3 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
