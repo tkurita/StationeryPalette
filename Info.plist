@@ -8,10 +8,12 @@
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleGetInfoString</key>
 	<string>3.1.4 copyright 1998-2012, Tetsuro KURITA</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>copyright 1998-2012, Tetsuro KURITA</string>
 	<key>CFBundleShortVersionString</key>
 	<string>3.1.4</string>
 	<key>CFBundleVersion</key>
-	<string>9</string>
+	<string>10</string>
 	<key>CFBundleHelpBookFolder</key>
 	<string>StationeryPaletteHelp</string>
 	<key>CFBundleIconFile</key>
@@ -28,8 +30,6 @@
 	<string>????</string>
 	<key>LSUIElement</key>
 	<string>1</string>
-	<key>NSHumanReadableCopyright</key>
-	<string>copyright 1998-2012, Tetsuro KURITA</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
