@@ -429,9 +429,9 @@ BOOL isOptionKeyDown()
     return YES;
 }
 
-- (unsigned int)outlineView:(NSOutlineView*)olv 
+- (NSDragOperation)outlineView:(NSOutlineView*)olv 
 			validateDrop:(id <NSDraggingInfo>)info 
-			proposedItem:(id)item proposedChildIndex:(int)childIndex
+			proposedItem:(id)item proposedChildIndex:(NSInteger)childIndex
 {
     // This method validates whether or not the proposal is a valid one. Returns NO if the drop should not be allowed.
 	FileTreeNode *targetNode = item;
@@ -470,7 +470,7 @@ BOOL isOptionKeyDown()
 	return result;
 }
 
-- (BOOL)outlineView:(NSOutlineView*)olv acceptDrop:(id <NSDraggingInfo>)info item:(id)targetItem childIndex:(int)childIndex
+- (BOOL)outlineView:(NSOutlineView*)olv acceptDrop:(id <NSDraggingInfo>)info item:(id)targetItem childIndex:(NSInteger)childIndex
 {
 #if useLog
     NSLog(@"start acceptDrop");
@@ -779,7 +779,7 @@ BOOL isOptionKeyDown()
 - (BOOL)outlineView:(NSOutlineView*)outlineView isItemExpandable:(id)item
 {
 #if useLog
-	//NSLog([NSString stringWithFormat:@"start isItemExpandable for item : %@", [item description]]);
+	NSLog(@"start isItemExpandable for item : %@", [item description]);
 #endif
 	if (!item) {
 		item = [self getRootInfo];
@@ -789,10 +789,10 @@ BOOL isOptionKeyDown()
 }
 
 /* 指定したitemの子の数を返します */
-- (int)outlineView:(NSOutlineView*)outlineView numberOfChildrenOfItem:(id)item
+- (NSInteger)outlineView:(NSOutlineView*)outlineView numberOfChildrenOfItem:(id)item
 {
 #if useLog
-	NSLog([NSString stringWithFormat:@"start numberOfChildrenOfItem for item : %@", [item description]]);
+	NSLog(@"start numberOfChildrenOfItem for item : %@", [item description]);
 #endif
 	if (!item) {
 		item = [self getRootInfo];
@@ -802,10 +802,10 @@ BOOL isOptionKeyDown()
 }
 
 /* itemの、指定したインデックスの子のアイテムを返します */
-- (id)outlineView:(NSOutlineView*)outlineView child:(int)index ofItem:(id)item
+- (id)outlineView:(NSOutlineView*)outlineView child:(NSInteger)index ofItem:(id)item
 {
 #if useLog
-	//NSLog([NSString stringWithFormat:@"start child:%d ofItem: %@",index, [item description]]);
+	NSLog(@"start child:%d ofItem: %@",index, [item description]);
 #endif
 	if (!item) {
 		item = [self getRootInfo];

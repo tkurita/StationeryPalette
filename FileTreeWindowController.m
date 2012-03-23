@@ -331,7 +331,7 @@ void cleanupFolderContents(NSString *path)
 	NSAppleEventDescriptor *scriptResult = [insertionLocationScript executeAndReturnError:&error_dict];
 	if (error_dict != nil) {
 		#if useLog
-		NSLog([error_dict description]);
+		NSLog(@"%@", [error_dict description]);
 		#endif
 		showScriptError(error_dict);
 	}
@@ -354,11 +354,7 @@ void cleanupFolderContents(NSString *path)
 	NSLog(@"start showWindow");
 #endif	
 	BOOL is_already_visible = [[self window] isVisible];
-	[super showWindow:sender];
-#if useLog
-	NSLog(@"after super showWindow");
-#endif	
-	
+	[super showWindow:sender];	
 	NSArray *selected_items = nil;
 	if (isFirstOpen) {
 		NSUserDefaults *user_defaults = [NSUserDefaults standardUserDefaults];
@@ -367,11 +363,11 @@ void cleanupFolderContents(NSString *path)
 		if (data) {
 			NSArray *index_pathes = [NSKeyedUnarchiver unarchiveObjectWithData:data];
 			NSIndexPath *index_path = [index_pathes lastObject];
-			
 			FileTreeNode *node = [fileTreeDataSource nodeWithIndexPath:index_path];
 			if (node) {
-				int row_index = [fileTreeView rowForItem:node];
-				[fileTreeView selectRowIndexes:[NSIndexSet indexSetWithIndex:row_index] byExtendingSelection:YES];
+				NSInteger row_index = [fileTreeView rowForItem:node];
+				[fileTreeView selectRowIndexes:[NSIndexSet indexSetWithIndex:row_index] 
+														byExtendingSelection:YES];
 				[fileTreeView scrollRowToVisible:row_index];
 				selected_items = [NSArray arrayWithObject:node];
 			}
@@ -382,14 +378,12 @@ void cleanupFolderContents(NSString *path)
 	else {
 		selected_items = [fileTreeView allSelectedItems];
 	}
-	
 	if ((selected_items == nil) || is_already_visible) return;
 	
 	if ([selected_items count] > 1) {
 		[fileNameField setStringValue:untitledName];
 		return;
 	}
-	
 	NSString *node_name = [(FileTreeNodeData *)[[selected_items lastObject] nodeData] name];
 	NSString *path_extension = [node_name pathExtension];
 	NSString *untitled_name = untitledName;
@@ -399,6 +393,9 @@ void cleanupFolderContents(NSString *path)
 	[fileNameField setStringValue:untitled_name];
 	//[fileNameField selectText:self]; //make initial first responder to be fileTreeView
 	[[self window] makeFirstResponder:fileTreeView];
+#if useLog
+	NSLog(@"end of showWindow");
+#endif
 }
 
 - (void)selectionDidChange:(NSNotification *)notification
@@ -444,7 +441,7 @@ void cleanupFolderContents(NSString *path)
 	insertionLocationScript = [[NSAppleScript alloc] initWithContentsOfURL:scriptURL error:&error_dict];
 	if (error_dict != nil) {
 		#if useLog
-		NSLog([error_dict description]);
+		NSLog(@"%@", [error_dict description]);
 		#endif
 		showScriptError(error_dict);
 	}

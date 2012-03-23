@@ -474,7 +474,7 @@ NSString *ORDER_CHACHE_NAME = @"order.plist";
 
 - (FileTreeNode *)createFolderAfter:(FileTreeNode *)item withName:(NSString *)aName
 {
-	int child_index;
+	NSInteger child_index;
 	if (item) {
 		child_index = [self indexOfChild:item];
 	}

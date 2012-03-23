@@ -8,7 +8,7 @@
     NSMutableArray *items = [NSMutableArray array];
 	NSIndexSet *indexSet = [self selectedRowIndexes];
 	
-	unsigned current_index = [indexSet firstIndex];
+	NSInteger current_index = [indexSet firstIndex];
 	while (current_index != NSNotFound) {
 		[items addObject:[self itemAtRow:current_index]];
 		current_index = [indexSet indexGreaterThanIndex: current_index];

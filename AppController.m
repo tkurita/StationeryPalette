@@ -109,6 +109,9 @@ NSString *resolveContainerPath(NSString *path)
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+#if useLog
+	NSLog(@"start applicationDidFinishLaunching");
+#endif
 	windowController = [[FileTreeWindowController alloc] initWithWindowNibName:@"FileTreeWindow"];
 	[NSApp setServicesProvider:self];
 	if (![[windowController window] isVisible]) {
