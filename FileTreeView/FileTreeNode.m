@@ -283,7 +283,7 @@ NSString *ORDER_CHACHE_NAME = @"order.plist";
 #pragma mark indexPath
 - (FileTreeNode *)childWithIndexPath:(NSIndexPath *)indexPath currentLevel:(unsigned int)level
 {
-	FileTreeNode *child = (FileTreeNode *)[self childAtIndex:[indexPath indexAtPosition:level]];
+	FileTreeNode *child = (FileTreeNode *)[self childNodeAtIndex:[indexPath indexAtPosition:level]];
 	if ([indexPath length] == ++level) {
 		return child;
 	}

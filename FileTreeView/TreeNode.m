@@ -102,7 +102,7 @@
 - (void)removeChild:(TreeNode*)child {
     NSInteger index = [self indexOfChild: child];
     if (index!=NSNotFound) {
-        [self _removeChildrenIdenticalTo: [NSArray arrayWithObject: [self childAtIndex:index]]];
+        [self _removeChildrenIdenticalTo: [NSArray arrayWithObject: [self childNodeAtIndex:index]]];
     }
 }
 
@@ -142,7 +142,7 @@
     return [nodeChildren lastObject];
 }
 
-- (TreeNode*)childAtIndex:(int)index {
+- (TreeNode*)childNodeAtIndex:(int)index {
     return [nodeChildren objectAtIndex:index];
 }
 

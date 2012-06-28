@@ -594,10 +594,11 @@ BOOL isOptionKeyDown()
 - (void)fileTreeView:(FileTreeView *)ftv didEndDragOperation:(NSDragOperation)operation
 {
 	switch (operation) {
-		case (NSDragOperationGeneric):
+		case NSDragOperationCopy:
+		case NSDragOperationGeneric:
 			[self copyPromisedFiles:ftv];
 			break;
-		case (NSDragOperationDelete):
+		case NSDragOperationDelete:
 			[self trashPromisedFiles:ftv];
 			break;
 	}
@@ -810,7 +811,7 @@ BOOL isOptionKeyDown()
 	if (!item) {
 		item = [self getRootInfo];
 	}
-	id result = [item childAtIndex:index];
+	id result = [item childNodeAtIndex:index];
 
 	return result;
 }

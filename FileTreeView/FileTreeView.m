@@ -81,7 +81,7 @@ static OSStatus inputText(EventHandlerCallRef nextHandler, EventRef theEvent, vo
 #if useLog    
 	NSLog(@"start inputText");
 #endif
-	UInt32 dataSize;
+	ByteCount dataSize;
 	OSStatus err = GetEventParameter(theEvent, kEventParamTextInputSendText, 
 									typeUTF16ExternalRepresentation, NULL, 0, &dataSize, NULL);
 	UniChar *dataPtr = (UniChar *)malloc(dataSize);

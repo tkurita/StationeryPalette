@@ -37,7 +37,7 @@
 - (NSArray*)children;
 - (TreeNode*)firstChild;
 - (TreeNode*)lastChild;
-- (TreeNode*)childAtIndex:(int)index;
+- (TreeNode*)childNodeAtIndex:(int)index;
 
 - (BOOL)isDescendantOfNode:(TreeNode*)node;
     // returns YES if 'node' is an ancestor.
