@@ -7,17 +7,17 @@
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleGetInfoString</key>
-	<string>3.1.5 copyright 1998-2012, Tetsuro KURITA</string>
+	<string>3.1.6 copyright 1998-2012, Tetsuro KURITA</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>copyright 1998-2012, Tetsuro KURITA</string>
 	<key>CFBundleShortVersionString</key>
-	<string>3.1.5</string>
+	<string>3.1.6</string>
 	<key>CFBundleVersion</key>
-	<string>13</string>
+	<string>15</string>
 	<key>CFBundleHelpBookFolder</key>
 	<string>StationeryPaletteHelp</string>
 	<key>CFBundleIconFile</key>
-	<string>StationeryPalette.icns</string>
+	<string>StationeryPalette</string>
 	<key>CFBundleIdentifier</key>
 	<string>StationeryPalette</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -75,7 +75,5 @@
 	<string>http://www.script-factory.net/appcast/StationeryPalette.xml</string>
 	<key>SUPublicDSAKeyFile</key>
 	<string>dsa_pub.pem</string>
-	<key>DonationURL</key>
-	<string>http://www.script-factory.net/donationproxy.html</string>
 </dict>
 </plist>
