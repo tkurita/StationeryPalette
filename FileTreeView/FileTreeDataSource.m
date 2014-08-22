@@ -276,7 +276,6 @@ BOOL isOptionKeyDown()
 		int **tmp_pp = &tmp_p;
 		[nodeOperationInvocation setArgument: tmp_pp atIndex:3];
 		[nodeOperationInvocation setArgument: &replaceFlag atIndex:4];
-		//[nodeOperationInvocation retainArguments];
 
 		@try {
 			[nodeOperationInvocation invoke];
@@ -335,7 +334,7 @@ BOOL isOptionKeyDown()
 					[NSApp beginSheet: conflictErrorWindow
 						modalForWindow: [_outline window]
 						modalDelegate: self
-						didEndSelector: @selector(didEndSheet:returnCode:contextInfo:)
+						didEndSelector: @selector(didEndAskReplaceSheet:returnCode:contextInfo:)
 						contextInfo: nil];
 				}
 				return;
