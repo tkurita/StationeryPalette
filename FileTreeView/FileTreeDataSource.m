@@ -162,8 +162,9 @@ BOOL isOptionKeyDown()
 
 - (void)setupConflictMessage:fileName
 {
+	NSString *localized_operation_name = NSLocalizedString(currentOperationName, @"");
 	[conflictMessage setStringValue:
-		[NSString stringWithFormat:conflictMessageTemplate, fileName, currentOperationName]];
+		[NSString stringWithFormat:conflictMessageTemplate, fileName, localized_operation_name]];
 }
 #pragma mark methods of subcontract of drag&drop
 - (NSInvocation *)setupAfterSheetInvocation:(SEL)aSelector

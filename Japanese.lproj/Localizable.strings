@@ -21,3 +21,6 @@
 "Show StationaryPalette Help." = "StationeryPalette のヘルプを表示";
 "Check for Updates" = "アップデートをチェック";
 "Check for Updates of newest StationeryPalette." = "最新の StationeryPalette のアップデートをチェックします。";
+/* opetaion names */
+"moving" = "移動中";
+"copying" = "コピー中";
