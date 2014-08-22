@@ -332,6 +332,8 @@ BOOL isOptionKeyDown()
 					[afterSheetInvocation setArgument:&targetNode atIndex:2];
 					currentOperationName = @"moving";
 					[self setupConflictMessage:[[targetNode nodeData] name]];
+					[iconInConflictErrorWindow setImage:
+						[[NSWorkspace sharedWorkspace] iconForFile:[[targetNode nodeData] path]]];
 					[NSApp beginSheet: conflictErrorWindow
 						modalForWindow: [_outline window]
 						modalDelegate: self
