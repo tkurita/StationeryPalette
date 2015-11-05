@@ -5,6 +5,7 @@
 #import "NSOutlineView_Extensions.h"
 #import "PathExtra.h"
 #import "Sparkle/SUUpdater.h"
+#import "SmartActivate.h"
 
 #define useLog 0
 
@@ -328,6 +329,12 @@ void cleanupFolderContents(NSString *path)
 {
 	[self showWindow:sender];
 	NSDictionary *error_dict = nil;
+    /* for 10.8's Finder's insertion location bug */
+    [NSApp activateIgnoringOtherApps:YES];
+    [SmartActivate activateAppOfIdentifier:@"com.apple.finder"];
+    //[[[NSRunningApplication runningApplicationsWithBundleIdentifier:@"com.apple.finder"] lastObject] activateWithOptions:NSApplicationActivateIgnoringOtherApps]; //No efferct
+    [NSApp activateIgnoringOtherApps:YES];
+    /* end for 10.8 */
 	NSAppleEventDescriptor *scriptResult = [insertionLocationScript executeAndReturnError:&error_dict];
 	if (error_dict != nil) {
 		#if useLog
