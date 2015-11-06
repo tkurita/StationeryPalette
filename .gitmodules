@@ -1,0 +1,9 @@
+[submodule "DonationReminder"]
+	path = DonationReminder
+	url = https://tkurita@github.com/tkurita/DonationReminder.git
+[submodule "DropBox"]
+	path = DropBox
+	url = https://tkurita@github.com/tkurita/DropBox.git
+[submodule "PathExtra"]
+	path = PathExtra
+	url = https://tkurita@github.com/tkurita/PathExtra.git
