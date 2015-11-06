@@ -21,6 +21,7 @@
 
 /* Begin PBXBuildFile section */
 		2C17FD290C1AFE75008E63D6 /* ServicesMenu.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2C17FD280C1AFE75008E63D6 /* ServicesMenu.strings */; };
+		2C1DC0BF1BEC8F680071AF1C /* NSRunningApplication+SmartActivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1DC0BD1BEC8F680071AF1C /* NSRunningApplication+SmartActivate.m */; };
 		2C1E925D0B3841330086DB87 /* FileTreeDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1E924B0B3841330086DB87 /* FileTreeDataSource.m */; };
 		2C1E925E0B3841330086DB87 /* FileTreeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1E924D0B3841330086DB87 /* FileTreeNode.m */; };
 		2C1E925F0B3841330086DB87 /* FileTreeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1E924F0B3841330086DB87 /* FileTreeView.m */; };
@@ -52,8 +53,6 @@
 		2CB056390B3AA04E00315976 /* InsertionLocation.applescript in AppleScript */ = {isa = PBXBuildFile; fileRef = 2CB0558A0B3A9EE400315976 /* InsertionLocation.applescript */; settings = {ATTRIBUTES = (Debug, ); }; };
 		2CEBB13A0B40036300040DD0 /* DonationReminder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEBB1390B40036300040DD0 /* DonationReminder.framework */; };
 		2CEBB14D0B40042100040DD0 /* DonationReminder.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2CEBB1390B40036300040DD0 /* DonationReminder.framework */; };
-		2CF2A6D61B2039D4005CF7AC /* SmartActivate.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CF2A6D31B2039D4005CF7AC /* SmartActivate.c */; };
-		2CF2A6D81B2039D4005CF7AC /* SmartActivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF2A6D51B2039D4005CF7AC /* SmartActivate.m */; };
 		2CF3F22D1354351D00872A83 /* StationeryPalette.icns in Resources */ = {isa = PBXBuildFile; fileRef = 2CF3F22C1354351D00872A83 /* StationeryPalette.icns */; };
 		2CF70C0D1BEC3F4200786EBD /* DropBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF70C061BEC3F4200786EBD /* DropBox.m */; };
 		2CF70C0F1BEC3F4200786EBD /* HFSTypeUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF70C081BEC3F4200786EBD /* HFSTypeUtils.m */; };
@@ -88,6 +87,8 @@
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		2C17FD240C1AFE6A008E63D6 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/ServicesMenu.strings; sourceTree = "<group>"; };
+		2C1DC0BC1BEC8F680071AF1C /* NSRunningApplication+SmartActivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSRunningApplication+SmartActivate.h"; sourceTree = "<group>"; };
+		2C1DC0BD1BEC8F680071AF1C /* NSRunningApplication+SmartActivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSRunningApplication+SmartActivate.m"; sourceTree = "<group>"; };
 		2C1E924A0B3841330086DB87 /* FileTreeDataSource.h */ = {isa = PBXFileReference; fileEncoding = 2147483649; lastKnownFileType = sourcecode.c.h; path = FileTreeDataSource.h; sourceTree = "<group>"; };
 		2C1E924B0B3841330086DB87 /* FileTreeDataSource.m */ = {isa = PBXFileReference; fileEncoding = 2147483649; lastKnownFileType = sourcecode.c.objc; path = FileTreeDataSource.m; sourceTree = "<group>"; };
 		2C1E924C0B3841330086DB87 /* FileTreeNode.h */ = {isa = PBXFileReference; fileEncoding = 2147483649; lastKnownFileType = sourcecode.c.h; path = FileTreeNode.h; sourceTree = "<group>"; };
@@ -136,9 +137,6 @@
 		2CEF6B7214EC1E2200C9A9B3 /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Japanese; path = Japanese.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2CEF6B7314EC1EC200C9A9B3 /* Japanese */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = Japanese; path = Japanese.lproj/ServicesMenu.strings; sourceTree = "<group>"; };
 		2CEF6B7414EC1F1400C9A9B3 /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Japanese; path = Japanese.lproj/FileTreeWindow.nib; sourceTree = "<group>"; };
-		2CF2A6D31B2039D4005CF7AC /* SmartActivate.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SmartActivate.c; sourceTree = "<group>"; };
-		2CF2A6D41B2039D4005CF7AC /* SmartActivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartActivate.h; sourceTree = "<group>"; };
-		2CF2A6D51B2039D4005CF7AC /* SmartActivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmartActivate.m; sourceTree = "<group>"; };
 		2CF3F22C1354351D00872A83 /* StationeryPalette.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = StationeryPalette.icns; sourceTree = "<group>"; };
 		2CF70C051BEC3F4200786EBD /* DropBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropBox.h; sourceTree = "<group>"; };
 		2CF70C061BEC3F4200786EBD /* DropBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropBox.m; sourceTree = "<group>"; };
@@ -169,6 +167,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				2C1DC0BC1BEC8F680071AF1C /* NSRunningApplication+SmartActivate.h */,
+				2C1DC0BD1BEC8F680071AF1C /* NSRunningApplication+SmartActivate.m */,
 				2C458ABB0B37E6A70020C796 /* AppController.h */,
 				2C458ABC0B37E6A70020C796 /* AppController.m */,
 				2C458C630B37F7D40020C796 /* FileTreeWindowController.h */,
@@ -211,10 +211,9 @@
 		29B97314FDCFA39411CA2CEA /* FileListTest */ = {
 			isa = PBXGroup;
 			children = (
+				2CA09BF10B3FCF000043BE9D /* History.rd */,
 				2CF70C041BEC3F4200786EBD /* DropBox */,
 				2CF70C091BEC3F4200786EBD /* PathExtra */,
-				2CA09BF10B3FCF000043BE9D /* History.rd */,
-				2CF2A6D21B2039D4005CF7AC /* SmartActivateLib */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				2C1E92490B3841330086DB87 /* FileTreeView */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
@@ -309,16 +308,6 @@
 				2C4493B90B3BD77800D6F290 /* KeyedUnarchiveFromDataTransformer.m */,
 			);
 			name = "Unused Sources";
-			sourceTree = "<group>";
-		};
-		2CF2A6D21B2039D4005CF7AC /* SmartActivateLib */ = {
-			isa = PBXGroup;
-			children = (
-				2CF2A6D31B2039D4005CF7AC /* SmartActivate.c */,
-				2CF2A6D41B2039D4005CF7AC /* SmartActivate.h */,
-				2CF2A6D51B2039D4005CF7AC /* SmartActivate.m */,
-			);
-			path = SmartActivateLib;
 			sourceTree = "<group>";
 		};
 		2CF70C041BEC3F4200786EBD /* DropBox */ = {
@@ -482,11 +471,10 @@
 				2C1E92630B3841330086DB87 /* NSOutlineView_Extensions.m in Sources */,
 				2C270BC40B39201200955F77 /* TreeNode.m in Sources */,
 				2C92324017FA5AE100C47BAB /* FileNameComboBox.m in Sources */,
-				2CF2A6D61B2039D4005CF7AC /* SmartActivate.c in Sources */,
-				2CF2A6D81B2039D4005CF7AC /* SmartActivate.m in Sources */,
 				2CF70C0D1BEC3F4200786EBD /* DropBox.m in Sources */,
 				2CF70C0F1BEC3F4200786EBD /* HFSTypeUtils.m in Sources */,
 				2CF70C111BEC3F4200786EBD /* PathExtra.m in Sources */,
+				2C1DC0BF1BEC8F680071AF1C /* NSRunningApplication+SmartActivate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
