@@ -23,6 +23,7 @@
 	NSTableColumn *column = [self tableColumnWithIdentifier:mainColumnID];
     ImageAndTextCell *imageAndTextCell = [[[ImageAndTextCell alloc] init] 
 															autorelease];
+    [imageAndTextCell setFont:[NSFont systemFontOfSize:[NSFont systemFontSize]]];
     [imageAndTextCell setEditable: YES];
     [column setDataCell:imageAndTextCell];
 }

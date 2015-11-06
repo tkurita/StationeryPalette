@@ -50,6 +50,7 @@
 		2C458C650B37F7D40020C796 /* FileTreeWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C458C640B37F7D40020C796 /* FileTreeWindowController.m */; };
 		2C458C920B37F88B0020C796 /* FileTreeWindow.nib in Resources */ = {isa = PBXBuildFile; fileRef = 2C458C900B37F88B0020C796 /* FileTreeWindow.nib */; };
 		2C58A4390B0A090F003E345E /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C58A4380B0A090F003E345E /* Carbon.framework */; };
+		2C65B3BC1BECA4230009D27D /* ImageAndTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C65B3BB1BECA4230009D27D /* ImageAndTextCell.m */; };
 		2C92324017FA5AE100C47BAB /* FileNameComboBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C92323E17FA5AE100C47BAB /* FileNameComboBox.m */; };
 		2CA09BF30B3FD9250043BE9D /* Stationery.zip in Resources */ = {isa = PBXBuildFile; fileRef = 2CA09BF20B3FD9250043BE9D /* Stationery.zip */; };
 		2CB056390B3AA04E00315976 /* InsertionLocation.applescript in AppleScript */ = {isa = PBXBuildFile; fileRef = 2CB0558A0B3A9EE400315976 /* InsertionLocation.applescript */; settings = {ATTRIBUTES = (Debug, ); }; };
@@ -143,6 +144,8 @@
 		2C458C640B37F7D40020C796 /* FileTreeWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileTreeWindowController.m; sourceTree = "<group>"; };
 		2C458C910B37F88B0020C796 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/FileTreeWindow.nib; sourceTree = "<group>"; };
 		2C58A4380B0A090F003E345E /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
+		2C65B3BA1BECA4230009D27D /* ImageAndTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageAndTextCell.h; sourceTree = "<group>"; };
+		2C65B3BB1BECA4230009D27D /* ImageAndTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageAndTextCell.m; sourceTree = "<group>"; };
 		2C92323D17FA5AE100C47BAB /* FileNameComboBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileNameComboBox.h; sourceTree = "<group>"; };
 		2C92323E17FA5AE100C47BAB /* FileNameComboBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileNameComboBox.m; sourceTree = "<group>"; };
 		2CA09BF10B3FCF000043BE9D /* History.rd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = History.rd; path = ../../History.rd; sourceTree = SOURCE_ROOT; };
@@ -228,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				2CA09BF10B3FCF000043BE9D /* History.rd */,
+				2C65B3B91BECA4230009D27D /* ImageAndTextCell */,
 				2CF70C041BEC3F4200786EBD /* DropBox */,
 				2CF70C091BEC3F4200786EBD /* PathExtra */,
 				080E96DDFE201D6D7F000001 /* Classes */,
@@ -323,6 +327,15 @@
 				2C1E943A0B38B4670086DB87 /* Reload.png */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		2C65B3B91BECA4230009D27D /* ImageAndTextCell */ = {
+			isa = PBXGroup;
+			children = (
+				2C65B3BA1BECA4230009D27D /* ImageAndTextCell.h */,
+				2C65B3BB1BECA4230009D27D /* ImageAndTextCell.m */,
+			);
+			path = ImageAndTextCell;
 			sourceTree = "<group>";
 		};
 		2CD68A6D0B3D7A21008B45F9 /* Unused Sources */ = {
@@ -504,6 +517,7 @@
 				2CF70C111BEC3F4200786EBD /* PathExtra.m in Sources */,
 				2C1DC0BF1BEC8F680071AF1C /* NSRunningApplication+SmartActivate.m in Sources */,
 				2C1DC0C31BEC93E90071AF1C /* NSString+StationeryFlag.m in Sources */,
+				2C65B3BC1BECA4230009D27D /* ImageAndTextCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
