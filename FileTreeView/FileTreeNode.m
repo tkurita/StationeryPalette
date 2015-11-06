@@ -23,7 +23,7 @@ NSString *ORDER_CHACHE_NAME = @"order.plist";
 - (BOOL)updateDisplayName
 {
 	NSFileManager *file_manager = [NSFileManager defaultManager];
-	NSString *current_name = [file_manager displayNameAtPath:[alias path]];
+	NSString *current_name = [file_manager displayNameAtPath:[self path]];
 	if (![displayName isEqualToString:current_name]) {
 		[self setDisplayName:current_name];
 		return YES;
@@ -39,7 +39,6 @@ NSString *ORDER_CHACHE_NAME = @"order.plist";
 	[displayName release];
 	[_iconImage release];
 	[kind release];
-	[alias release];
 	[super dealloc];
 }
 
@@ -47,7 +46,7 @@ NSString *ORDER_CHACHE_NAME = @"order.plist";
 {
 	BOOL is_updated = NO;
 	NSFileManager *file_manager = [NSFileManager defaultManager];
-	NSString *a_path = [alias path];
+	NSString *a_path = [self path];
 	NSString *current_name = [file_manager displayNameAtPath:a_path];
 	if (![displayName isEqualToString:current_name]) {
 		[self setDisplayName:current_name];
@@ -79,7 +78,7 @@ NSString *ORDER_CHACHE_NAME = @"order.plist";
 - (void)loadFileInfo
 {		
 	NSFileManager *file_manager = [NSFileManager defaultManager];
-	NSString *aPath = [alias path];
+	NSString *aPath = [self path];
 	[self setAttributes:[file_manager fileAttributesAtPath:aPath traverseLink:YES]];
 	[self setDisplayName:[file_manager displayNameAtPath:aPath]];
 	
@@ -104,12 +103,6 @@ NSString *ORDER_CHACHE_NAME = @"order.plist";
 }
 
 #pragma mark accessors
-- (void)setAlias:(NDAlias *)theAlias
-{
-	[theAlias retain];
-	[alias release];
-	alias = theAlias;
-}
 
 - (BOOL)isContainer
 {
@@ -118,19 +111,31 @@ NSString *ORDER_CHACHE_NAME = @"order.plist";
 
 - (BOOL)setPath:(NSString *)path
 {
-	BOOL result = YES;
-	if (alias == nil) {
-		[self setAlias:[NDAlias aliasWithPath:path]];
-	}
-	else {
-		result = [alias setPath:path];
-	}
-	return result;
+    NSError *error = nil;
+    self.bookmarkData = [[NSURL fileURLWithPath:path] bookmarkDataWithOptions:0
+                                               includingResourceValuesForKeys:nil
+                                                                relativeToURL:nil
+                                                                        error:&error];
+    if (error) {
+        [NSApp presentError:error];
+        return NO;
+    }
+	return YES;
 }
 
 - (NSString *)path
 {
-	return [alias path];
+    
+	BOOL is_stale;
+    NSError *error = nil;
+    NSURL *url = [NSURL URLByResolvingBookmarkData:_bookmarkData
+                                           options:0 relativeToURL:NULL
+                               bookmarkDataIsStale:&is_stale error:&error];
+    if (error) {
+        [NSApp presentError:error];
+        return nil;
+    }
+    return [url path];
 }
 
 - (void)setDisplayName:(NSString*)aName
@@ -186,7 +191,7 @@ NSString *ORDER_CHACHE_NAME = @"order.plist";
 
 - (NSString *)name
 {
-	return [[alias path] lastPathComponent];
+	return [[self path] lastPathComponent];
 }
 
 - (NSString *)displayName

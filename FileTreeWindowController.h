@@ -1,5 +1,4 @@
 #import <Cocoa/Cocoa.h>
-#import "NDAlias.h"
 #import "DropBox.h"
 
 @interface FileTreeWindowController : NSWindowController <DropBoxDragAndDrop> {
@@ -12,13 +11,14 @@
 	
     NSMutableDictionary *toolbarItems; //The dictionary that holds all our "master" copies of the NSToolbarItems
 	NSAppleScript *insertionLocationScript;
-	NDAlias *insertionLocation;
 	BOOL shouldOpenFile;
 	BOOL isFirstOpen;
 	NSString *untitledName;
 	//FileTreeView *previousSelection;
 	NSString *previousSelectionName;
 }
+
+@property (retain) NSData *insertionLocationBookmark;
 
 - (IBAction)newFileFromStationery:(id)sender;
 - (IBAction)cancelAction:(id)sender;

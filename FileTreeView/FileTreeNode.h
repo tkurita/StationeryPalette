@@ -1,6 +1,5 @@
 #import <Cocoa/Cocoa.h>
 #import "TreeNode.h"
-#import "NDAlias.h"
 
 extern NSString *ORDER_CHACHE_NAME;
 
@@ -11,8 +10,9 @@ extern NSString *ORDER_CHACHE_NAME;
 	NSImage *_iconImage;
 	NSString *kind;
 	BOOL _isContainer;
-	NDAlias *alias;
 }
+
+@property(retain) NSData *bookmarkData;
 
 + (id)fileTreeNodeDataWithPath:(NSString *)path;
 - (id)initWithPath:(NSString *)path;
@@ -27,7 +27,6 @@ extern NSString *ORDER_CHACHE_NAME;
 - (NSString *)displayName;
 - (NSImage *)iconImage;
 - (NSString *)kind;
-- (void)setAlias:(NDAlias *)theAlias;
 - (NSString *)originalPath;
 - (NSString *)typeCode;
 - (NSString *)fileType;

@@ -68,6 +68,7 @@ static void addToolbarItem(NSMutableDictionary *theDict, NSString *identifier, N
 	[toolbarItems release];
 	[insertionLocationScript release];
 	[untitledName release];
+    self.insertionLocationBookmark = nil;
 	[super dealloc];
 }
 
@@ -109,8 +110,30 @@ static void addToolbarItem(NSMutableDictionary *theDict, NSString *identifier, N
 
 - (void)setInsertionLocation:(NSString *)path
 {
-	[insertionLocation release];
-	insertionLocation = [[NDAlias aliasWithPath:path] retain];;
+    NSError *error = nil;
+    self.insertionLocationBookmark = [[NSURL fileURLWithPath:path]
+                                             bookmarkDataWithOptions:0
+                                      includingResourceValuesForKeys:nil
+                                                        relativeToURL:0
+                                                            error:&error];
+    if (error) {
+        [NSApp presentError:error];
+    }
+}
+
+- (NSURL *)insertionLocation
+{
+    BOOL is_stale = NO;
+    NSError *error = nil;
+    NSURL *url = [NSURL URLByResolvingBookmarkData:_insertionLocationBookmark
+                                           options:0
+                                     relativeToURL:NULL
+                               bookmarkDataIsStale:&is_stale
+                                             error:&error];
+    if (error) {
+       [NSApp presentError:error];
+    }
+    return url;
 }
 
 #pragma mark actions
@@ -202,7 +225,7 @@ void cleanupFolderContents(NSString *path)
 		file_name = [file_name stringByAppendingPathExtension:source_suffix];
 	}
 	
-	NSString *destination_path = [insertionLocation path];
+	NSString *destination_path = [[self insertionLocation] path];
 	NSString *target_path = [destination_path stringByAppendingPathComponent:file_name];
 	
 	if (![file_manager copyPath:source_path toPath:target_path handler:nil] ) {
