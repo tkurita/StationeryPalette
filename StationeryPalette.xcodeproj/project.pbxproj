@@ -25,12 +25,11 @@
 		2C1DC0C31BEC93E90071AF1C /* NSString+StationeryFlag.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1DC0C11BEC93E90071AF1C /* NSString+StationeryFlag.m */; };
 		2C1DC0CC1BEC95B60071AF1C /* DonationReminder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C1DC0C91BEC95580071AF1C /* DonationReminder.framework */; };
 		2C1DC0CD1BEC95CA0071AF1C /* DonationReminder.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2C1DC0C91BEC95580071AF1C /* DonationReminder.framework */; };
-		2C1DC0D31BEC97AA0071AF1C /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C1DC0D11BEC97550071AF1C /* Sparkle.framework */; };
 		2C1DC0D51BEC97C80071AF1C /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2C1DC0D11BEC97550071AF1C /* Sparkle.framework */; };
+		2C1DC0D61BEC98330071AF1C /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C1DC0D11BEC97550071AF1C /* Sparkle.framework */; };
 		2C1E925D0B3841330086DB87 /* FileTreeDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1E924B0B3841330086DB87 /* FileTreeDataSource.m */; };
 		2C1E925E0B3841330086DB87 /* FileTreeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1E924D0B3841330086DB87 /* FileTreeNode.m */; };
 		2C1E925F0B3841330086DB87 /* FileTreeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1E924F0B3841330086DB87 /* FileTreeView.m */; };
-		2C1E92600B3841330086DB87 /* ImageAndTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1E92520B3841330086DB87 /* ImageAndTextCell.m */; };
 		2C1E92620B3841330086DB87 /* NSArray_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1E92560B3841330086DB87 /* NSArray_Extensions.m */; };
 		2C1E92630B3841330086DB87 /* NSOutlineView_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1E92580B3841330086DB87 /* NSOutlineView_Extensions.m */; };
 		2C1E943D0B38B4680086DB87 /* Reload.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C1E943A0B38B4670086DB87 /* Reload.png */; };
@@ -117,8 +116,6 @@
 		2C1E924E0B3841330086DB87 /* FileTreeView.h */ = {isa = PBXFileReference; fileEncoding = 2147483649; lastKnownFileType = sourcecode.c.h; path = FileTreeView.h; sourceTree = "<group>"; };
 		2C1E924F0B3841330086DB87 /* FileTreeView.m */ = {isa = PBXFileReference; fileEncoding = 2147483649; lastKnownFileType = sourcecode.c.objc; path = FileTreeView.m; sourceTree = "<group>"; };
 		2C1E92500B3841330086DB87 /* FileTreeViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 2147483649; lastKnownFileType = sourcecode.c.h; path = FileTreeViewDataSource.h; sourceTree = "<group>"; };
-		2C1E92510B3841330086DB87 /* ImageAndTextCell.h */ = {isa = PBXFileReference; fileEncoding = 2147483649; lastKnownFileType = sourcecode.c.h; path = ImageAndTextCell.h; sourceTree = "<group>"; };
-		2C1E92520B3841330086DB87 /* ImageAndTextCell.m */ = {isa = PBXFileReference; fileEncoding = 2147483649; lastKnownFileType = sourcecode.c.objc; path = ImageAndTextCell.m; sourceTree = "<group>"; };
 		2C1E92550B3841330086DB87 /* NSArray_Extensions.h */ = {isa = PBXFileReference; fileEncoding = 2147483649; lastKnownFileType = sourcecode.c.h; path = NSArray_Extensions.h; sourceTree = "<group>"; };
 		2C1E92560B3841330086DB87 /* NSArray_Extensions.m */ = {isa = PBXFileReference; fileEncoding = 2147483649; lastKnownFileType = sourcecode.c.objc; path = NSArray_Extensions.m; sourceTree = "<group>"; };
 		2C1E92570B3841330086DB87 /* NSOutlineView_Extensions.h */ = {isa = PBXFileReference; fileEncoding = 2147483649; lastKnownFileType = sourcecode.c.h; path = NSOutlineView_Extensions.h; sourceTree = "<group>"; };
@@ -176,7 +173,7 @@
 				2C1DC0CC1BEC95B60071AF1C /* DonationReminder.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				2C58A4390B0A090F003E345E /* Carbon.framework in Frameworks */,
-				2C1DC0D31BEC97AA0071AF1C /* Sparkle.framework in Frameworks */,
+				2C1DC0D61BEC98330071AF1C /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,8 +301,6 @@
 				2C1E924E0B3841330086DB87 /* FileTreeView.h */,
 				2C1E924F0B3841330086DB87 /* FileTreeView.m */,
 				2C1E92500B3841330086DB87 /* FileTreeViewDataSource.h */,
-				2C1E92510B3841330086DB87 /* ImageAndTextCell.h */,
-				2C1E92520B3841330086DB87 /* ImageAndTextCell.m */,
 				2C1E92550B3841330086DB87 /* NSArray_Extensions.h */,
 				2C1E92560B3841330086DB87 /* NSArray_Extensions.m */,
 				2C1E92570B3841330086DB87 /* NSOutlineView_Extensions.h */,
@@ -500,7 +495,6 @@
 				2C1E925D0B3841330086DB87 /* FileTreeDataSource.m in Sources */,
 				2C1E925E0B3841330086DB87 /* FileTreeNode.m in Sources */,
 				2C1E925F0B3841330086DB87 /* FileTreeView.m in Sources */,
-				2C1E92600B3841330086DB87 /* ImageAndTextCell.m in Sources */,
 				2C1E92620B3841330086DB87 /* NSArray_Extensions.m in Sources */,
 				2C1E92630B3841330086DB87 /* NSOutlineView_Extensions.m in Sources */,
 				2C270BC40B39201200955F77 /* TreeNode.m in Sources */,

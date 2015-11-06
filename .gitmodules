@@ -7,3 +7,6 @@
 [submodule "PathExtra"]
 	path = PathExtra
 	url = https://tkurita@github.com/tkurita/PathExtra.git
+[submodule "ImageAndTextCell"]
+	path = ImageAndTextCell
+	url = https://github.com/tkurita/ImageAndTextCell.git
