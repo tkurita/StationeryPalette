@@ -22,6 +22,7 @@
 /* Begin PBXBuildFile section */
 		2C17FD290C1AFE75008E63D6 /* ServicesMenu.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2C17FD280C1AFE75008E63D6 /* ServicesMenu.strings */; };
 		2C1DC0BF1BEC8F680071AF1C /* NSRunningApplication+SmartActivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1DC0BD1BEC8F680071AF1C /* NSRunningApplication+SmartActivate.m */; };
+		2C1DC0C31BEC93E90071AF1C /* NSString+StationeryFlag.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1DC0C11BEC93E90071AF1C /* NSString+StationeryFlag.m */; };
 		2C1E925D0B3841330086DB87 /* FileTreeDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1E924B0B3841330086DB87 /* FileTreeDataSource.m */; };
 		2C1E925E0B3841330086DB87 /* FileTreeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1E924D0B3841330086DB87 /* FileTreeNode.m */; };
 		2C1E925F0B3841330086DB87 /* FileTreeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1E924F0B3841330086DB87 /* FileTreeView.m */; };
@@ -89,6 +90,8 @@
 		2C17FD240C1AFE6A008E63D6 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/ServicesMenu.strings; sourceTree = "<group>"; };
 		2C1DC0BC1BEC8F680071AF1C /* NSRunningApplication+SmartActivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSRunningApplication+SmartActivate.h"; sourceTree = "<group>"; };
 		2C1DC0BD1BEC8F680071AF1C /* NSRunningApplication+SmartActivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSRunningApplication+SmartActivate.m"; sourceTree = "<group>"; };
+		2C1DC0C01BEC93E90071AF1C /* NSString+StationeryFlag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+StationeryFlag.h"; sourceTree = "<group>"; };
+		2C1DC0C11BEC93E90071AF1C /* NSString+StationeryFlag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+StationeryFlag.m"; sourceTree = "<group>"; };
 		2C1E924A0B3841330086DB87 /* FileTreeDataSource.h */ = {isa = PBXFileReference; fileEncoding = 2147483649; lastKnownFileType = sourcecode.c.h; path = FileTreeDataSource.h; sourceTree = "<group>"; };
 		2C1E924B0B3841330086DB87 /* FileTreeDataSource.m */ = {isa = PBXFileReference; fileEncoding = 2147483649; lastKnownFileType = sourcecode.c.objc; path = FileTreeDataSource.m; sourceTree = "<group>"; };
 		2C1E924C0B3841330086DB87 /* FileTreeNode.h */ = {isa = PBXFileReference; fileEncoding = 2147483649; lastKnownFileType = sourcecode.c.h; path = FileTreeNode.h; sourceTree = "<group>"; };
@@ -167,6 +170,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				2C1DC0C01BEC93E90071AF1C /* NSString+StationeryFlag.h */,
+				2C1DC0C11BEC93E90071AF1C /* NSString+StationeryFlag.m */,
 				2C1DC0BC1BEC8F680071AF1C /* NSRunningApplication+SmartActivate.h */,
 				2C1DC0BD1BEC8F680071AF1C /* NSRunningApplication+SmartActivate.m */,
 				2C458ABB0B37E6A70020C796 /* AppController.h */,
@@ -475,6 +480,7 @@
 				2CF70C0F1BEC3F4200786EBD /* HFSTypeUtils.m in Sources */,
 				2CF70C111BEC3F4200786EBD /* PathExtra.m in Sources */,
 				2C1DC0BF1BEC8F680071AF1C /* NSRunningApplication+SmartActivate.m in Sources */,
+				2C1DC0C31BEC93E90071AF1C /* NSString+StationeryFlag.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
