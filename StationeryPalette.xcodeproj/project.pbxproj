@@ -122,6 +122,10 @@
 		2C1E92570B3841330086DB87 /* NSOutlineView_Extensions.h */ = {isa = PBXFileReference; fileEncoding = 2147483649; lastKnownFileType = sourcecode.c.h; path = NSOutlineView_Extensions.h; sourceTree = "<group>"; };
 		2C1E92580B3841330086DB87 /* NSOutlineView_Extensions.m */ = {isa = PBXFileReference; fileEncoding = 2147483649; lastKnownFileType = sourcecode.c.objc; path = NSOutlineView_Extensions.m; sourceTree = "<group>"; };
 		2C1E943A0B38B4670086DB87 /* Reload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Reload.png; sourceTree = "<group>"; };
+		2C24B1341C3E94D200F074EF /* localize.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = localize.mk; sourceTree = "<group>"; };
+		2C24B1351C3E94D200F074EF /* localize_ib.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = localize_ib.mk; sourceTree = "<group>"; };
+		2C24B1361C3E94D200F074EF /* localize_ib.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = localize_ib.sh; sourceTree = "<group>"; };
+		2C24B1371C3E94D200F074EF /* require_strings_file.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = require_strings_file.sh; sourceTree = "<group>"; };
 		2C270B070B38BEBC00955F77 /* new_folder.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = new_folder.icns; sourceTree = "<group>"; };
 		2C270B0B0B38BFAB00955F77 /* rename.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rename.png; sourceTree = "<group>"; };
 		2C270BC20B39201200955F77 /* TreeNode.h */ = {isa = PBXFileReference; fileEncoding = 2147483649; lastKnownFileType = sourcecode.c.h; path = TreeNode.h; sourceTree = "<group>"; };
@@ -238,6 +242,7 @@
 				2C1E92490B3841330086DB87 /* FileTreeView */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
+				2C24B1331C3E94D100F074EF /* LocalizeTools */,
 				2CD68A6D0B3D7A21008B45F9 /* Unused Sources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
@@ -327,6 +332,17 @@
 				2C1E943A0B38B4670086DB87 /* Reload.png */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		2C24B1331C3E94D100F074EF /* LocalizeTools */ = {
+			isa = PBXGroup;
+			children = (
+				2C24B1341C3E94D200F074EF /* localize.mk */,
+				2C24B1351C3E94D200F074EF /* localize_ib.mk */,
+				2C24B1361C3E94D200F074EF /* localize_ib.sh */,
+				2C24B1371C3E94D200F074EF /* require_strings_file.sh */,
+			);
+			path = LocalizeTools;
 			sourceTree = "<group>";
 		};
 		2C65B3B91BECA4230009D27D /* ImageAndTextCell */ = {
@@ -482,18 +498,12 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/English.lproj/MainMenu.nib",
-				"$(SRCROOT)/English.lproj/FileTreeWindow.nib",
-				"$(SRCROOT)/Japanese.lproj/MainMenu.strings",
-				"$(SRCROOT)/Japanese.lproj/FileTreeWindow.strings",
 			);
 			outputPaths = (
-				"$(SRCROOT)/Japanese.lproj/MainMenu.nib",
-				"$(SRCROOT)/Japanese.lproj/FileTreeWindow.nib",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Extract English strings (use this to check if you added new strings to your nibs)\n#ibtool --generate-strings-file Resources/English.lproj/MainWindow.strings Resources/#English.lproj/MainWindow.xib\n# Generate Localized interface\n\nfunction generate_localized_interface\n{\nbase_lang=$1\ntarget_lang=$2\ntarget_nib=$3\n\nnib_basename=`basename ${target_nib} .nib` \nibtool --strings-file ${target_lang}.lproj/${nib_basename}.strings --write ${target_lang}.lproj/${target_nib} ${base_lang}.lproj/${target_nib}\nrm -rf ${target_lang}.lproj/${target_nib}/.svn\n}\n\ngenerate_localized_interface English Japanese MainMenu.nib\ngenerate_localized_interface English Japanese FileTreeWindow.nib\n\n\n";
+			shellScript = "make -f LocalizeTools/localize.mk target_lang=Japanese\n\n\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
