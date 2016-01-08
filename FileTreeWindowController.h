@@ -10,7 +10,6 @@
 	IBOutlet id fileNameField;
 	IBOutlet id saveToBox;
 	
-    NSMutableDictionary *toolbarItems; //The dictionary that holds all our "master" copies of the NSToolbarItems
 	NSAppleScript *insertionLocationScript;
 	BOOL shouldOpenFile;
 	BOOL isFirstOpen;
