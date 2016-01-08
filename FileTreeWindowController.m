@@ -24,6 +24,7 @@ void showScriptError(NSDictionary *errorDict)
 	[alert release];
 }
 
+/*
 static void addToolbarItem(NSMutableDictionary *theDict, NSString *identifier, NSString *label, NSString *paletteLabel, NSString *toolTip,
 		id target,SEL settingSelector, id itemContent,SEL action, NSMenu * menu)
 {
@@ -55,6 +56,7 @@ static void addToolbarItem(NSMutableDictionary *theDict, NSString *identifier, N
     // it (above).
     [theDict setObject:item forKey:identifier];
 }
+ */
 
 @implementation FileTreeWindowController
 
@@ -65,7 +67,7 @@ static void addToolbarItem(NSMutableDictionary *theDict, NSString *identifier, N
 //}
 
 - (void) dealloc {
-	[toolbarItems release];
+	//[toolbarItems release];
 	[insertionLocationScript release];
 	[untitledName release];
     self.insertionLocationBookmark = nil;
@@ -279,6 +281,11 @@ void cleanupFolderContents(NSString *path)
 		modalDelegate:self didEndSelector:@selector(openPanelDidEnd:returnCode:contextInfo:) contextInfo:nil];
 }
 
+- (IBAction)checkForUpdates:(id)sender
+{
+    [[SUUpdater sharedUpdater] checkForUpdates:sender];
+}
+/*
 - (void)setupToolbar
 {
 	NSToolbar *toolbar=[[[NSToolbar alloc] initWithIdentifier:@"myToolbar"] autorelease];
@@ -321,7 +328,7 @@ void cleanupFolderContents(NSString *path)
 	tool_tip = NSLocalizedString(@"Check for Updates of newest StationeryPalette.", @"Toolbar's tool tip for CheckForUpdates");			
 	addToolbarItem(toolbarItems,@"CheckForUpdates", label, label, tool_tip,
 				   [SUUpdater sharedUpdater] , @selector(setImage:),[NSImage imageNamed:@"CheckForUpdates.png"], 
-				   @selector(checkForUpdates:), NULL);	
+				   @selector(checkForUpdates:), NULL);
 	
 	label = NSLocalizedString(@"Help", @"Toolbar's label for Help");
 	tool_tip = NSLocalizedString(@"Show StationaryPalette Help.", @"Toolbar's tool tip for Help");			
@@ -335,6 +342,7 @@ void cleanupFolderContents(NSString *path)
 	[toolbar setDisplayMode: NSToolbarDisplayModeIconOnly];
 	[[self window] setToolbar:toolbar];
 }
+*/
 
 #pragma mark delegate of NSWindow
 - (void)windowWillClose:(NSNotification *)aNotification
@@ -456,7 +464,9 @@ void cleanupFolderContents(NSString *path)
 #if useLog
 	NSLog(@"start windowDidLoad");
 #endif	
-	[self setupToolbar];
+	//[self setupToolbar];
+    [helpToolBarItem setView:helpButtonView];
+    
 	[[self window] center];
 	[[self window] setCollectionBehavior:NSWindowCollectionBehaviorCanJoinAllSpaces];
 	[self setWindowFrameAutosaveName:@"StationaryPaletteMain"];
@@ -494,6 +504,7 @@ void cleanupFolderContents(NSString *path)
 }
 
 #pragma mark delegate of Tool Bar
+/*
 - (NSToolbarItem *)toolbar:(NSToolbar *)toolbar itemForItemIdentifier:(NSString *)itemIdentifier willBeInsertedIntoToolbar:(BOOL)flag
 {
     // We create and autorelease a new NSToolbarItem, and then go through the process of setting up its
@@ -540,5 +551,5 @@ void cleanupFolderContents(NSString *path)
 				@"RevealInFinder", @"Reload",@"CheckForUpdates", @"Help",
 				NSToolbarSeparatorItemIdentifier, NSToolbarSpaceItemIdentifier, NSToolbarFlexibleSpaceItemIdentifier, nil];
 }
-
+*/
 @end

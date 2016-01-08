@@ -5,6 +5,7 @@
 	IBOutlet id fileTreeView;
 	IBOutlet id fileTreeDataSource;
 	IBOutlet NSView *helpButtonView;
+    IBOutlet NSToolbarItem *helpToolBarItem;
 	IBOutlet id saveLocationField;
 	IBOutlet id fileNameField;
 	IBOutlet id saveToBox;
