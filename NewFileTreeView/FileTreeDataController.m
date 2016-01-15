@@ -183,7 +183,9 @@ static BOOL isOptionKeyDown()
 
 - (void)setupConflictMessage:fileName forOperationName:operationName
 {
-	NSString *localized_operation = NSLocalizedString(operationName, @"");
+	NSString *localized_operation = NSLocalizedStringFromTable(operationName,
+                                                               @"FileTreeView_Localizable",
+                                                               @"");
 	[conflictMessage setStringValue:
 	 [NSString stringWithFormat:conflictMessageTemplate, fileName, localized_operation]];
 }
@@ -731,7 +733,9 @@ namesOfPromisedFilesDroppedAtDestination:(NSURL *)dropDestination
 	NSLog(@"%@", @"start makeFolder in FileTreeDataController");
 #endif
 	[self updateDestinationNode];
-    NSString *untitled_folder_name = NSLocalizedString(@"Untitled", @"The name of untitled new folder");
+    NSString *untitled_folder_name = NSLocalizedStringFromTable(@"Untitled",
+                                                                @"FileTreeView_Localizable",
+                                                                @"The name of untitled new folder");
     FileDatum *dest_fd = [_destinationNode representedObject];
 	NSString *new_path = [[dest_fd path]
                           stringByAppendingPathComponent:untitled_folder_name];
