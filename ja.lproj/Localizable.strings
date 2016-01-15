@@ -1,5 +1,3 @@
-"%@ copy" = "%@のコピー";
-"%@ copy%d" = "%1$@のコピー%2$d";
 "Appending an item into FileTreeView" = "テンプレートとして追加します。";
 "Choose copy or move" = "コピーするか移動するか選択してください。";
 "Can't change the file name" = "ファイル名を変更できません。";

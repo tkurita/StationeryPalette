@@ -1,10 +1,4 @@
-﻿/* The suffix for the dupulicated items */
-"%@ copy" = "%@ copy";
-
-/* The suffix for the dupulicated items */
-"%@ copy%d" = "%1$@ copy%2$d";
-
-/*** FileTreeDataSource.m ***/
+﻿/*** FileTreeDataSource.m ***/
 /* message to choose appending method */
 "Appending an item into FileTreeView" = "Adding the item as a template.";
 
