@@ -1,9 +1,9 @@
-#import "NewFileTreeNode.h"
+#import "FileTreeNode.h"
 #import "FileDatum.h"
 
 #define useLog 0
 
-@implementation NewFileTreeNode
+@implementation FileTreeNode
 
 @synthesize isExpanded;
 
@@ -24,7 +24,7 @@
 - (NSArray *)childNodes
 {
 #if useLog
-    NSLog(@"start childNodes in NewFileTreeNode");
+    NSLog(@"start childNodes in FileTreeNode");
 #endif
 	FileDatum *file_datum = [self representedObject];
 	if (![file_datum isChildrenLoaded]) {

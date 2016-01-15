@@ -3,7 +3,7 @@
 #import "Sparkle/SUUpdater.h"
 #import "NSRunningApplication+SmartActivate.h"
 #import "FileDatum.h"
-#import "NewFileTreeNode.h"
+#import "FileTreeNode.h"
 #import "NSString+StationeryFlag.h"
 #import "FileTreeDataController.h"
 

@@ -85,7 +85,7 @@ static BOOL isOptionKeyDown()
 }
 
 #pragma mark destinatioNode
-- (void)setDestinationWithNode:(NewFileTreeNode *)aNode atIndexPath:anIndexPath
+- (void)setDestinationWithNode:(FileTreeNode *)aNode atIndexPath:anIndexPath
 {
 	self.destinationNode = aNode;
 	self.destinationIndexPath = anIndexPath;
@@ -94,14 +94,14 @@ static BOOL isOptionKeyDown()
 - (void)updateDestinationNode
 {
     NSIndexPath *index_path = [treeController selectionIndexPath];
-    NewFileTreeNode *a_node = _rootNode;
+    FileTreeNode *a_node = _rootNode;
 	if (index_path) {
 		if ([index_path length]) {
-			a_node = (NewFileTreeNode *)[_rootNode descendantNodeAtIndexPath:index_path];
+			a_node = (FileTreeNode *)[_rootNode descendantNodeAtIndexPath:index_path];
             if ([[a_node representedObject] isContainer] && [a_node isExpanded] ) {
                 index_path = [index_path indexPathByAddingIndex:0];
             } else {
-                a_node = (NewFileTreeNode *)[a_node parentNode];
+                a_node = (FileTreeNode *)[a_node parentNode];
                 index_path = [index_path indexPathByIncrementLastIndex:1];
             }
 		} else {
@@ -122,7 +122,7 @@ static BOOL isOptionKeyDown()
 	NSLog(@"start outlineViewItemDidExpand");
 #endif	
 	NSTreeNode *controller_node = [[notification userInfo] objectForKey:@"NSObject"];
-	NewFileTreeNode *file_tree_node = [controller_node representedObject];
+	FileTreeNode *file_tree_node = [controller_node representedObject];
 	file_tree_node.isExpanded = YES;
 #if useLog
 	NSLog(@"expanned node name %@:", [[file_tree_node representedObject] name]);
@@ -136,7 +136,7 @@ static BOOL isOptionKeyDown()
 - (void)outlineViewItemDidCollapse:(NSNotification *)notification
 {
 	NSTreeNode *controller_node = [[notification userInfo] objectForKey:@"NSObject"];
-	NewFileTreeNode *file_tree_node = [controller_node representedObject];
+	FileTreeNode *file_tree_node = [controller_node representedObject];
 	file_tree_node.isExpanded = NO;
 	[(FileDatum *)[[file_tree_node parentNode] representedObject] saveOrder];
 }
@@ -144,7 +144,7 @@ static BOOL isOptionKeyDown()
 - (void)outlineView:(NSOutlineView *)olv willDisplayCell:(NSCell*)cell 
 	 forTableColumn:(NSTableColumn *)tableColumn item:(id)item
 {
-	NewFileTreeNode *file_tree_node = [item representedObject];
+	FileTreeNode *file_tree_node = [item representedObject];
 	FileDatum *a_file_data = [file_tree_node representedObject];
 	if ([[tableColumn identifier] isEqualToString:@"displayName"]) {
 		if ([cell isKindOfClass:[ImageAndTextCell class]]) {
@@ -329,7 +329,7 @@ skip:
             [NSApp presentError:err];
         }
 		
-		NewFileTreeNode *newnode = [[FileDatum fileDatumWithPath:target_path] treeNode];
+		FileTreeNode *newnode = [[FileDatum fileDatumWithPath:target_path] treeNode];
 		[child_nodes insertObject:newnode atIndex:indexes[index_len-1]++];
 	}
 }
@@ -593,7 +593,7 @@ namesOfPromisedFilesDroppedAtDestination:(NSURL *)dropDestination
         [updated_nodes addObject:[file_tree_node parentNode]];
 	}
 
-	for (NewFileTreeNode *a_node in updated_nodes) {
+	for (FileTreeNode *a_node in updated_nodes) {
 		[(FileDatum *)[a_node representedObject] saveOrder];
 	}
 }
@@ -682,7 +682,7 @@ namesOfPromisedFilesDroppedAtDestination:(NSURL *)dropDestination
 		[treeController removeObjectAtArrangedObjectIndexPath:[clicked_node indexPath]];
 	}
 	
-	for (NewFileTreeNode *a_node in updated_nodes) {
+	for (FileTreeNode *a_node in updated_nodes) {
 		[(FileDatum *)[a_node representedObject] saveOrder];
 	}
 }
@@ -865,7 +865,7 @@ namesOfPromisedFilesDroppedAtDestination:(NSURL *)dropDestination
         [NSApp presentError:err];
         return;
     }
-	NewFileTreeNode *newnode = [[FileDatum fileDatumWithPath:target_path] treeNode];
+	FileTreeNode *newnode = [[FileDatum fileDatumWithPath:target_path] treeNode];
 	[[[destination_fd treeNode] mutableChildNodes]
      insertObject:newnode atIndex:[index_path lastIndex]];
 	[destination_fd saveOrder];

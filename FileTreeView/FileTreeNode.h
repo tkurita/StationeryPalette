@@ -1,7 +1,7 @@
 #import <Cocoa/Cocoa.h>
 
 
-@interface NewFileTreeNode : NSTreeNode {
+@interface FileTreeNode : NSTreeNode {
 	BOOL isExpanded;
 }
 

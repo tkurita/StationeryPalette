@@ -1,6 +1,6 @@
 #import <Cocoa/Cocoa.h>
 #import "FileDatum.h"
-#import "NewFileTreeNode.h"
+#import "FileTreeNode.h"
 
 @interface FileTreeDataController : NSResponder {
 	IBOutlet NSTreeController *treeController;
@@ -21,11 +21,11 @@
 	NSString *conflictMessageTemplate;
 }
 
-@property (retain) NewFileTreeNode *rootNode;
+@property (retain) FileTreeNode *rootNode;
 @property (retain) FileDatum *rootDirectory;
 @property (retain) NSInvocation *afterSheetInvocation;
 @property (retain) NSIndexPath *destinationIndexPath;
-@property (retain) NewFileTreeNode *destinationNode;
+@property (retain) FileTreeNode *destinationNode;
 @property (retain) NSString *destinationPath;
 @property (retain) NSMutableArray *processedNodes;
 @property (retain) NSMutableArray *nodesToDelete;

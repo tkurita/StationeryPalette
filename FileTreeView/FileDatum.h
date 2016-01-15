@@ -1,5 +1,5 @@
 #import <Cocoa/Cocoa.h>
-#import "NewFileTreeNode.h"
+#import "FileTreeNode.h"
 
 @interface FileDatum : NSObject {
 	BOOL isChildrenLoaded;
@@ -12,7 +12,7 @@
 
 @property (assign) BOOL isContainer;
 @property (assign) BOOL shouldExpand;
-@property (assign) NewFileTreeNode *myTreeNode;
+@property (assign) FileTreeNode *myTreeNode;
 
 + (id)fileDatumWithURL:(NSURL *)anURL;
 + (id)fileDatumWithPath:(NSString *)aPath;
@@ -34,7 +34,7 @@
 - (BOOL)update;
 - (BOOL)updateChildren;
 - (NSString *)fileType;
-- (NewFileTreeNode *)treeNode;
+- (FileTreeNode *)treeNode;
 - (FileDatum *)updateBookmarkData;
 
 @end

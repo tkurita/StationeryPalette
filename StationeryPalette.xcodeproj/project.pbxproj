@@ -47,7 +47,7 @@
 		2C65B3BC1BECA4230009D27D /* ImageAndTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C65B3BB1BECA4230009D27D /* ImageAndTextCell.m */; };
 		2C88F5CC1C465F3000037F94 /* FileDatum.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C88F5C51C465F3000037F94 /* FileDatum.m */; };
 		2C88F5CD1C465F3000037F94 /* FileTreeDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C88F5C71C465F3000037F94 /* FileTreeDataController.m */; };
-		2C88F5CE1C465F3000037F94 /* NewFileTreeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C88F5C91C465F3000037F94 /* NewFileTreeNode.m */; };
+		2C88F5CE1C465F3000037F94 /* FileTreeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C88F5C91C465F3000037F94 /* FileTreeNode.m */; };
 		2C88F5CF1C465F3000037F94 /* NSIndexPath_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C88F5CB1C465F3000037F94 /* NSIndexPath_Extensions.m */; };
 		2C92324017FA5AE100C47BAB /* FileNameComboBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C92323E17FA5AE100C47BAB /* FileNameComboBox.m */; };
 		2CA09BF30B3FD9250043BE9D /* Stationery.zip in Resources */ = {isa = PBXBuildFile; fileRef = 2CA09BF20B3FD9250043BE9D /* Stationery.zip */; };
@@ -135,8 +135,8 @@
 		2C88F5C51C465F3000037F94 /* FileDatum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileDatum.m; sourceTree = "<group>"; };
 		2C88F5C61C465F3000037F94 /* FileTreeDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileTreeDataController.h; sourceTree = "<group>"; };
 		2C88F5C71C465F3000037F94 /* FileTreeDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileTreeDataController.m; sourceTree = "<group>"; };
-		2C88F5C81C465F3000037F94 /* NewFileTreeNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewFileTreeNode.h; sourceTree = "<group>"; };
-		2C88F5C91C465F3000037F94 /* NewFileTreeNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewFileTreeNode.m; sourceTree = "<group>"; };
+		2C88F5C81C465F3000037F94 /* FileTreeNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileTreeNode.h; sourceTree = "<group>"; };
+		2C88F5C91C465F3000037F94 /* FileTreeNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileTreeNode.m; sourceTree = "<group>"; };
 		2C88F5CA1C465F3000037F94 /* NSIndexPath_Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSIndexPath_Extensions.h; sourceTree = "<group>"; };
 		2C88F5CB1C465F3000037F94 /* NSIndexPath_Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSIndexPath_Extensions.m; sourceTree = "<group>"; };
 		2C92323D17FA5AE100C47BAB /* FileNameComboBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileNameComboBox.h; sourceTree = "<group>"; };
@@ -235,7 +235,7 @@
 				2CF70C041BEC3F4200786EBD /* DropBox */,
 				2CF70C091BEC3F4200786EBD /* PathExtra */,
 				080E96DDFE201D6D7F000001 /* Classes */,
-				2C88F5C31C465F3000037F94 /* NewFileTreeView */,
+				2C88F5C31C465F3000037F94 /* FileTreeView */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				2C24B1331C3E94D100F074EF /* LocalizeTools */,
@@ -330,20 +330,20 @@
 			path = ImageAndTextCell;
 			sourceTree = "<group>";
 		};
-		2C88F5C31C465F3000037F94 /* NewFileTreeView */ = {
+		2C88F5C31C465F3000037F94 /* FileTreeView */ = {
 			isa = PBXGroup;
 			children = (
 				2C88F5C41C465F3000037F94 /* FileDatum.h */,
 				2C88F5C51C465F3000037F94 /* FileDatum.m */,
 				2C88F5C61C465F3000037F94 /* FileTreeDataController.h */,
 				2C88F5C71C465F3000037F94 /* FileTreeDataController.m */,
-				2C88F5C81C465F3000037F94 /* NewFileTreeNode.h */,
-				2C88F5C91C465F3000037F94 /* NewFileTreeNode.m */,
+				2C88F5C81C465F3000037F94 /* FileTreeNode.h */,
+				2C88F5C91C465F3000037F94 /* FileTreeNode.m */,
 				2C88F5CA1C465F3000037F94 /* NSIndexPath_Extensions.h */,
 				2C88F5CB1C465F3000037F94 /* NSIndexPath_Extensions.m */,
 				2CF77C101C48E6740005F413 /* FileTreeView_Localizable.strings */,
 			);
-			path = NewFileTreeView;
+			path = FileTreeView;
 			sourceTree = "<group>";
 		};
 		2CD68A6D0B3D7A21008B45F9 /* Unused Sources */ = {
@@ -521,7 +521,7 @@
 				2C65B3BC1BECA4230009D27D /* ImageAndTextCell.m in Sources */,
 				2C88F5CC1C465F3000037F94 /* FileDatum.m in Sources */,
 				2C88F5CD1C465F3000037F94 /* FileTreeDataController.m in Sources */,
-				2C88F5CE1C465F3000037F94 /* NewFileTreeNode.m in Sources */,
+				2C88F5CE1C465F3000037F94 /* FileTreeNode.m in Sources */,
 				2C88F5CF1C465F3000037F94 /* NSIndexPath_Extensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

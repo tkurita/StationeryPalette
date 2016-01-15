@@ -126,7 +126,7 @@ NSString *ORDER_CHACHE_NAME = @"order.plist";
         return NO;
     }
 	//find removed item in child_nodes
-	for (NewFileTreeNode *a_node in child_nodes) {
+	for (FileTreeNode *a_node in child_nodes) {
 		FileDatum *fd = [a_node representedObject];
 		NSString *a_name = [fd name];
 		if ([contents_names containsObject:a_name]) {
@@ -159,7 +159,7 @@ NSString *ORDER_CHACHE_NAME = @"order.plist";
 	}
 	NSMutableArray *order = [NSMutableArray array];
 	
-	for (NewFileTreeNode *a_node in children) {
+	for (FileTreeNode *a_node in children) {
 		FileDatum *file_datum = [a_node representedObject];
 		NSString *name = [file_datum name];
 		BOOL is_expanded = a_node.isExpanded;
@@ -252,7 +252,7 @@ bail:
 
 - (BOOL)update
 {
-	NewFileTreeNode *parent_node = (NewFileTreeNode *)[_myTreeNode parentNode];
+	FileTreeNode *parent_node = (FileTreeNode *)[_myTreeNode parentNode];
 	NSString *parent_path = [[parent_node representedObject] path];
 	if (![self.path hasPrefix:parent_path]) {
 		[[parent_node mutableChildNodes] removeObject:_myTreeNode];
@@ -351,10 +351,10 @@ bail:
     return [[self fileURL] path];
 }
 
-- (NewFileTreeNode *)treeNode
+- (FileTreeNode *)treeNode
 {
 	if (! _myTreeNode) {
-		self.myTreeNode = [NewFileTreeNode treeNodeWithRepresentedObject:self];
+		self.myTreeNode = [FileTreeNode treeNodeWithRepresentedObject:self];
         
 	}
 	return _myTreeNode;
