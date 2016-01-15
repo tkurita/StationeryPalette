@@ -7,14 +7,6 @@ NSString *ORDER_CHACHE_NAME = @"order.plist";
 
 @implementation FileDatum
 
-- (void)dealloc
-{
-	[_attributes release];
-	[_iconImage release];
-	[_kind release];
-    [_bookmarkData release];
-	[super dealloc];
-}
 
 - (id)initWithURL:(NSURL *)anURL
 {
@@ -34,7 +26,7 @@ NSString *ORDER_CHACHE_NAME = @"order.plist";
 
 + (id)fileDatumWithURL:(NSURL *)anURL
 {
-    return [[[[self class] alloc] initWithURL:anURL] autorelease];
+    return [[[self class] alloc] initWithURL:anURL];
 }
 
 + (id)fileDatumWithPath:(NSString *)aPath
@@ -42,7 +34,7 @@ NSString *ORDER_CHACHE_NAME = @"order.plist";
 #if useLog
     NSLog(@"start fileDatumWithPath %@", aPath);
 #endif
-    return [[[[self class] alloc] initWithPath:aPath] autorelease];
+    return [[[self class] alloc] initWithPath:aPath];
 }
 
 - (void)loadFileInfo
@@ -66,10 +58,10 @@ NSString *ORDER_CHACHE_NAME = @"order.plist";
 	
 	_isContainer = (_attributes[NSFileType] == NSFileTypeDirectory) &&
 								(![workspace isFilePackageAtPath:a_path]);
-	NSString *kind_str;
-	OSStatus err = LSCopyKindStringForURL((CFURLRef)[NSURL fileURLWithPath:a_path], (CFStringRef *)&kind_str);
+	CFStringRef kind_str;
+	OSStatus err = LSCopyKindStringForURL((__bridge CFURLRef)[NSURL fileURLWithPath:a_path], &kind_str);
 	if (err == noErr) {
-		self.kind = kind_str;
+		self.kind = (__bridge NSString *)kind_str;
         CFRelease(kind_str);
 	}
 	else {
@@ -85,16 +77,17 @@ NSString *ORDER_CHACHE_NAME = @"order.plist";
 	NSString *current_name = [fm displayNameAtPath:a_path];
 	[self setDisplayName:current_name];
 	
-	NSString *current_kind;
-	OSStatus err = LSCopyKindStringForURL((CFURLRef)[NSURL fileURLWithPath:a_path], 
-													(CFStringRef *)&current_kind);
+	//NSString *current_kind;
+    CFStringRef buff;
+	OSStatus err = LSCopyKindStringForURL((__bridge CFURLRef)[NSURL fileURLWithPath:a_path], &buff);
+													//(CFStringRef *)&current_kind);
+    NSString *current_kind = (__bridge NSString *)buff;
 	NSAssert1(err == noErr, @"Fail to get kind of : %@", current_kind);
-	[current_kind autorelease];
 	if (![_kind isEqualToString:current_kind]) {
 		self.kind = current_kind;
 		is_updated = YES;
 	}
-	
+	CFRelease(buff);
 	if (is_updated) {
 		NSWorkspace *workspace = [NSWorkspace sharedWorkspace];
 		NSImage *icon = [workspace iconForFile:a_path];
@@ -178,7 +171,8 @@ NSString *ORDER_CHACHE_NAME = @"order.plist";
 	if (isChildrenLoaded) return;
 	
 	if (!_isContainer) {
-		goto bail;
+		isChildrenLoaded = YES;
+        return;
 	}
 	
 	NSFileManager *fm = [NSFileManager defaultManager];
@@ -191,7 +185,10 @@ NSString *ORDER_CHACHE_NAME = @"order.plist";
         return;
     }
     
-	if (!(child_names && [child_names count])) goto bail;
+	if (!(child_names && [child_names count])) {
+        isChildrenLoaded = YES;
+        return;
+    }
 		
 	NSString *child_path;
 	NSMutableArray* child_data_array = [NSMutableArray arrayWithCapacity:[child_names count]];

@@ -21,17 +21,10 @@ void showScriptError(NSDictionary *errorDict)
 	[alert setAlertStyle:NSWarningAlertStyle];
 //	if ([alert runModal] == NSAlertFirstButtonReturn) {
 //	} 
-	[alert release];
 }
 
 @implementation FileTreeWindowController
 
-- (void) dealloc {
-	[_insertionLocationScript release];
-	[_untitledName release];
-    self.insertionLocationBookmark = nil;
-	[super dealloc];
-}
 
 - (void)addToNameHistory:(NSString *)newName
 {

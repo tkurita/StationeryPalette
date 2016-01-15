@@ -17,18 +17,18 @@
 	unsigned int restItemsCount;
 }
 
-@property (retain) FileTreeNode *rootNode;
-@property (retain) FileDatum *rootDirectory;
-@property (retain) NSInvocation *afterSheetInvocation;
-@property (retain) NSIndexPath *destinationIndexPath;
-@property (retain) FileTreeNode *destinationNode;
-@property (retain) NSString *destinationPath;
-@property (retain) NSMutableArray *processedNodes;
-@property (retain) NSMutableArray *nodesToDelete;
-@property (retain) NSString *conflictMessageTemplate;
-@property (retain) NSEnumerator *dndEnumerator;
-@property (retain) NSURL *promisedDragDestination;
-@property (retain) NSArray *draggedNodes;
+@property (strong) FileTreeNode *rootNode;
+@property (strong) FileDatum *rootDirectory;
+@property (strong) NSInvocation *afterSheetInvocation;
+@property (strong) NSIndexPath *destinationIndexPath;
+@property (strong) FileTreeNode *destinationNode;
+@property (strong) NSString *destinationPath;
+@property (strong) NSMutableArray *processedNodes;
+@property (strong) NSMutableArray *nodesToDelete;
+@property (strong) NSString *conflictMessageTemplate;
+@property (strong) NSEnumerator *dndEnumerator;
+@property (strong) NSURL *promisedDragDestination;
+@property (strong) NSArray *draggedNodes;
 
 - (IBAction)conflictErrorAction:(id)sender;
 - (IBAction)deleteSelection:(id)sender;

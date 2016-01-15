@@ -20,18 +20,6 @@ static BOOL isOptionKeyDown()
 	return ((mod_key_status & optionKey) != 0);
 }
 
-- (void)dealloc
-{
-	[_rootNode release];
-	[_rootDirectory release];
-	[_afterSheetInvocation release];
-	[_dndEnumerator release];
-	[_destinationIndexPath release];
-	[_processedNodes release];
-	[_nodesToDelete release];
-	[_conflictMessageTemplate release];
-	[super dealloc];
-}
 
 - (void)doubleAction:(id)sender
 {
@@ -48,7 +36,7 @@ static BOOL isOptionKeyDown()
 	NSLog(@"start awakeFromNib in FireTreeDataController");
 #endif
 	NSTableColumn *table_column = [outlineView tableColumnWithIdentifier:@"displayName"];
-	ImageAndTextCell *image_text_cell = [[ImageAndTextCell new] autorelease];
+	ImageAndTextCell *image_text_cell = [ImageAndTextCell new];
 	[image_text_cell setFont:[[table_column dataCell] font]];
 	[table_column setDataCell:image_text_cell];
 	[outlineView setDoubleAction:@selector(doubleAction:)];

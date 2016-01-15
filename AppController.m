@@ -28,7 +28,7 @@
 {
 	NSBundle *main_bundle = [NSBundle mainBundle];
 	NSString *defaultsPlistPath = [main_bundle pathForResource:@"FactorySettings" ofType:@"plist"];
-	NSDictionary *factoryDefaults = [[NSDictionary dictionaryWithContentsOfFile:defaultsPlistPath] retain];
+	NSDictionary *factoryDefaults = [NSDictionary dictionaryWithContentsOfFile:defaultsPlistPath];
 
 	NSUserDefaults *user_defaults = [NSUserDefaults standardUserDefaults];
 	[user_defaults registerDefaults:factoryDefaults];

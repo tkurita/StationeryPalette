@@ -5,14 +5,14 @@
 	BOOL isChildrenLoaded;
 }
 
-@property (retain) NSData *bookmarkData;
-@property (retain) NSDictionary *attributes;
-@property (retain) NSImage *iconImage;
-@property (retain) NSString *kind;
+@property (strong) NSData *bookmarkData;
+@property (strong) NSDictionary *attributes;
+@property (strong) NSImage *iconImage;
+@property (strong) NSString *kind;
 
 @property (assign) BOOL isContainer;
 @property (assign) BOOL shouldExpand;
-@property (assign) FileTreeNode *myTreeNode;
+@property (strong) FileTreeNode *myTreeNode;
 
 + (id)fileDatumWithURL:(NSURL *)anURL;
 + (id)fileDatumWithPath:(NSString *)aPath;

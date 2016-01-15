@@ -16,10 +16,10 @@
 	BOOL isFirstOpen;
 }
 
-@property (retain) NSAppleScript *insertionLocationScript;
-@property (retain) NSString *untitledName;
-@property (retain) NSString *previousSelectionName;
-@property (retain) NSData *insertionLocationBookmark;
+@property (strong) NSAppleScript *insertionLocationScript;
+@property (strong) NSString *untitledName;
+@property (strong) NSString *previousSelectionName;
+@property (strong) NSData *insertionLocationBookmark;
 
 - (IBAction)newFileFromStationery:(id)sender;
 - (IBAction)cancelAction:(id)sender;

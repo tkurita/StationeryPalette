@@ -2,5 +2,5 @@
 #import "FileTreeWindowController.h"
 
 @interface AppController : NSObject
-@property (retain) FileTreeWindowController *windowController;
+@property (strong) FileTreeWindowController *windowController;
 @end
