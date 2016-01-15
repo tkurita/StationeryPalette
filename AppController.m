@@ -62,8 +62,9 @@ NSString *containerPathWithDirectory(NSString *dirPath)
 NSString *resolveContainerPath(NSString *path)
 {
 	NSWorkspace *workspace = [NSWorkspace sharedWorkspace];
-	NSFileManager *file_manager = [NSFileManager defaultManager];
-	NSDictionary *file_info = [file_manager fileAttributesAtPath:path traverseLink:NO];
+	NSFileManager *fm = [NSFileManager defaultManager];
+    NSError *err = nil;
+    NSDictionary *file_info = [fm attributesOfItemAtPath:path error:&err];
 	NSString *file_type = [file_info objectForKey:NSFileType];
 
 	if ([file_type isEqualToString:NSFileTypeDirectory]) {
@@ -73,8 +74,16 @@ NSString *resolveContainerPath(NSString *path)
 	NSString *original_path = path;
 	BOOL is_directory = NO;
 	if ([file_type isEqualToString:NSFileTypeSymbolicLink]) {
-		original_path = [file_manager pathContentOfSymbolicLinkAtPath:path];
-		file_info = [file_manager fileAttributesAtPath:original_path traverseLink:NO];
+        original_path = [fm destinationOfSymbolicLinkAtPath:path error:&err];
+        if (err) {
+            [NSApp presentError:err];
+            return nil;
+        }
+        file_info = [fm attributesOfItemAtPath:original_path error:&err];
+        if (err) {
+            [NSApp presentError:err];
+            return nil;
+        }
 		is_directory = [[file_info objectForKey:NSFileType] isEqualToString:NSFileTypeDirectory];
 	}
 	else if ([file_type isEqualToString:NSFileTypeRegular]){

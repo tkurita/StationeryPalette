@@ -4,7 +4,6 @@
 
 @interface FileTreeWindowController : NSWindowController <DropBoxDragAndDrop> {
 	IBOutlet id fileTreeView;
-	IBOutlet id fileTreeDataSource;
     IBOutlet FileTreeDataController *fileTreeDataController;
     IBOutlet NSTreeController *treeController;
 	IBOutlet NSView *helpButtonView;
@@ -17,7 +16,6 @@
 	BOOL shouldOpenFile;
 	BOOL isFirstOpen;
 	NSString *untitledName;
-	//FileTreeView *previousSelection;
 	NSString *previousSelectionName;
 }
 

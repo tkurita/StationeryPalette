@@ -310,7 +310,7 @@ skip:
     [[_destinationNode representedObject] saveOrder];
 }
 
-- (void)insertChildrenCopyingPaths:(NSArray *)sourcePaths //deprecated
+- (void)insertChildrenCopyingPaths:(NSArray *)sourcePaths
 {
     /* call setDestinationWithNode:atIndexPath before */
 	NSFileManager *fm = [NSFileManager defaultManager];
@@ -541,12 +541,6 @@ namesOfPromisedFilesDroppedAtDestination:(NSURL *)dropDestination
         }
         
     } else {
-        /*[[NSNotificationCenter defaultCenter]
-         postNotificationName:@"NewFileNotification"
-         object:self
-         userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
-                   destinationPath, @"destination", sourceNode, @"sourceNode", nil]];
-        */
         [self cleanupFolderContents:[dstURL path]];
         if (!applyAllFlag) replaceFlag = NO;
         restItemsCount--;
@@ -620,24 +614,6 @@ namesOfPromisedFilesDroppedAtDestination:(NSURL *)dropDestination
 			[self trashPromisedFiles];
 			break;
 	}
-    /*
-    if (operation == NSDragOperationDelete) {
-        [_outlineView beginUpdates];
-        
-        [_draggedNodes enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(id node, NSUInteger index, BOOL *stop) {
-            id parent = [node parentNode];
-            NSMutableArray *children = [parent mutableChildNodes];
-            NSInteger childIndex = [children indexOfObject:node];
-            [children removeObjectAtIndex:childIndex];
-            [_outlineView removeItemsAtIndexes:[NSIndexSet indexSetWithIndex:childIndex] inParent:parent == _rootTreeNode ? nil : parent withAnimation:NSTableViewAnimationEffectFade];
-        }];
-        
-        [_outlineView endUpdates];
-    }
-    
-    [_draggedNodes release];
-    _draggedNodes = nil;
-     */
 }
 
 #pragma mark actions 
@@ -843,23 +819,6 @@ namesOfPromisedFilesDroppedAtDestination:(NSURL *)dropDestination
 }
 
 #pragma mark methods for outside objects
-
-- (NSTreeNode *)clickedNode // 使われているか？
-{
-    NSUInteger clicked_row = [outlineView clickedRow];
-	NSTreeNode *clicked_node = nil;
-	if (clicked_row == -1) {
-		clicked_node = [[[treeController selectedNodes] lastObject] representedObject];
-	} else {
-		clicked_node = [[outlineView itemAtRow:clicked_row] representedObject];
-	}
-	
-	if (!clicked_node) {
-		clicked_node = _rootNode;
-	}
-    return clicked_node;
-}
-
 - (void)setRootDirPath:(NSString *)rootDirPath
 {
 #if useLog
@@ -916,6 +875,12 @@ namesOfPromisedFilesDroppedAtDestination:(NSURL *)dropDestination
 {
     [self updateDestinationNode];
     [self insertChildrenCopyingPaths:sourcePaths];
+}
+
+- (void)insertCopyingURLs:(NSArray *)srcURLs
+{
+    [self updateDestinationNode];
+    [self insertChildrenCopyingPaths:[srcURLs valueForKeyPath:@"path"]];
 }
 
 - (IBAction)updateRoot:(id)sender

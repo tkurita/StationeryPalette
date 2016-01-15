@@ -1,8 +1,4 @@
 #import "FileTreeWindowController.h"
-//#import "FileTreeDataSource.h"
-//#import "FileTreeNode.h"
-#import "KeyedUnarchiveFromDataTransformer.h"
-//#import "NSOutlineView_Extensions.h"
 #import "PathExtra.h"
 #import "Sparkle/SUUpdater.h"
 #import "NSRunningApplication+SmartActivate.h"
@@ -29,12 +25,6 @@ void showScriptError(NSDictionary *errorDict)
 }
 
 @implementation FileTreeWindowController
-
-//+ (void)initialize
-//{	
-//	NSValueTransformer *transformer = [[[KeyedUnarchiveFromDataTransformer alloc] init] autorelease];
-//	[NSValueTransformer setValueTransformer:transformer forName:@"KeyedUnarchiveFromData"];
-//}
 
 - (void) dealloc {
 	[insertionLocationScript release];
@@ -111,49 +101,41 @@ void showScriptError(NSDictionary *errorDict)
 {
     NSArray  *selection = [treeController selectedObjects];
     return [[selection lastObject] representedObject];
-    
-    /*
-    NSUInteger clicked_row = [fileTreeView clickedRow];
-	NSIndexPath *clicked_indexpath = [NSIndexPath indexPathWithIndex:clicked_row];
-	NSTreeNode *controller_node = [[treeController arrangedObjects]
-								   descendantNodeAtIndexPath:clicked_indexpath];
-    return [[controller_node representedObject] representedObject];
-     */
 }
 
 #pragma mark actions
 void cleanupFolderContents(NSString *path)
 {
-	NSFileManager *file_manager = [NSFileManager defaultManager];
-	[file_manager removeFileAtPath:[path stringByAppendingPathComponent:ORDER_CHACHE_NAME] handler:nil];
-	
-	NSDirectoryEnumerator *enumerator = [file_manager enumeratorAtPath:path];
+	NSFileManager *fm = [NSFileManager defaultManager];
+    NSError *err = nil;
+    [fm removeItemAtPath:[path stringByAppendingPathComponent:ORDER_CHACHE_NAME]
+                   error:&err];
+    
+	NSDirectoryEnumerator *enumerator = [fm enumeratorAtPath:path];
 	NSString *file_name;
 	NSString *file_path;
-	NSString *file_type;
-	while (file_name = [enumerator nextObject]) {
+    while (file_name = [enumerator nextObject]) {
 		file_path = [path stringByAppendingPathComponent:file_name];
-		file_type = [[file_manager fileAttributesAtPath:file_path traverseLink:NO] objectForKey:NSFileType];
-		if ([file_type isEqualToString:NSFileTypeDirectory]) {
+        if ([file_path isFolder]) {
 			cleanupFolderContents(file_path);
-		}
-		else {
+		} else {
 			[file_path setStationeryFlag:NO];
 		}
-		//NSLog(file);
 	}
 }
 
-- (void)performOperationAfterCopy:(NSString *)targetPath sourceFileDatum:(FileDatum *)fd
+- (void)performOperationAfterCopy:(NSString *)targetPath
 {
 	NSWorkspace *workspace = [NSWorkspace sharedWorkspace];
-	NSFileManager *file_manager = [NSFileManager defaultManager];
+	NSFileManager *fm = [NSFileManager defaultManager];
+    NSError *err = nil;
+    NSMutableDictionary *attr = [[fm attributesOfItemAtPath:targetPath
+                                                     error:&err] mutableCopy];
+    attr[NSFileCreationDate] = [NSDate date];
+    attr[NSFileModificationDate] = [NSDate date];
 
-	NSMutableDictionary *file_info = [[file_manager fileAttributesAtPath:targetPath traverseLink:NO] mutableCopy];
-	[file_info setObject:[NSDate date] forKey:NSFileModificationDate];
-	[file_info setObject:[NSDate date] forKey:NSFileCreationDate];
-	if (![file_manager changeFileAttributes:file_info atPath:targetPath])
-		NSLog(@"Fail to change attribute of %@", targetPath);
+    if (![fm setAttributes:attr ofItemAtPath:targetPath error:&err])
+            NSLog(@"Fail to change attribute of %@", targetPath);
 
 	[workspace noteFileSystemChanged:targetPath];
 
@@ -162,66 +144,49 @@ void cleanupFolderContents(NSString *path)
 	}
 	[self addToNameHistory:[targetPath lastPathComponent]];
 	
-	if ([[fd fileType] isEqualToString:NSFileTypeRegular] ) {
-		[targetPath setStationeryFlag:NO];
-	}
-	else {
-		if ([fd isContainer])
-			cleanupFolderContents(targetPath);
-	}
+    if ([targetPath isFolder]) {
+        cleanupFolderContents(targetPath);
+    } else {
+        [targetPath setStationeryFlag:NO];
+    }
 
 	[self close];
-}
-
-- (void)operationAfterCopyWithNotification:(NSNotification *)notification
-{
-	NSDictionary *info = [notification userInfo];
-	[self performOperationAfterCopy:[info objectForKey:@"destination"]
-						 sourceNode:[info objectForKey:@"sourceNode"]];
-}
-
-- (void)savePanelDidEnd:(NSSavePanel *)sheet returnCode:(int)returnCode  contextInfo:(NewFileTreeNode *)source_node
-{
-	[source_node autorelease];
-	NSString *source_path = [[source_node nodeData] originalPath];
-	if (returnCode == NSCancelButton) return;
-	
-	NSString *target_path = [sheet filename];
-	NSFileManager *file_manager = [NSFileManager defaultManager];
-	if ([file_manager fileExistsAtPath:target_path]) {
-		[file_manager removeFileAtPath:target_path handler:nil];
-	}
-		
-	[file_manager copyPath:source_path toPath:target_path handler:nil];
-	[self performOperationAfterCopy:target_path sourceNode:source_node];
 }
 
 - (void)makeFileWithSelectedStationery
 {
     FileDatum *fd = [self selectedFileDatum];
     
-	NSFileManager *file_manager = [NSFileManager defaultManager];
-	NSString *source_path = [fd path];
-	NSString *source_suffix = [source_path pathExtension];
+    NSURL *src_url = [fd fileURL];
+	NSString *source_suffix = [src_url pathExtension];
 	NSString *file_name = [fileNameField stringValue];
 	NSString *current_suffix = [file_name pathExtension];
 	
 	if (([current_suffix length] < 1) && ([source_suffix length] > 0)) {
 		file_name = [file_name stringByAppendingPathExtension:source_suffix];
 	}
-	
-	NSString *destination_path = [[self insertionLocation] path];
-	NSString *target_path = [destination_path stringByAppendingPathComponent:file_name];
-	
-	if (![file_manager copyPath:source_path toPath:target_path handler:nil] ) {
+	NSURL *dir_url = [self insertionLocation];
+	NSURL *dst_url = [dir_url URLByAppendingPathComponent:file_name];
+	NSFileManager *fm = [NSFileManager defaultManager];
+    NSError *err = nil;
+    if (![fm copyItemAtURL:src_url toURL:dst_url error:&err]) {
 		NSSavePanel *panel = [NSSavePanel savePanel];
-		[panel beginSheetForDirectory:destination_path file:file_name modalForWindow:[self window]
-			modalDelegate:self didEndSelector:@selector(savePanelDidEnd:returnCode:contextInfo:) 
-			contextInfo:[fd retain]];
+        [panel setDirectoryURL:dir_url];
+        
+        [panel beginSheetModalForWindow:[self window]
+                      completionHandler:^(NSInteger result) {
+                          if (result == NSCancelButton) return;
+                          NSURL *dst_url = [panel URL];
+                          NSError *err = nil;
+                          if ([fm fileExistsAtPath:[dst_url path]]) {
+                              [fm removeItemAtURL:dst_url error:&err];
+                          }
+                          [fm copyItemAtURL:src_url toURL:dst_url error:&err];
+                          [self performOperationAfterCopy:[dst_url path]];
+        }];
 		return;
 	}
-	
-	[self performOperationAfterCopy:target_path sourceFileDatum:fd];
+	[self performOperationAfterCopy:[dst_url path]];
 }
 
 - (IBAction)newFileFromStationery:(id)sender
@@ -258,7 +223,7 @@ void cleanupFolderContents(NSString *path)
                                     completionHandler:^(NSInteger result)
      {
          if (result == NSOKButton) {
-             [fileTreeDataController insertCopyingPathes:[op filenames]];
+             [fileTreeDataController insertCopyingURLs:[op URLs]];
          }
      }];
 }
@@ -316,31 +281,11 @@ void cleanupFolderContents(NSString *path)
 	[super showWindow:sender];	
     
 	if (isFirstOpen) {
-        /*
-		NSUserDefaults *user_defaults = [NSUserDefaults standardUserDefaults];
-		NSData *data = [user_defaults objectForKey:@"FileTreeViewSelection"];
-		
-		if (data) {
-			NSArray *index_pathes = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-			NSIndexPath *index_path = [index_pathes lastObject];
-			//NewFileTreeNode *node = [fileTreeDataSource nodeWithIndexPath:index_path];
-			if (node) {
-				NSInteger row_index = [fileTreeView rowForItem:node];
-				[fileTreeView selectRowIndexes:[NSIndexSet indexSetWithIndex:row_index] 
-														byExtendingSelection:YES];
-				[fileTreeView scrollRowToVisible:row_index];
-				selected_items = [NSArray arrayWithObject:node];
-			}
-			
-		}
-         */
         [fileTreeDataController restoreSelectionWithKey:@"FileTreeViewSelection"];
 		isFirstOpen = NO;
 	}
     
     NSArray  *selected_items = [treeController selectedObjects];
-    //return [[selection lastObject] representedObject];
-    
 	if ((!selected_items) || is_already_visible) return;
 	
 	if ([selected_items count] > 1) {
@@ -417,36 +362,8 @@ void cleanupFolderContents(NSString *path)
 		selector:@selector(selectionDidChange:) 
 		name:NSOutlineViewSelectionDidChangeNotification object:fileTreeView];
 
-	[[NSNotificationCenter defaultCenter] addObserver:self 
-		selector:@selector(operationAfterCopyWithNotification:) 
-		name:@"NewFileNotification" object:fileTreeDataSource];
-
     [fileTreeDataController setRootDirPath:
      [[NSUserDefaults standardUserDefaults] stringForKey:@"FileTreeRoot"]];
-    
-	
-
 }
-
-/*
-- (void)awakeFromNib //TODO: windowDidLoad の方が後に呼ばれる。どちらかに初期化コードをまとめるべきでは？
-{
-#if useLog
-	NSLog(@"start awakeFromNib in FileTreeWindowController");
-#endif
-	[fileTreeDataController setRootDirPath:
-     [[NSUserDefaults standardUserDefaults] stringForKey:@"FileTreeRoot"]];
-
-	
-	NSData *ud_data = [[NSUserDefaults standardUserDefaults] objectForKey:@"FileTreeViewSelection"];
-	if (ud_data) {
-		NSArray *selection_indexpath = [NSKeyedUnarchiver unarchiveObjectWithData:ud_data];
-		if ([selection_indexpath count]) {
-			[treeController setSelectionIndexPaths:selection_indexpath];
-            [fileTreeView scrollRowToVisible:[fileTreeView selectedRow]];
-		}
-	}
-}
- */
 
 @end

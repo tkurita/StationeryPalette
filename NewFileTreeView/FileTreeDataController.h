@@ -43,13 +43,13 @@
 - (IBAction)openSelection:(id)sender;
 - (IBAction)updateSelection:(id)sender;
 
-- (NewFileTreeNode *)clickedNode;
 - (void)setRootDirPath:(NSString *)rootDirPath;
 - (NSArray *)selectedPaths;
 - (void)insertCopyingPath:(NSString *)sourcePath withName:(NSString *)newname;
 - (IBAction)updateRoot:(id)sender;
 - (IBAction)openRootDirectory:(id)sender;
 - (void)insertCopyingPathes:(NSArray *)sourcePaths;
+- (void)insertCopyingURLs:(NSArray *)srcURLs;
 - (void)restoreSelectionWithKey:(NSString *)keyname;
 
 @end
