@@ -15,9 +15,9 @@ void showScriptError(NSDictionary *errorDict)
 	[alert addButtonWithTitle:@"OK"];
 	[alert setMessageText:
 		[NSString stringWithFormat:@"AppleScript Error : %@",
-			[errorDict objectForKey:NSAppleScriptErrorNumber]]
+			errorDict[NSAppleScriptErrorNumber]]
 	];
-	[alert setInformativeText:[errorDict objectForKey:NSAppleScriptErrorMessage]];
+	[alert setInformativeText:errorDict[NSAppleScriptErrorMessage]];
 	[alert setAlertStyle:NSWarningAlertStyle];
 //	if ([alert runModal] == NSAlertFirstButtonReturn) {
 //	} 
@@ -352,8 +352,7 @@ void cleanupFolderContents(NSString *path)
 		showScriptError(error_dict);
 	}
 	
-	[saveToBox setAcceptFileInfo:[NSArray arrayWithObject:
-		[NSDictionary dictionaryWithObject:NSFileTypeDirectory forKey:@"FileType"]]];
+	[saveToBox setAcceptFileInfo:@[@{@"FileType": NSFileTypeDirectory}]];
 	
 	isFirstOpen = YES;
 	untitledName = [[fileNameField stringValue] retain];

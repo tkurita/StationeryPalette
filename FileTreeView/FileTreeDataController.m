@@ -10,9 +10,6 @@
 
 @implementation FileTreeDataController
 
-@synthesize rootDirectory;
-@synthesize nodesToDelete;
-@synthesize conflictMessageTemplate;
 
 static NSString *MovedNodesType = @"MOVED_Nodes_TYPE";
 
@@ -26,13 +23,13 @@ static BOOL isOptionKeyDown()
 - (void)dealloc
 {
 	[_rootNode release];
-	[rootDirectory release];
+	[_rootDirectory release];
 	[_afterSheetInvocation release];
 	[_dndEnumerator release];
 	[_destinationIndexPath release];
 	[_processedNodes release];
-	[nodesToDelete release];
-	[conflictMessageTemplate release];
+	[_nodesToDelete release];
+	[_conflictMessageTemplate release];
 	[super dealloc];
 }
 
@@ -65,7 +62,7 @@ static BOOL isOptionKeyDown()
     [outlineView setAutoresizesOutlineColumn:NO];
     
 	[outlineView registerForDraggedTypes:
-     [NSArray arrayWithObjects:MovedNodesType, NSFilenamesPboardType, nil]];
+     @[MovedNodesType, NSFilenamesPboardType]];
 	[outlineView setDraggingSourceOperationMask:NSDragOperationCopy|NSDragOperationDelete forLocal:NO];
 }
 
@@ -121,7 +118,7 @@ static BOOL isOptionKeyDown()
 #if useLog
 	NSLog(@"start outlineViewItemDidExpand");
 #endif	
-	NSTreeNode *controller_node = [[notification userInfo] objectForKey:@"NSObject"];
+	NSTreeNode *controller_node = [notification userInfo][@"NSObject"];
 	FileTreeNode *file_tree_node = [controller_node representedObject];
 	file_tree_node.isExpanded = YES;
 #if useLog
@@ -135,7 +132,7 @@ static BOOL isOptionKeyDown()
 
 - (void)outlineViewItemDidCollapse:(NSNotification *)notification
 {
-	NSTreeNode *controller_node = [[notification userInfo] objectForKey:@"NSObject"];
+	NSTreeNode *controller_node = [notification userInfo][@"NSObject"];
 	FileTreeNode *file_tree_node = [controller_node representedObject];
 	file_tree_node.isExpanded = NO;
 	[(FileDatum *)[[file_tree_node parentNode] representedObject] saveOrder];
@@ -187,7 +184,7 @@ static BOOL isOptionKeyDown()
                                                                @"FileTreeView_Localizable",
                                                                @"");
 	[conflictMessage setStringValue:
-	 [NSString stringWithFormat:conflictMessageTemplate, fileName, localized_operation]];
+	 [NSString stringWithFormat:_conflictMessageTemplate, fileName, localized_operation]];
 }
 
 - (void)didEndAskReplaceSheet:(NSWindow *)sheet
@@ -264,7 +261,7 @@ static BOOL isOptionKeyDown()
 						NSLog(@"Failed to remove :%@.", dstURL);
 						goto skip;
 					}
-					[nodesToDelete addObjectsFromArray:conflict_nodes];
+					[_nodesToDelete addObjectsFromArray:conflict_nodes];
 				} else {
 					BOOL is_single = (restItemsCount <= 1);
 					[applyAllSwitch setHidden:is_single];
@@ -305,7 +302,7 @@ skip:
     }
     [treeController moveNodes:_processedNodes toIndexPath:_destinationIndexPath];
     [treeController removeObjectsAtArrangedObjectIndexPaths:
-                                     [nodesToDelete valueForKeyPath:@"indexPath"]];
+                                     [_nodesToDelete valueForKeyPath:@"indexPath"]];
     [updated_file_data makeObjectsPerformSelector:@selector(saveOrder)];
     [[_destinationNode representedObject] saveOrder];
 }
@@ -360,7 +357,7 @@ skip:
 - (BOOL)outlineView:(NSOutlineView *)olv writeItems:(NSArray *)items
 												toPasteboard:(NSPasteboard *)pboard {
     // Tell the pasteboard what kind of data we'll be placing on it
-    [pboard declareTypes:[NSArray arrayWithObjects:MovedNodesType, NSFilesPromisePboardType, nil] 
+    [pboard declareTypes:@[MovedNodesType, NSFilesPromisePboardType] 
 										owner:self];
     // Query the NSTreeNode (not the underlying Core Data object) for its index path 
 	// under the tree controller.
@@ -452,7 +449,7 @@ bail:
 	NSPasteboard *pboard = [info draggingPasteboard];
     // Do the appropriate thing depending on wether the data is 
 	//          DragDropSimplePboardType or NSStringPboardType.
-    if ([pboard availableTypeFromArray: [NSArray arrayWithObjects:MovedNodesType, nil]]) {
+    if ([pboard availableTypeFromArray: @[MovedNodesType]]) {
 		NSArray *dragged_index_pathes = [NSKeyedUnarchiver unarchiveObjectWithData:
 										 [pboard dataForType:MovedNodesType]];
 		NSArray *uniq_dragged_idxp = [NSIndexPath minimumIndexPathesCoverFromIndexPathesArray:
@@ -486,7 +483,7 @@ bail:
 		}
 	} 
 	else if ([pboard availableTypeFromArray:
-			  [NSArray arrayWithObjects:NSFilenamesPboardType, nil]] != nil) {
+			  @[NSFilenamesPboardType]] != nil) {
 		NSArray *path_array = [pboard propertyListForType:NSFilenamesPboardType];
 		[self insertChildrenCopyingPaths:path_array];
 	}	
@@ -587,7 +584,7 @@ namesOfPromisedFilesDroppedAtDestination:(NSURL *)dropDestination
 		NSString *a_name = [a_path lastPathComponent];
 		[workspace performFileOperation:NSWorkspaceRecycleOperation
 								 source:dir_path destination:nil
-								  files:[NSArray arrayWithObject:a_name] tag:nil];
+								  files:@[a_name] tag:nil];
 		NSTreeNode *parent_node = [controller_node parentNode];
         [[parent_node mutableChildNodes] removeObject:controller_node];
         [updated_nodes addObject:[file_tree_node parentNode]];
@@ -673,7 +670,7 @@ namesOfPromisedFilesDroppedAtDestination:(NSURL *)dropDestination
 		NSString *a_name = [a_path lastPathComponent];
 		[workspace performFileOperation:NSWorkspaceRecycleOperation 
 								 source:dir_path destination:nil 
-								  files:[NSArray arrayWithObject:a_name] tag:nil];
+								  files:@[a_name] tag:nil];
 		[updated_nodes addObject:[file_tree_node parentNode]];
 	}
 	
@@ -825,8 +822,8 @@ namesOfPromisedFilesDroppedAtDestination:(NSURL *)dropDestination
     NSLog(@"start setRootDirPath : %@", rootDirPath);
 #endif
     self.rootDirectory = [FileDatum fileDatumWithPath:rootDirPath];
-	self.rootNode = [rootDirectory treeNode];
-	[rootDirectory loadChildren];
+	self.rootNode = [_rootDirectory treeNode];
+	[_rootDirectory loadChildren];
 }
 
 - (NSArray *)selectedPaths
@@ -846,13 +843,13 @@ namesOfPromisedFilesDroppedAtDestination:(NSURL *)dropDestination
 			destination_path = [destination_fd path];
 			index_path = [index_path indexPathByIncrementLastIndex:1];
 		} else {
-			destination_fd = rootDirectory;
-			destination_path = [rootDirectory path];
+			destination_fd = _rootDirectory;
+			destination_path = [_rootDirectory path];
 			index_path = [NSIndexPath indexPathWithIndex:[[_rootNode childNodes] count]];
 		}
 	} else {
-		destination_fd = rootDirectory;
-		destination_path = [rootDirectory path];
+		destination_fd = _rootDirectory;
+		destination_path = [_rootDirectory path];
 		index_path = [NSIndexPath indexPathWithIndex:[[_rootNode childNodes] count]];
 	}
 	
@@ -885,12 +882,12 @@ namesOfPromisedFilesDroppedAtDestination:(NSURL *)dropDestination
 
 - (IBAction)updateRoot:(id)sender
 {
-	[rootDirectory updateChildren];
+	[_rootDirectory updateChildren];
 }
 
 - (IBAction)openRootDirectory:(id)sender
 {
-	[[NSWorkspace sharedWorkspace] openFile:[rootDirectory path]];
+	[[NSWorkspace sharedWorkspace] openFile:[_rootDirectory path]];
 	[NSRunningApplication activateAppOfIdentifier:@"com.apple.finder"];
 }
 

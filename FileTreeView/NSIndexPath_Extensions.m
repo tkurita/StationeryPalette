@@ -43,7 +43,7 @@
     NSIndexPath *index_path = nil;
 	NSIndexPath *parent_index_path = nil;
     while ([index_path_queue count]) {
-        index_path = [index_path_queue objectAtIndex:0];
+        index_path = index_path_queue[0];
         [index_path_queue removeObjectAtIndex:0];
 		
 		while (YES) {

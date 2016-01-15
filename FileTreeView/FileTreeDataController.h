@@ -11,14 +11,10 @@
 	IBOutlet id iconInConflictErrorWindow;
 	IBOutlet id cancelForItemButton;
 	IBOutlet id doubleActionTarget;
-	
-	FileDatum *rootDirectory;
-	
+		
 	//related move and copy with drag&drop
 	BOOL applyAllFlag;
-	NSMutableArray *nodesToDelete;
 	unsigned int restItemsCount;
-	NSString *conflictMessageTemplate;
 }
 
 @property (retain) FileTreeNode *rootNode;

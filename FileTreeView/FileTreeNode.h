@@ -2,7 +2,6 @@
 
 
 @interface FileTreeNode : NSTreeNode {
-	BOOL isExpanded;
 }
 
 @property (assign) BOOL isExpanded;

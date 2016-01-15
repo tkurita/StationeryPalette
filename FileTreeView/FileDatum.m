@@ -64,7 +64,7 @@ NSString *ORDER_CHACHE_NAME = @"order.plist";
 	[icon setSize:NSMakeSize(16, 16)];
 	self.iconImage = icon;
 	
-	_isContainer = ([_attributes objectForKey:NSFileType] == NSFileTypeDirectory) &&
+	_isContainer = (_attributes[NSFileType] == NSFileTypeDirectory) &&
 								(![workspace isFilePackageAtPath:a_path]);
 	NSString *kind_str;
 	OSStatus err = LSCopyKindStringForURL((CFURLRef)[NSURL fileURLWithPath:a_path], (CFStringRef *)&kind_str);
@@ -102,7 +102,7 @@ NSString *ORDER_CHACHE_NAME = @"order.plist";
 		[self setIconImage:icon];
 		NSError *error;
 		self.attributes = [fm attributesOfItemAtPath:a_path error:&error];
-		self.isContainer = ([_attributes objectForKey:NSFileType] == NSFileTypeDirectory)
+		self.isContainer = (_attributes[NSFileType] == NSFileTypeDirectory)
 							&& (![workspace isFilePackageAtPath:a_path]);
 	}
 	
@@ -163,12 +163,11 @@ NSString *ORDER_CHACHE_NAME = @"order.plist";
 		FileDatum *file_datum = [a_node representedObject];
 		NSString *name = [file_datum name];
 		BOOL is_expanded = a_node.isExpanded;
-		NSDictionary* dict = [NSDictionary dictionaryWithObjectsAndKeys:
-							  name, @"name", [NSNumber numberWithBool:is_expanded], @"isExpanded", nil];
+		NSDictionary* dict = @{@"name": name, @"isExpanded": @(is_expanded)};
 		[order addObject:dict];
 	}
 	
-	NSDictionary *order_dict = [NSDictionary dictionaryWithObjectsAndKeys:order, @"order", nil];
+	NSDictionary *order_dict = @{@"order": order};
 	NSString *order_file = [[self path]
 								stringByAppendingPathComponent:ORDER_CHACHE_NAME];
 	[order_dict writeToFile:order_file atomically:YES];
@@ -211,7 +210,7 @@ NSString *ORDER_CHACHE_NAME = @"order.plist";
 	NSDictionary *order_dict = nil;
 	if ([fm fileExistsAtPath:order_file_path]) {
 		order_dict = [NSDictionary dictionaryWithContentsOfFile:order_file_path];
-		order = [order_dict objectForKey:@"order"];
+		order = order_dict[@"order"];
 	}
 			
 	if (order) {
@@ -219,14 +218,14 @@ NSString *ORDER_CHACHE_NAME = @"order.plist";
 		NSPredicate *name_predicate;
 		NSArray *filtered_array;
 		for (NSDictionary *child_dict in order) {
-			NSString *child_name = [child_dict objectForKey:@"name"];
+			NSString *child_name = child_dict[@"name"];
 			name_predicate = [NSPredicate predicateWithFormat:@"name like %@", child_name];
 			filtered_array = [child_data_array filteredArrayUsingPredicate:name_predicate];
 			if ([filtered_array count]) {
 				[ordered_children addObjectsFromArray:filtered_array];
 				[child_data_array removeObjectsInArray:filtered_array];
 				[filtered_array makeObjectsPerformSelector:
-				 @selector(setShouldExpandWithNumber:) withObject:[child_dict objectForKey:@"isExpanded"]];
+				 @selector(setShouldExpandWithNumber:) withObject:child_dict[@"isExpanded"]];
 			}
 		}
 		if ([child_data_array count]) {
@@ -281,7 +280,7 @@ bail:
 {
 	NSFileManager *fm = [NSFileManager defaultManager];
 	
-	if ([_attributes objectForKey:NSFileExtensionHidden]) {
+	if (_attributes[NSFileExtensionHidden]) {
 		NSString *suffix = [self.name pathExtension];
 		if (![[newName pathExtension] isEqualToString:suffix]) {
 			newName = [newName stringByAppendingPathExtension:suffix];
@@ -367,7 +366,7 @@ bail:
 						   
 - (NSString *)typeCode
 {
-	return NSFileTypeForHFSTypeCode([[_attributes objectForKey:NSFileHFSTypeCode]
+	return NSFileTypeForHFSTypeCode([_attributes[NSFileHFSTypeCode]
 									 unsignedLongValue]);
 }
 
@@ -388,7 +387,7 @@ bail:
 - (NSString *)originalPath
 {
 	NSString *a_path = [self path];
-	NSString *file_type = [_attributes objectForKey:NSFileType];
+	NSString *file_type = _attributes[NSFileType];
 	
 	if ([file_type isEqualToString:NSFileTypeSymbolicLink]) {
         a_path = [a_path stringByResolvingSymlinksInPath];
@@ -410,7 +409,7 @@ bail:
 
 - (NSString *)fileType
 {
-	return [_attributes objectForKey:NSFileType];
+	return _attributes[NSFileType];
 }
 
 @end

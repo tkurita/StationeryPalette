@@ -43,7 +43,7 @@
 	if (![file_manager fileExistsAtPath:stationry_folder]) {
 		NSString *zip_path = [main_bundle pathForResource:@"Stationery" ofType:@"zip"];
 		NSTask *task = [NSTask launchedTaskWithLaunchPath:@"/usr/bin/ditto"
-				arguments:[NSArray arrayWithObjects:@"--sequesterRsrc", @"-x", @"-k", zip_path, [app_support_dirs lastObject], nil]];
+				arguments:@[@"--sequesterRsrc", @"-x", @"-k", zip_path, [app_support_dirs lastObject]]];
 		[task waitUntilExit];
 		int exit_status = [task terminationStatus];
 		NSAssert2( exit_status == 0, @"Exit ditto task with status : %d, %@", exit_status, [task standardError]);
@@ -65,7 +65,7 @@ NSString *resolveContainerPath(NSString *path)
 	NSFileManager *fm = [NSFileManager defaultManager];
     NSError *err = nil;
     NSDictionary *file_info = [fm attributesOfItemAtPath:path error:&err];
-	NSString *file_type = [file_info objectForKey:NSFileType];
+	NSString *file_type = file_info[NSFileType];
 
 	if ([file_type isEqualToString:NSFileTypeDirectory]) {
 		return [workspace isFilePackageAtPath:path] ? [path stringByDeletingLastPathComponent] : path;
@@ -84,13 +84,13 @@ NSString *resolveContainerPath(NSString *path)
             [NSApp presentError:err];
             return nil;
         }
-		is_directory = [[file_info objectForKey:NSFileType] isEqualToString:NSFileTypeDirectory];
+		is_directory = [file_info[NSFileType] isEqualToString:NSFileTypeDirectory];
 	}
 	else if ([file_type isEqualToString:NSFileTypeRegular]){
 		NSDictionary *dict = [path infoResolvingAliasFile];
-		if ([[dict objectForKey:@"WasAliased"] boolValue]) {
-			original_path = [dict objectForKey:@"ResolvedPath"];
-			is_directory = [[dict objectForKey:@"IsDirectory"] boolValue] ;
+		if ([dict[@"WasAliased"] boolValue]) {
+			original_path = dict[@"ResolvedPath"];
+			is_directory = [dict[@"IsDirectory"] boolValue] ;
 		}
 	}
 

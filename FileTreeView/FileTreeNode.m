@@ -5,14 +5,12 @@
 
 @implementation FileTreeNode
 
-@synthesize isExpanded;
-
 - (id) init
 {
 	self = [super init];
 	if (!self) return nil;
 	
-	isExpanded = NO;
+	self.isExpanded = NO;
 	return self;
 }
 
