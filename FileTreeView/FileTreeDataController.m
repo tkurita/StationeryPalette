@@ -654,9 +654,15 @@ bail:
 		[workspace performFileOperation:NSWorkspaceRecycleOperation
 								 source:dir_path destination:nil
 								  files:@[a_name] tag:nil];
-		[updated_nodes addObject:[file_tree_node parentNode]];
+		// make a unique set of parent nodes,
+        // to avoid dupulicate sending saveOrder message.
+        [updated_nodes addObject:[file_tree_node parentNode]];
+        
         [treeController removeObjectAtArrangedObjectIndexPath:an_indexpath];
-        [[[file_tree_node parentNode] representedObject] saveOrder];
+	}
+    
+    for (FileTreeNode *a_node in updated_nodes) {
+		[(FileDatum *)[a_node representedObject] saveOrder];
 	}
 }
 
