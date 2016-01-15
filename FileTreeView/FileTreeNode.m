@@ -1,7 +1,7 @@
 #import "FileTreeNode.h"
 #import "PathExtra.h"
 
-NSString *ORDER_CHACHE_NAME = @"order.plist";
+//NSString *ORDER_CHACHE_NAME = @"order.plist";
 
 @implementation FileTreeNodeData
 

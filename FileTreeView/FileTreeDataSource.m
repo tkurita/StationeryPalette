@@ -565,7 +565,6 @@ BOOL isOptionKeyDown()
 	else {
 		[self cleanupDragMoveOrCopy];
 	}
-
 }
 
 - (void)copyPromisedFiles:(id)sourceView

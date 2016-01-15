@@ -1,9 +1,12 @@
 #import <Cocoa/Cocoa.h>
 #import "DropBox.h"
+#import "FileTreeDataController.h"
 
 @interface FileTreeWindowController : NSWindowController <DropBoxDragAndDrop> {
 	IBOutlet id fileTreeView;
 	IBOutlet id fileTreeDataSource;
+    IBOutlet FileTreeDataController *fileTreeDataController;
+    IBOutlet NSTreeController *treeController;
 	IBOutlet NSView *helpButtonView;
     IBOutlet NSToolbarItem *helpToolBarItem;
 	IBOutlet id saveLocationField;
