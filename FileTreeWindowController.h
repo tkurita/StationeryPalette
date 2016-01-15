@@ -12,13 +12,13 @@
 	IBOutlet id fileNameField;
 	IBOutlet id saveToBox;
 	
-	NSAppleScript *insertionLocationScript;
 	BOOL shouldOpenFile;
 	BOOL isFirstOpen;
-	NSString *untitledName;
-	NSString *previousSelectionName;
 }
 
+@property (retain) NSAppleScript *insertionLocationScript;
+@property (retain) NSString *untitledName;
+@property (retain) NSString *previousSelectionName;
 @property (retain) NSData *insertionLocationBookmark;
 
 - (IBAction)newFileFromStationery:(id)sender;

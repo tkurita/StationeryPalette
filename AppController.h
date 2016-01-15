@@ -1,8 +1,6 @@
 #import <Cocoa/Cocoa.h>
 #import "FileTreeWindowController.h"
 
-@interface AppController : NSObject {
-	FileTreeWindowController *windowController;
-}
-
+@interface AppController : NSObject
+@property (retain) FileTreeWindowController *windowController;
 @end

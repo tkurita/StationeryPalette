@@ -20,7 +20,8 @@
 
 - (void)applicationWillBecomeActive:(NSNotification *)aNotification
 {
-	if (![[windowController window] isVisible]) [windowController showWindowWithFinderSelection:self];
+	if (![[_windowController window] isVisible])
+        [_windowController showWindowWithFinderSelection:self];
 }
 
 - (void)applicationWillFinishLaunching:(NSNotification *)aNotification
@@ -112,7 +113,7 @@ NSString *resolveContainerPath(NSString *path)
     }
 	
 	NSString *file_path = resolveContainerPath([file_names lastObject]);
-	[windowController showWindowWithDirectory:file_path];
+	[_windowController showWindowWithDirectory:file_path];
 	[NSApp activateIgnoringOtherApps:YES];
 }
 
@@ -121,10 +122,11 @@ NSString *resolveContainerPath(NSString *path)
 #if useLog
 	NSLog(@"start applicationDidFinishLaunching");
 #endif
-	windowController = [[FileTreeWindowController alloc] initWithWindowNibName:@"FileTreeWindow"];
+	self.windowController = [[FileTreeWindowController alloc]
+                             initWithWindowNibName:@"FileTreeWindow"];
 	[NSApp setServicesProvider:self];
-	if (![[windowController window] isVisible]) {
-		[windowController showWindowWithFinderSelection:self];
+	if (![[_windowController window] isVisible]) {
+		[_windowController showWindowWithFinderSelection:self];
 		[NSApp activateIgnoringOtherApps:YES];
 	}
 	[DonationReminder remindDonation];

@@ -27,8 +27,8 @@ void showScriptError(NSDictionary *errorDict)
 @implementation FileTreeWindowController
 
 - (void) dealloc {
-	[insertionLocationScript release];
-	[untitledName release];
+	[_insertionLocationScript release];
+	[_untitledName release];
     self.insertionLocationBookmark = nil;
 	[super dealloc];
 }
@@ -38,7 +38,7 @@ void showScriptError(NSDictionary *errorDict)
 	if (newName == nil) return;
 	
 	NSString *base_name = [newName stringByDeletingPathExtension];
-	if ([base_name isEqualToString:untitledName]) return;
+	if ([base_name isEqualToString:_untitledName]) return;
 	if (![base_name length]) return;
 	
 	NSUserDefaults *user_defaults = [NSUserDefaults standardUserDefaults];
@@ -62,13 +62,6 @@ void showScriptError(NSDictionary *errorDict)
 }
 
 #pragma mark accessors
-- (void)setPreviousSelectionName:(NSString *)name
-{
-	[name retain];
-	[previousSelectionName release];
-	previousSelectionName = name;
-}
-
 - (void)setInsertionLocation:(NSString *)path
 {
     NSError *error = nil;
@@ -252,7 +245,7 @@ void cleanupFolderContents(NSString *path)
     [NSRunningApplication activateAppOfIdentifier:@"com.apple.finder"];
     [NSApp activateIgnoringOtherApps:YES];
     /* end for 10.8 */
-	NSAppleEventDescriptor *scriptResult = [insertionLocationScript executeAndReturnError:&error_dict];
+	NSAppleEventDescriptor *scriptResult = [_insertionLocationScript executeAndReturnError:&error_dict];
 	if (error_dict != nil) {
 		#if useLog
 		NSLog(@"%@", [error_dict description]);
@@ -289,15 +282,15 @@ void cleanupFolderContents(NSString *path)
 	if ((!selected_items) || is_already_visible) return;
 	
 	if ([selected_items count] > 1) {
-		[fileNameField setStringValue:untitledName];
+		[fileNameField setStringValue:_untitledName];
 		return;
 	}
    
 	NSString *path_extension = [[[[selected_items lastObject] representedObject] name]
                                     pathExtension];
-	NSString *untitled_name = untitledName;
+	NSString *untitled_name = _untitledName;
 	if ([path_extension length] > 0) {
-		untitled_name = [untitledName stringByAppendingPathExtension:path_extension];
+		untitled_name = [_untitledName stringByAppendingPathExtension:path_extension];
 	}
 	[fileNameField setStringValue:untitled_name];
 	//[fileNameField selectText:self]; //make initial first responder to be fileTreeView
@@ -311,8 +304,8 @@ void cleanupFolderContents(NSString *path)
 {
 	//NSLog([notification description]);
     NSString *node_name = [[self selectedFileDatum] name];
-	if (previousSelectionName) {
-		NSString *pre_suffix = [previousSelectionName pathExtension];
+	if (_previousSelectionName) {
+		NSString *pre_suffix = [_previousSelectionName pathExtension];
 		NSString *name_in_field = [fileNameField stringValue];
 		if ([[name_in_field pathExtension] isEqualToString:pre_suffix]) {
 			NSString *new_name = [name_in_field stringByDeletingPathExtension];
@@ -344,7 +337,8 @@ void cleanupFolderContents(NSString *path)
 									ofType:@"scpt" inDirectory:@"Scripts"];
 	NSURL *scriptURL = [NSURL fileURLWithPath:scriptPath];
 	NSDictionary *error_dict = nil;
-	insertionLocationScript = [[NSAppleScript alloc] initWithContentsOfURL:scriptURL error:&error_dict];
+	self.insertionLocationScript = [[NSAppleScript alloc] initWithContentsOfURL:scriptURL
+                                                                          error:&error_dict];
 	if (error_dict != nil) {
 		#if useLog
 		NSLog(@"%@", [error_dict description]);
@@ -355,8 +349,8 @@ void cleanupFolderContents(NSString *path)
 	[saveToBox setAcceptFileInfo:@[@{@"FileType": NSFileTypeDirectory}]];
 	
 	isFirstOpen = YES;
-	untitledName = [[fileNameField stringValue] retain];
-	previousSelectionName = nil;
+	self.untitledName = [fileNameField stringValue];
+	self.previousSelectionName = nil;
 	[[NSNotificationCenter defaultCenter] addObserver:self 
 		selector:@selector(selectionDidChange:) 
 		name:NSOutlineViewSelectionDidChangeNotification object:fileTreeView];
