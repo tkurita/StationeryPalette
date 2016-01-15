@@ -559,29 +559,7 @@ bail:
 - (void)trashPromisedFiles
 {
 	if (_draggedNodes == nil) return;
-	NSArray *min_index_pathes = [NSIndexPath minimumIndexPathesCoverFromIndexPathesArray:
-								 [_draggedNodes valueForKeyPath:@"indexPath"]];
-	NSWorkspace *workspace = [NSWorkspace sharedWorkspace];
-	NSMutableSet *updated_nodes = [NSMutableSet set];
-	
-	for (NSIndexPath *an_indexpath in min_index_pathes) {
-		NSTreeNode *controller_node = [[treeController arrangedObjects]
-                                       descendantNodeAtIndexPath:an_indexpath];
-		NSTreeNode *file_tree_node = [controller_node representedObject];
-		NSString *a_path = [[file_tree_node representedObject] path];
-		NSString *dir_path = [a_path stringByDeletingLastPathComponent];
-		NSString *a_name = [a_path lastPathComponent];
-		[workspace performFileOperation:NSWorkspaceRecycleOperation
-								 source:dir_path destination:nil
-								  files:@[a_name] tag:nil];
-		NSTreeNode *parent_node = [controller_node parentNode];
-        [[parent_node mutableChildNodes] removeObject:controller_node];
-        [updated_nodes addObject:[file_tree_node parentNode]];
-	}
-
-	for (FileTreeNode *a_node in updated_nodes) {
-		[(FileDatum *)[a_node representedObject] saveOrder];
-	}
+    [self deleteNodes:_draggedNodes];
 }
 
 - (void)outlineView:(NSOutlineView *)outlineView draggingSession:(NSDraggingSession *)session
@@ -597,11 +575,12 @@ bail:
 #if useLog
     NSLog(@"start draggingSession operation %ld", operation);
 #endif
-    if (!_promisedDragDestination) return;
     switch (operation) {
 		case NSDragOperationCopy:
 		case NSDragOperationGeneric:
-			[self copyPromisedFiles];
+			if(_promisedDragDestination) {
+                [self copyPromisedFiles];
+            }
 			break;
 		case NSDragOperationDelete:
 			[self trashPromisedFiles];
@@ -643,41 +622,48 @@ bail:
 	return [[self class] instancesRespondToSelector:aSelector];
 }
 
-- (IBAction)deleteSelection:(id)sender
+- (NSArray *)targetNodes
 {
-	NSMutableArray *src_nodes = [[treeController selectedNodes] mutableCopy];
-	NSInteger clicked_row = [outlineView clickedRow];
-	NSTreeNode *clicked_node = nil;
-	if ((clicked_row != -1) && ![outlineView isRowSelected:clicked_row]) {
-		clicked_node = [outlineView itemAtRow:clicked_row];
-		[src_nodes addObject:clicked_node];
-	}
-	
-	NSArray *min_index_pathes = [NSIndexPath minimumIndexPathesCoverFromIndexPathesArray:
-								 [src_nodes valueForKeyPath:@"indexPath"]];
+    NSInteger clicked_row = [outlineView clickedRow];
+    if (clicked_row != -1) { // contextual menu
+        if ([outlineView isRowSelected:clicked_row]) {
+            return [treeController selectedNodes];
+        } else {
+            NSTreeNode *clicked_node = [outlineView itemAtRow:clicked_row];
+            return [NSArray arrayWithObject:clicked_node];
+        }
+    }
+    return [treeController selectedNodes];;
+}
+
+- (void)deleteNodes:(NSArray *)nodes
+{
+    NSArray *min_index_pathes = [NSIndexPath minimumIndexPathesCoverFromIndexPathesArray:
+								 [nodes valueForKeyPath:@"indexPath"]];
 	NSWorkspace *workspace = [NSWorkspace sharedWorkspace];
 	NSMutableSet *updated_nodes = [NSMutableSet set];
-	
-	for (NSIndexPath *an_indexpath in min_index_pathes) {
-		NSTreeNode *controller_node = [[treeController arrangedObjects] descendantNodeAtIndexPath:an_indexpath];
+	NSEnumerator *reverse_enum = [min_index_pathes reverseObjectEnumerator];
+    NSIndexPath *an_indexpath;
+    while (an_indexpath = [reverse_enum nextObject]) {
+		NSTreeNode *controller_node = [[treeController arrangedObjects]
+                                       descendantNodeAtIndexPath:an_indexpath];
 		NSTreeNode *file_tree_node = [controller_node representedObject];
 		NSString *a_path = [[file_tree_node representedObject] path];
 		NSString *dir_path = [a_path stringByDeletingLastPathComponent];
 		NSString *a_name = [a_path lastPathComponent];
-		[workspace performFileOperation:NSWorkspaceRecycleOperation 
-								 source:dir_path destination:nil 
+		[workspace performFileOperation:NSWorkspaceRecycleOperation
+								 source:dir_path destination:nil
 								  files:@[a_name] tag:nil];
 		[updated_nodes addObject:[file_tree_node parentNode]];
+        [treeController removeObjectAtArrangedObjectIndexPath:an_indexpath];
+        [[[file_tree_node parentNode] representedObject] saveOrder];
 	}
-	
-	[treeController remove:self];
-	if (clicked_node) {
-		[treeController removeObjectAtArrangedObjectIndexPath:[clicked_node indexPath]];
-	}
-	
-	for (FileTreeNode *a_node in updated_nodes) {
-		[(FileDatum *)[a_node representedObject] saveOrder];
-	}
+}
+
+- (IBAction)deleteSelection:(id)sender
+{
+    NSArray *nodes = [self targetNodes];
+    [self deleteNodes:nodes];
 }
 
 - (IBAction)renameSelection:(id)sender
@@ -724,19 +710,6 @@ bail:
                 atIndex:[_destinationIndexPath lastIndex]];
 	[treeController setSelectionIndexPath:_destinationIndexPath];
 	[dest_fd saveOrder];
-}
-
-- (NSArray *)targetNodes
-{
-	NSMutableArray *src_nodes = [[treeController selectedNodes] mutableCopy];
-	NSInteger clicked_row = [outlineView clickedRow];
-	if (clicked_row != -1) {
-		NSTreeNode *clicked_node = [outlineView itemAtRow:clicked_row];
-		if (![src_nodes containsObject:clicked_node]) {
-            [src_nodes addObject:clicked_node];
-        }
-	}
-    return src_nodes;
 }
 
 - (IBAction)dupulicateSelection:(id)sender
