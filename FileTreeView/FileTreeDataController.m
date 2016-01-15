@@ -480,8 +480,9 @@ bail:
 }
 
 - (NSArray *)outlineView:(NSOutlineView *)olv
-namesOfPromisedFilesDroppedAtDestination:(NSURL *)dropDestination
-         forDraggedItems:(NSArray *)items {
+                namesOfPromisedFilesDroppedAtDestination:(NSURL *)dropDestination
+                                        forDraggedItems:(NSArray *)items
+{
 #if useLog
 	NSLog(@"start namesOfPromisedFilesDroppedAtDestination");
 #endif
@@ -583,13 +584,20 @@ namesOfPromisedFilesDroppedAtDestination:(NSURL *)dropDestination
 	}
 }
 
-- (void)outlineView:(NSOutlineView *)outlineView draggingSession:(NSDraggingSession *)session willBeginAtPoint:(NSPoint)screenPoint forItems:(NSArray *)draggedItems {
+- (void)outlineView:(NSOutlineView *)outlineView draggingSession:(NSDraggingSession *)session
+                    willBeginAtPoint:(NSPoint)screenPoint forItems:(NSArray *)draggedItems
+{
     self.draggedNodes = draggedItems;
+    self.promisedDragDestination = nil;
 }
 
-- (void)outlineView:(NSOutlineView *)olv draggingSession:(NSDraggingSession *)session endedAtPoint:(NSPoint)screenPoint operation:(NSDragOperation)operation {
+- (void)outlineView:(NSOutlineView *)olv draggingSession:(NSDraggingSession *)session
+                    endedAtPoint:(NSPoint)screenPoint operation:(NSDragOperation)operation
+{
+#if useLog
     NSLog(@"start draggingSession operation %ld", operation);
-     // If the session ended in the trash, then delete all the items
+#endif
+    if (!_promisedDragDestination) return;
     switch (operation) {
 		case NSDragOperationCopy:
 		case NSDragOperationGeneric:
@@ -718,7 +726,7 @@ namesOfPromisedFilesDroppedAtDestination:(NSURL *)dropDestination
 	[dest_fd saveOrder];
 }
 
-- (IBAction)dupulicateSelection:(id)sender
+- (NSArray *)targetNodes
 {
 	NSMutableArray *src_nodes = [[treeController selectedNodes] mutableCopy];
 	NSInteger clicked_row = [outlineView clickedRow];
@@ -728,8 +736,14 @@ namesOfPromisedFilesDroppedAtDestination:(NSURL *)dropDestination
             [src_nodes addObject:clicked_node];
         }
 	}
+    return src_nodes;
+}
+
+- (IBAction)dupulicateSelection:(id)sender
+{
+	NSArray *src_nodes = [self targetNodes];
 	
-	NSFileManager *fm = [NSFileManager defaultManager];
+    NSFileManager *fm = [NSFileManager defaultManager];
 	NSUInteger n_src = [src_nodes count];
 	NSMutableArray *new_nodes = [NSMutableArray arrayWithCapacity:n_src];
 	
@@ -756,13 +770,8 @@ namesOfPromisedFilesDroppedAtDestination:(NSURL *)dropDestination
 
 - (IBAction)revealSelection:(id)sender
 {
-	NSMutableArray *src_nodes = [[treeController selectedNodes] mutableCopy];
-	NSInteger clicked_row = [outlineView clickedRow];
-	if (clicked_row != -1) {
-		NSTreeNode *clicked_node = [outlineView itemAtRow:clicked_row];
-		[src_nodes addObject:clicked_node];
-	}
-	
+    NSArray *src_nodes = [self targetNodes];
+
 	NSWorkspace *workspace = [NSWorkspace sharedWorkspace];
 	for (NSTreeNode *a_node in src_nodes) {
 		NSString *a_path = [[[a_node representedObject] representedObject] path];
@@ -774,12 +783,7 @@ namesOfPromisedFilesDroppedAtDestination:(NSURL *)dropDestination
 
 - (IBAction)openSelection:(id)sender
 {
-	NSMutableArray *src_nodes = [[treeController selectedNodes] mutableCopy];
-	NSInteger clicked_row = [outlineView clickedRow];
-	if (clicked_row != -1) {
-		NSTreeNode *clicked_node = [outlineView itemAtRow:clicked_row];
-		[src_nodes addObject:clicked_node];
-	}
+    NSArray *src_nodes = [self targetNodes];
 	
 	NSWorkspace *workspace = [NSWorkspace sharedWorkspace];
 	for (NSTreeNode *a_node in src_nodes) {
