@@ -368,11 +368,12 @@ skip:
  */
 - (NSDragOperation)outlineView:(NSOutlineView *)olv 
 				  validateDrop:(id <NSDraggingInfo>)info 
-				  proposedItem:(id)proposed_node proposedChildIndex:(NSInteger)index {
+				  proposedItem:(id)proposed_node
+            proposedChildIndex:(NSInteger)index
+{
 #if useLog
     NSLog(@"start validateDrop");
 #endif	
-    NSDragOperation result = NSDragOperationNone;
 	BOOL is_valid_target_node = YES;
 	// The index indicates whether the drop would take place directly on an item or between two items. 
     // Between items implies that sibling ordering is supported (it's not in this application),
@@ -389,38 +390,35 @@ skip:
 			if (pboard_data) {
 				dropped_index_pathes = [NSKeyedUnarchiver unarchiveObjectWithData:pboard_data];
 			} else {
-				result = NSDragOperationNone;
-				goto bail; 
+				return NSDragOperationNone;
 			}
 			NSIndexPath *proposed_index_path = [proposed_node indexPath];
 			if ([proposed_index_path isDescendantOfIndexPathInArray:dropped_index_pathes]) {
-				result = NSDragOperationNone;
-				goto bail; 
+				return NSDragOperationNone;
 			}			
-		// } else {
+		} else {
 			// drop from finder
+            return NSDragOperationCopy;
 		}
 	} else {
-		result = NSDragOperationNone;
-		goto bail; 
+		return NSDragOperationNone;
 	}
 
 	if (isOptionKeyDown()) {
-		result = NSDragOperationCopy;
+		return NSDragOperationCopy;
 	}
 	else {
-		result = NSDragOperationMove;
+		return NSDragOperationMove;
 	}
-	
-bail:	
-	return result;
 }
 
 /*
  Performing a drop in the outline view. This allows the user to manipulate the structure of the tree by moving subtrees under new parent nodes.
  */
-- (BOOL)outlineView:(NSOutlineView *)olv acceptDrop:(id <NSDraggingInfo>)info 
-			   item:(id)proposed_node childIndex:(NSInteger)index {
+- (BOOL)outlineView:(NSOutlineView *)olv
+         acceptDrop:(id <NSDraggingInfo>)info
+			   item:(id)proposed_node childIndex:(NSInteger)index
+{
 #if useLog
     NSLog(@"start acceptDrop: %@", info);
 #endif
