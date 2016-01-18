@@ -391,7 +391,7 @@
 												<int key="NSvFlags">256</int>
 												<string key="NSFrameSize">{405, 17}</string>
 												<reference key="NSSuperview" ref="884347773"/>
-												<reference key="NSNextKeyView" ref="280179031"/>
+												<reference key="NSNextKeyView" ref="617572827"/>
 												<reference key="NSTableView" ref="96495206"/>
 											</object>
 											<object class="_NSCornerView" key="NSCornerView" id="617572827">
@@ -525,7 +525,7 @@
 									<int key="NSvFlags">256</int>
 									<string key="NSFrame">{{406, 17}, {15, 365}}</string>
 									<reference key="NSSuperview" ref="834293824"/>
-									<reference key="NSNextKeyView" ref="309746679"/>
+									<reference key="NSNextKeyView" ref="208332689"/>
 									<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 									<reference key="NSTarget" ref="834293824"/>
 									<string key="NSAction">_doScroller:</string>
@@ -536,7 +536,7 @@
 									<int key="NSvFlags">256</int>
 									<string key="NSFrame">{{1, 382}, {405, 15}}</string>
 									<reference key="NSSuperview" ref="834293824"/>
-									<reference key="NSNextKeyView" ref="896258490"/>
+									<reference key="NSNextKeyView" ref="309746679"/>
 									<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 									<int key="NSsFlags">1</int>
 									<reference key="NSTarget" ref="834293824"/>
@@ -1099,7 +1099,6 @@ p+e9ruOBjeaPm+OBiOOBvuOBmeOBi++8nw</string>
 				<bool key="NSEditable">YES</bool>
 				<object class="_NSManagedProxy" key="_NSManagedProxy"/>
 				<bool key="NSPreservesSelection">YES</bool>
-				<bool key="NSSelectsInsertedObjects">YES</bool>
 				<string key="NSTreeContentChildrenKey">childNodes</string>
 				<string key="NSTreeContentLeafKey">isLeaf</string>
 			</object>

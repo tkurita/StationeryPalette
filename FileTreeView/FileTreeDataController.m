@@ -236,8 +236,6 @@ static BOOL isOptionKeyDown()
 		} else {
 			NSFileManager *fm = [NSFileManager defaultManager];
 			NSString *target_name = [target_url lastPathComponent];
-			//NSString *new_path = [dstURL stringByAppendingPathComponent:
-			//										  target_name];
             NSError *err = nil;
             if (![fm moveItemAtURL:target_url toURL:dstURL error:&err]) {
 				if (![fm fileExistsAtPath:[dstURL path]]) {
@@ -296,12 +294,32 @@ skip:
     }
     
     NSMutableSet *updated_file_data = [NSMutableSet setWithCapacity:[_processedNodes count]];
-    for (NSTreeNode *controller_node in _processedNodes) {
-        [updated_file_data addObject:[[controller_node representedObject] representedObject]];
+    /*
+    NSUInteger current_index = _destinationIndexPath.lastIndex;
+    for (NSTreeNode *a_node in _processedNodes) {
+        FileTreeNode *fnode = a_node.representedObject;
+        [updated_file_data addObject:fnode.representedObject];
+        FileTreeNode *parent_node = (FileTreeNode *)fnode.parentNode;
+        if (parent_node == _destinationNode) {
+            NSUInteger original_index = fnode.indexPath.lastIndex;
+            if (original_index < _destinationIndexPath.lastIndex) {
+                current_index--;
+            }
+        }
+        [parent_node.mutableChildNodes removeObject:fnode];
+        [_destinationNode.mutableChildNodes insertObject:fnode atIndex:current_index++];
     }
+     */
+    
+    for (NSTreeNode *a_node in _processedNodes) {
+        FileTreeNode *fnode = a_node.representedObject;
+        [updated_file_data addObject:fnode.representedObject];
+    }
+    [treeController setSelectionIndexPaths:[_processedNodes valueForKeyPath:@"indexPath"]];
     [treeController moveNodes:_processedNodes toIndexPath:_destinationIndexPath];
     [treeController removeObjectsAtArrangedObjectIndexPaths:
                                      [_nodesToDelete valueForKeyPath:@"indexPath"]];
+    
     [updated_file_data makeObjectsPerformSelector:@selector(saveOrder)];
     [[_destinationNode representedObject] saveOrder];
 }
@@ -558,7 +576,7 @@ skip:
 - (void)copyFileAtURL:(NSURL *)srcURL toURL:(NSURL *)dstURL replacing:(BOOL)replaceFlag
 {
 #if useLog
-	NSLog(@"start copyPromisedFile");
+	NSLog(@"start copyFileAtURL");
 #endif
     if (!srcURL) {
         [treeController removeObjectsAtArrangedObjectIndexPaths:
@@ -650,7 +668,7 @@ skip:
                     endedAtPoint:(NSPoint)screenPoint operation:(NSDragOperation)operation
 {
 #if useLog
-    NSLog(@"start draggingSession operation %ld", operation);
+    NSLog(@"start draggingSession:endedAtPoint operation %ld", operation);
 #endif
     switch (operation) {
 		case NSDragOperationCopy:
