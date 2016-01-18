@@ -382,8 +382,7 @@
 											<int key="NSvFlags">256</int>
 											<string key="NSFrameSize">{405, 365}</string>
 											<reference key="NSSuperview" ref="280179031"/>
-											<reference key="NSWindow"/>
-											<reference key="NSNextKeyView" ref="896258490"/>
+											<reference key="NSNextKeyView" ref="208332689"/>
 											<bool key="NSEnabled">YES</bool>
 											<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 											<bool key="NSControlAllowsExpansionToolTips">YES</bool>
@@ -392,16 +391,14 @@
 												<int key="NSvFlags">256</int>
 												<string key="NSFrameSize">{405, 17}</string>
 												<reference key="NSSuperview" ref="884347773"/>
-												<reference key="NSWindow"/>
-												<reference key="NSNextKeyView" ref="765783742"/>
+												<reference key="NSNextKeyView" ref="280179031"/>
 												<reference key="NSTableView" ref="96495206"/>
 											</object>
-											<object class="_NSCornerView" key="NSCornerView" id="765783742">
+											<object class="_NSCornerView" key="NSCornerView" id="617572827">
 												<reference key="NSNextResponder" ref="834293824"/>
 												<int key="NSvFlags">256</int>
 												<string key="NSFrame">{{406, 0}, {16, 17}}</string>
 												<reference key="NSSuperview" ref="834293824"/>
-												<reference key="NSWindow"/>
 												<reference key="NSNextKeyView" ref="280179031"/>
 											</object>
 											<array class="NSMutableArray" key="NSTableColumns">
@@ -518,7 +515,6 @@
 									</array>
 									<string key="NSFrame">{{1, 17}, {405, 365}}</string>
 									<reference key="NSSuperview" ref="834293824"/>
-									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="96495206"/>
 									<reference key="NSDocView" ref="96495206"/>
 									<reference key="NSBGColor" ref="728461820"/>
@@ -529,8 +525,7 @@
 									<int key="NSvFlags">256</int>
 									<string key="NSFrame">{{406, 17}, {15, 365}}</string>
 									<reference key="NSSuperview" ref="834293824"/>
-									<reference key="NSWindow"/>
-									<reference key="NSNextKeyView" ref="208332689"/>
+									<reference key="NSNextKeyView" ref="309746679"/>
 									<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 									<reference key="NSTarget" ref="834293824"/>
 									<string key="NSAction">_doScroller:</string>
@@ -541,8 +536,7 @@
 									<int key="NSvFlags">256</int>
 									<string key="NSFrame">{{1, 382}, {405, 15}}</string>
 									<reference key="NSSuperview" ref="834293824"/>
-									<reference key="NSWindow"/>
-									<reference key="NSNextKeyView" ref="309746679"/>
+									<reference key="NSNextKeyView" ref="896258490"/>
 									<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 									<int key="NSsFlags">1</int>
 									<reference key="NSTarget" ref="834293824"/>
@@ -557,24 +551,22 @@
 									</array>
 									<string key="NSFrame">{{1, 0}, {405, 17}}</string>
 									<reference key="NSSuperview" ref="834293824"/>
-									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="384745177"/>
 									<reference key="NSDocView" ref="384745177"/>
 									<reference key="NSBGColor" ref="728461820"/>
 									<int key="NScvFlags">4</int>
 								</object>
-								<reference ref="765783742"/>
+								<reference ref="617572827"/>
 							</array>
 							<string key="NSFrame">{{-1, 164}, {422, 398}}</string>
 							<reference key="NSSuperview" ref="717784637"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="884347773"/>
 							<int key="NSsFlags">133170</int>
 							<reference key="NSVScroller" ref="896258490"/>
 							<reference key="NSHScroller" ref="208332689"/>
 							<reference key="NSContentView" ref="280179031"/>
 							<reference key="NSHeaderClipView" ref="884347773"/>
-							<reference key="NSCornerView" ref="765783742"/>
+							<reference key="NSCornerView" ref="617572827"/>
 							<bytes key="NSScrollAmts">QSAAAEEgAABBoAAAQaAAAA</bytes>
 							<double key="NSMinMagnification">0.25</double>
 							<double key="NSMaxMagnification">4</double>
@@ -585,7 +577,6 @@
 							<int key="NSvFlags">289</int>
 							<string key="NSFrame">{{317, 12}, {82, 32}}</string>
 							<reference key="NSSuperview" ref="717784637"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="222470528">
@@ -609,7 +600,6 @@
 							<int key="NSvFlags">289</int>
 							<string key="NSFrame">{{235, 12}, {82, 32}}</string>
 							<reference key="NSSuperview" ref="717784637"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="1002144434"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="230925119">
@@ -633,7 +623,6 @@
 							<int key="NSvFlags">289</int>
 							<string key="NSFrame">{{130, 12}, {105, 32}}</string>
 							<reference key="NSSuperview" ref="717784637"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="487330266"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="1062397689">
@@ -657,7 +646,6 @@
 							<int key="NSvFlags">290</int>
 							<string key="NSFrame">{{101, 48}, {310, 26}}</string>
 							<reference key="NSSuperview" ref="717784637"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="514841175"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSComboBoxCell" key="NSCell" id="714416587">
@@ -750,7 +738,6 @@
 							<int key="NSvFlags">256</int>
 							<string key="NSFrame">{{24, 52}, {77, 17}}</string>
 							<reference key="NSSuperview" ref="717784637"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="48626723"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="306150502">
@@ -782,7 +769,6 @@
 											<int key="NSvFlags">274</int>
 											<string key="NSFrame">{{15, 8}, {361, 39}}</string>
 											<reference key="NSSuperview" ref="529380881"/>
-											<reference key="NSWindow"/>
 											<reference key="NSNextKeyView" ref="790309169"/>
 											<bool key="NSEnabled">YES</bool>
 											<object class="NSTextFieldCell" key="NSCell" id="442280988">
@@ -799,13 +785,11 @@
 									</array>
 									<string key="NSFrame">{{2, 2}, {383, 51}}</string>
 									<reference key="NSSuperview" ref="309746679"/>
-									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="695959558"/>
 								</object>
 							</array>
 							<string key="NSFrame">{{17, 88}, {387, 68}}</string>
 							<reference key="NSSuperview" ref="717784637"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="529380881"/>
 							<string key="NSOffsets">{0, 0}</string>
 							<object class="NSTextFieldCell" key="NSTitleCell">
@@ -828,7 +812,6 @@
 					</array>
 					<string key="NSFrameSize">{421, 562}</string>
 					<reference key="NSSuperview"/>
-					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="834293824"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1440, 878}}</string>
@@ -916,7 +899,7 @@
 				<nil key="NSUserInterfaceItemIdentifier"/>
 				<string key="NSWindowContentMinSize">{213, 107}</string>
 				<object class="NSView" key="NSWindowView" id="843613475">
-					<reference key="NSNextResponder"/>
+					<nil key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<array class="NSMutableArray" key="NSSubviews">
 						<object class="NSButton" id="955007635">
@@ -924,7 +907,6 @@
 							<int key="NSvFlags">256</int>
 							<string key="NSFrame">{{397, 12}, {89, 32}}</string>
 							<reference key="NSSuperview" ref="843613475"/>
-							<reference key="NSNextKeyView"/>
 							<int key="NSTag">1</int>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="943661502">
@@ -1072,7 +1054,6 @@ d2FudCB0byByZXBsYWNlIGl0IHdpdGggdGhlIG9uZSB5b3UgYXJlICVAID8</string>
 						</object>
 					</array>
 					<string key="NSFrameSize">{500, 116}</string>
-					<reference key="NSSuperview"/>
 					<reference key="NSNextKeyView" ref="1028333709"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1440, 878}}</string>
@@ -1119,7 +1100,7 @@ d2FudCB0byByZXBsYWNlIGl0IHdpdGggdGhlIG9uZSB5b3UgYXJlICVAID8</string>
 					<string>representedObject.displayName</string>
 					<string>representedObject.kind</string>
 				</array>
-				<string key="NSObjectClassName">FileDatum</string>
+				<string key="NSObjectClassName">FileTreeNode</string>
 				<bool key="NSEditable">YES</bool>
 				<object class="_NSManagedProxy" key="_NSManagedProxy"/>
 				<bool key="NSPreservesSelection">YES</bool>
@@ -2164,268 +2145,6 @@ d2FudCB0byByZXBsYWNlIGl0IHdpdGggdGhlIG9uZSB5b3UgYXJlICVAID8</string>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
-				<object class="IBPartialClassDescription">
-					<string key="className">DropBox</string>
-					<string key="superclassName">NSBox</string>
-					<object class="NSMutableDictionary" key="outlets">
-						<string key="NS.key.0">delegate</string>
-						<string key="NS.object.0">id</string>
-					</object>
-					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<string key="NS.key.0">delegate</string>
-						<object class="IBToOneOutletInfo" key="NS.object.0">
-							<string key="name">delegate</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</object>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/DropBox.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">FileNameComboBox</string>
-					<string key="superclassName">NSComboBox</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/FileNameComboBox.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">FileTreeDataController</string>
-					<string key="superclassName">NSResponder</string>
-					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="conflictErrorAction:">id</string>
-						<string key="deleteSelection:">id</string>
-						<string key="dupulicateSelection:">id</string>
-						<string key="makeFolder:">id</string>
-						<string key="openRootDirectory:">id</string>
-						<string key="openSelection:">id</string>
-						<string key="renameSelection:">id</string>
-						<string key="revealSelection:">id</string>
-						<string key="updateRoot:">id</string>
-						<string key="updateSelection:">id</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="conflictErrorAction:">
-							<string key="name">conflictErrorAction:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="deleteSelection:">
-							<string key="name">deleteSelection:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="dupulicateSelection:">
-							<string key="name">dupulicateSelection:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="makeFolder:">
-							<string key="name">makeFolder:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="openRootDirectory:">
-							<string key="name">openRootDirectory:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="openSelection:">
-							<string key="name">openSelection:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="renameSelection:">
-							<string key="name">renameSelection:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="revealSelection:">
-							<string key="name">revealSelection:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="updateRoot:">
-							<string key="name">updateRoot:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="updateSelection:">
-							<string key="name">updateSelection:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="applyAllSwitch">id</string>
-						<string key="cancelForItemButton">id</string>
-						<string key="conflictErrorWindow">id</string>
-						<string key="conflictMessage">id</string>
-						<string key="doubleActionTarget">id</string>
-						<string key="iconInConflictErrorWindow">id</string>
-						<string key="outlineView">NSOutlineView</string>
-						<string key="treeController">NSTreeController</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="applyAllSwitch">
-							<string key="name">applyAllSwitch</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="cancelForItemButton">
-							<string key="name">cancelForItemButton</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="conflictErrorWindow">
-							<string key="name">conflictErrorWindow</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="conflictMessage">
-							<string key="name">conflictMessage</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="doubleActionTarget">
-							<string key="name">doubleActionTarget</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="iconInConflictErrorWindow">
-							<string key="name">iconInConflictErrorWindow</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="outlineView">
-							<string key="name">outlineView</string>
-							<string key="candidateClassName">NSOutlineView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="treeController">
-							<string key="name">treeController</string>
-							<string key="candidateClassName">NSTreeController</string>
-						</object>
-					</dictionary>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/FileTreeDataController.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">FileTreeView</string>
-					<string key="superclassName">NSOutlineView</string>
-					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="deleteSelection:">id</string>
-						<string key="dupulicateSelection:">id</string>
-						<string key="makeFolder:">id</string>
-						<string key="openSelection:">id</string>
-						<string key="renameSelection:">id</string>
-						<string key="revealSelection:">id</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="deleteSelection:">
-							<string key="name">deleteSelection:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="dupulicateSelection:">
-							<string key="name">dupulicateSelection:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="makeFolder:">
-							<string key="name">makeFolder:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="openSelection:">
-							<string key="name">openSelection:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="renameSelection:">
-							<string key="name">renameSelection:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="revealSelection:">
-							<string key="name">revealSelection:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</dictionary>
-					<object class="NSMutableDictionary" key="outlets">
-						<string key="NS.key.0">searchField</string>
-						<string key="NS.object.0">id</string>
-					</object>
-					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<string key="NS.key.0">searchField</string>
-						<object class="IBToOneOutletInfo" key="NS.object.0">
-							<string key="name">searchField</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</object>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/FileTreeView.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">FileTreeWindowController</string>
-					<string key="superclassName">NSWindowController</string>
-					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="cancelAction:">id</string>
-						<string key="copyStationery:">id</string>
-						<string key="newFileFromStationery:">id</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="cancelAction:">
-							<string key="name">cancelAction:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="copyStationery:">
-							<string key="name">copyStationery:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="newFileFromStationery:">
-							<string key="name">newFileFromStationery:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="fileNameField">id</string>
-						<string key="fileTreeDataController">FileTreeDataController</string>
-						<string key="fileTreeDataSource">id</string>
-						<string key="fileTreeView">id</string>
-						<string key="helpButtonView">NSView</string>
-						<string key="helpToolBarItem">NSToolbarItem</string>
-						<string key="saveLocationField">id</string>
-						<string key="saveToBox">id</string>
-						<string key="treeController">NSTreeController</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="fileNameField">
-							<string key="name">fileNameField</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="fileTreeDataController">
-							<string key="name">fileTreeDataController</string>
-							<string key="candidateClassName">FileTreeDataController</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="fileTreeDataSource">
-							<string key="name">fileTreeDataSource</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="fileTreeView">
-							<string key="name">fileTreeView</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="helpButtonView">
-							<string key="name">helpButtonView</string>
-							<string key="candidateClassName">NSView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="helpToolBarItem">
-							<string key="name">helpToolBarItem</string>
-							<string key="candidateClassName">NSToolbarItem</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="saveLocationField">
-							<string key="name">saveLocationField</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="saveToBox">
-							<string key="name">saveToBox</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="treeController">
-							<string key="name">treeController</string>
-							<string key="candidateClassName">NSTreeController</string>
-						</object>
-					</dictionary>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/FileTreeWindowController.h</string>
-					</object>
-				</object>
 				<object class="IBPartialClassDescription">
 					<string key="className">FirstResponder</string>
 					<dictionary class="NSMutableDictionary" key="actions">

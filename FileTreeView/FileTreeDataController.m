@@ -213,6 +213,17 @@ static BOOL isOptionKeyDown()
 	return _afterSheetInvocation;
 }
 
+- (NSInvocation *)setupAfterCopyInvocation:(SEL)aSelector
+{
+    self.afterCopyInvocation = [NSInvocation invocationWithMethodSignature:
+                                [self methodSignatureForSelector:aSelector]];
+	[_afterCopyInvocation setSelector:aSelector];
+	[_afterCopyInvocation retainArguments];
+	[_afterCopyInvocation setTarget:self];
+	
+	return _afterCopyInvocation;
+}
+
 - (void)moveFileTreeNode:(NSTreeNode *)targetNode toURL:(NSURL *)dstURL
                                                 withReplacing:(BOOL)replaceFlag
 {
@@ -295,31 +306,81 @@ skip:
     [[_destinationNode representedObject] saveOrder];
 }
 
-- (void)insertChildrenCopyingPaths:(NSArray *)sourcePaths
+- (void)insertNewNodeWithURL:(NSURL *)anURL
 {
-    /* call setDestinationWithNode:atIndexPath before */
-	NSFileManager *fm = [NSFileManager defaultManager];
-	NSMutableArray *child_nodes = [_destinationNode mutableChildNodes];
-	NSUInteger index_len = [_destinationIndexPath length];
-	NSUInteger indexes[index_len];
-	[_destinationIndexPath getIndexes:indexes];
-    NSString *dest_path = [[_destinationNode representedObject] path];
-	for (NSString *a_source in sourcePaths) {
-		NSString *target_path = [dest_path stringByAppendingPathComponent:
-										   [a_source lastPathComponent]];
-		target_path = [target_path uniqueName];
-        NSError *err = nil;
-        [fm copyItemAtPath:a_source toPath:target_path error:&err];
-        if (err) {
-            [NSApp presentError:err];
-        }
-		
-		FileTreeNode *newnode = [[FileDatum fileDatumWithPath:target_path] treeNode];
-		[child_nodes insertObject:newnode atIndex:indexes[index_len-1]++];
-	}
+    FileTreeNode *newnode = [[FileDatum fileDatumWithURL:anURL] treeNode];
+    [[_destinationNode mutableChildNodes] insertObject:newnode atIndex:_destinationIndexPath.lastIndex];
+    self.destinationIndexPath = [_destinationIndexPath indexPathByIncrementLastIndex:1];
 }
 
-- (void)cleanupFolderContents:(NSString *)path
+- (void)insertChildrenCopyingPaths:(NSArray *)srcPaths
+{
+  /* call setDestinationWithNode:atIndexPath before */
+    self.nodesToDelete = [NSMutableArray array];
+    NSMutableArray *src_urls = [NSMutableArray arrayWithCapacity:[srcPaths count]];
+    [srcPaths enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop){
+        [src_urls addObject:[NSURL fileURLWithPath:obj]];
+    }];
+    applyAllFlag = NO;
+    self.dndEnumerator = [src_urls objectEnumerator];
+    NSURL *src = [_dndEnumerator nextObject];
+    NSURL *dst = [[[_destinationNode representedObject] fileURL]
+                    URLByAppendingPathComponent:[src lastPathComponent]];
+    NSInvocation *invocation = [self setupAfterSheetInvocation:
+                                @selector(copyFileAtURL:toURL:replacing:)];
+    [self setupAfterCopyInvocation:@selector(insertNewNodeWithURL:)];
+    BOOL replace_flag = NO;
+	[invocation setArgument:&replace_flag atIndex:4];
+    
+    [self copyFileAtURL:src toURL:dst replacing:NO];
+}
+
+//- (void)insertChildrenCopyingPaths:(NSArray *)sourcePaths
+//{
+//    /* call setDestinationWithNode:atIndexPath before */
+//	NSFileManager *fm = [NSFileManager defaultManager];
+//	NSMutableArray *child_nodes = [_destinationNode mutableChildNodes];
+//	NSUInteger index_len = [_destinationIndexPath length];
+//	NSUInteger indexes[index_len];
+//	[_destinationIndexPath getIndexes:indexes];
+//    NSString *dest_path = [[_destinationNode representedObject] path];
+//	for (NSString *a_source in sourcePaths) {
+//		NSString *target_path = [dest_path stringByAppendingPathComponent:
+//										   [a_source lastPathComponent]];
+//		target_path = [target_path uniqueName];
+//        NSError *err = nil;
+//        [fm copyItemAtPath:a_source toPath:target_path error:&err];
+//        if (err) {
+//            [NSApp presentError:err];
+//        }
+//		
+//		FileTreeNode *newnode = [[FileDatum fileDatumWithPath:target_path] treeNode];
+//		[child_nodes insertObject:newnode atIndex:indexes[index_len-1]++];
+//	}
+//}
+
+
+- (void)cleanupContentsAtURL:(NSURL *)anURL
+{
+    NSError *err = nil;
+    if (![anURL isFolder]) return;
+    NSFileManager *fm = [NSFileManager defaultManager];
+    [fm removeItemAtURL:[anURL URLByAppendingPathComponent:ORDER_CHACHE_NAME] error:&err];
+    NSDirectoryEnumerator *dir_enum = [fm enumeratorAtURL:anURL
+                               includingPropertiesForKeys:@[NSURLIsDirectoryKey]
+        options:NSDirectoryEnumerationSkipsPackageDescendants|NSDirectoryEnumerationSkipsHiddenFiles
+                        errorHandler:^BOOL(NSURL *url, NSError *error) {
+                    NSLog(@"error:%@ cleanupCOntentsAtURL:%@", error, url);
+                            return YES;}];
+    
+    for (NSURL *url in dir_enum) {
+        if ([url isFolder]) {
+            [self cleanupContentsAtURL:url];
+        }
+    }
+}
+
+- (void)cleanupFolderContents:(NSString *)path //deprecated
 {
     if (![path isFolder]) return;
 	NSFileManager *fm = [NSFileManager defaultManager];
@@ -471,7 +532,7 @@ skip:
 	else if ([pboard availableTypeFromArray:
 			  @[NSFilenamesPboardType]] != nil) {
 		NSArray *path_array = [pboard propertyListForType:NSFilenamesPboardType];
-		[self insertChildrenCopyingPaths:path_array];
+        [self insertChildrenCopyingPaths:path_array];
 	}	
 	
     return YES;
@@ -492,18 +553,26 @@ skip:
     return filenames;
 }
 
-- (void)copyPromisedFile:(NSURL *)srcURL toURL:(NSURL *)dstURL replacing:(BOOL)replaceFlag
+- (void)copyFileAtURL:(NSURL *)srcURL toURL:(NSURL *)dstURL replacing:(BOOL)replaceFlag
 {
 #if useLog
 	NSLog(@"start copyPromisedFile");
 #endif
-    if (!srcURL) return;
+    if (!srcURL) {
+        [treeController removeObjectsAtArrangedObjectIndexPaths:
+         [_nodesToDelete valueForKeyPath:@"indexPath"]];
+        return;
+    }
     NSFileManager *fm = [NSFileManager defaultManager];
     NSError *err = nil;
     if (![fm copyItemAtURL:srcURL toURL:dstURL error:&err]) {
         if (replaceFlag) {
+            NSPredicate *predicate = [NSPredicate predicateWithFormat:
+                                      @"representedObject.name like %@", [srcURL lastPathComponent]];
+            NSArray *array = [[_destinationNode childNodes] filteredArrayUsingPredicate:predicate];
+            [_nodesToDelete addObjectsFromArray:array];
             [fm removeItemAtURL:dstURL error:&err];
-            [self copyPromisedFile:srcURL toURL:dstURL replacing:replaceFlag];
+            [self copyFileAtURL:srcURL toURL:dstURL replacing:replaceFlag];
 
         } else if (!applyAllFlag) {
             BOOL is_single = (restItemsCount <= 1);
@@ -525,15 +594,20 @@ skip:
         }
         
     } else {
-        [self cleanupFolderContents:[dstURL path]];
+        [_afterCopyInvocation setArgument:&dstURL atIndex:2];
+        [_afterCopyInvocation invoke];
         if (!applyAllFlag) replaceFlag = NO;
         restItemsCount--;
 
         NSURL *src = [_dndEnumerator nextObject];
-        if (!src) return;
+        if (!src) {
+            [treeController removeObjectsAtArrangedObjectIndexPaths:
+             [_nodesToDelete valueForKeyPath:@"indexPath"]];
+            return;
+        }
         NSURL *dst = [_promisedDragDestination
                       URLByAppendingPathComponent:[src lastPathComponent]];
-        [self copyPromisedFile:src toURL:dst replacing:replaceFlag];
+        [self copyFileAtURL:src toURL:dst replacing:replaceFlag];
     }
 }
 
@@ -547,11 +621,12 @@ skip:
     NSURL *dst = [_promisedDragDestination
                   URLByAppendingPathComponent:[src lastPathComponent]];
 	NSInvocation *invocation = [self setupAfterSheetInvocation:
-                                @selector(copyPromisedFile:toURL:replacing:)];
-	BOOL replace_flag = NO;
+                                @selector(copyFileAtURL:toURL:replacing:)];
+	[self setupAfterCopyInvocation:@selector(cleanupContentsAtURL:)];
+    BOOL replace_flag = NO;
 	[invocation setArgument:&replace_flag atIndex:4];
 
-    [self copyPromisedFile:src toURL:dst replacing:NO];
+    [self copyFileAtURL:src toURL:dst replacing:NO];
 }
 
 - (void)trashPromisedFiles
@@ -641,27 +716,30 @@ skip:
 	NSWorkspace *workspace = [NSWorkspace sharedWorkspace];
 	NSMutableSet *updated_nodes = [NSMutableSet set];
 	NSEnumerator *reverse_enum = [min_index_pathes reverseObjectEnumerator];
-    NSIndexPath *an_indexpath;
-    while (an_indexpath = [reverse_enum nextObject]) {
+    
+    for (NSIndexPath *an_indexpath in reverse_enum) {
 		NSTreeNode *controller_node = [[treeController arrangedObjects]
                                        descendantNodeAtIndexPath:an_indexpath];
-		NSTreeNode *file_tree_node = [controller_node representedObject];
+		FileTreeNode *file_tree_node = controller_node.representedObject;
 		NSString *a_path = [[file_tree_node representedObject] path];
 		NSString *dir_path = [a_path stringByDeletingLastPathComponent];
 		NSString *a_name = [a_path lastPathComponent];
 		[workspace performFileOperation:NSWorkspaceRecycleOperation
 								 source:dir_path destination:nil
 								  files:@[a_name] tag:nil];
-		// make a unique set of parent nodes,
+
+        FileTreeNode *parent_node = (FileTreeNode *)file_tree_node.parentNode;
+        FileDatum *fdatum = parent_node.representedObject;
+        [updated_nodes addObject:fdatum];
+        // make a unique set of parent nodes,
         // to avoid dupulicate sending saveOrder message.
-        [updated_nodes addObject:[file_tree_node parentNode]];
         
         [treeController removeObjectAtArrangedObjectIndexPath:an_indexpath];
 	}
     
-    for (FileTreeNode *a_node in updated_nodes) {
-		[(FileDatum *)[a_node representedObject] saveOrder];
-	}
+    for (FileDatum *fdatum in updated_nodes) {
+        [fdatum saveOrder];
+    }
 }
 
 - (IBAction)deleteSelection:(id)sender
@@ -728,14 +806,14 @@ skip:
 		NSIndexPath *new_indexpath = [[a_node indexPath] indexPathByIncrementLastIndex:1];
 		NSTreeNode *a_src_node = [a_node representedObject];
 		NSString *src_path = [[a_src_node representedObject] path];
-		NSTreeNode *parent_node = [a_src_node parentNode];
+		FileTreeNode *parent_node = (FileTreeNode *)[a_src_node parentNode];
 		NSString *target_path = [[[parent_node representedObject] path] stringByAppendingPathComponent: 
 												[src_path lastPathComponent]];
 		target_path = [target_path uniqueName];
         NSError *err = nil;
         if ([fm copyItemAtPath:src_path
                         toPath:target_path error:&err]) {
-            NSTreeNode *a_new_node = [[FileDatum fileDatumWithPath:target_path] treeNode];
+            FileTreeNode *a_new_node = [[FileDatum fileDatumWithPath:target_path] treeNode];
             [[parent_node mutableChildNodes] insertObject:a_new_node atIndex:[new_indexpath lastIndex]];
             [new_nodes addObject:[[treeController arrangedObjects] descendantNodeAtIndexPath:new_indexpath]];
         } else if (err) {

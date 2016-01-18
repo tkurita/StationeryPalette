@@ -29,6 +29,7 @@
 @property (strong) NSEnumerator *dndEnumerator;
 @property (strong) NSURL *promisedDragDestination;
 @property (strong) NSArray *draggedNodes;
+@property (strong) NSInvocation *afterCopyInvocation;
 
 - (IBAction)conflictErrorAction:(id)sender;
 - (IBAction)deleteSelection:(id)sender;
