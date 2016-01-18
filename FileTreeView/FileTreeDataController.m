@@ -310,12 +310,14 @@ skip:
 {
     FileTreeNode *newnode = [[FileDatum fileDatumWithURL:anURL] treeNode];
     [[_destinationNode mutableChildNodes] insertObject:newnode atIndex:_destinationIndexPath.lastIndex];
+    [_processedNodes addObject:newnode];
     self.destinationIndexPath = [_destinationIndexPath indexPathByIncrementLastIndex:1];
 }
 
 - (void)insertChildrenCopyingPaths:(NSArray *)srcPaths
 {
   /* call setDestinationWithNode:atIndexPath before */
+    self.processedNodes = [NSMutableArray arrayWithCapacity:restItemsCount];
     self.nodesToDelete = [NSMutableArray array];
     NSMutableArray *src_urls = [NSMutableArray arrayWithCapacity:[srcPaths count]];
     [srcPaths enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop){
@@ -603,6 +605,7 @@ skip:
         if (!src) {
             [treeController removeObjectsAtArrangedObjectIndexPaths:
              [_nodesToDelete valueForKeyPath:@"indexPath"]];
+            [treeController setSelectionIndexPaths:[_processedNodes valueForKeyPath:@"indexPath"]];
             [_destinationNode.representedObject saveOrder];
             return;
         }
