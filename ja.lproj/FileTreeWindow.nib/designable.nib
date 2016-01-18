@@ -394,7 +394,7 @@
 												<reference key="NSNextKeyView" ref="280179031"/>
 												<reference key="NSTableView" ref="96495206"/>
 											</object>
-											<object class="_NSCornerView" key="NSCornerView" id="929842648">
+											<object class="_NSCornerView" key="NSCornerView" id="617572827">
 												<reference key="NSNextResponder" ref="834293824"/>
 												<int key="NSvFlags">256</int>
 												<string key="NSFrame">{{406, 0}, {16, 17}}</string>
@@ -556,7 +556,7 @@
 									<reference key="NSBGColor" ref="728461820"/>
 									<int key="NScvFlags">4</int>
 								</object>
-								<reference ref="929842648"/>
+								<reference ref="617572827"/>
 							</array>
 							<string key="NSFrame">{{-1, 164}, {422, 398}}</string>
 							<reference key="NSSuperview" ref="717784637"/>

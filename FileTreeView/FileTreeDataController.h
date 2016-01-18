@@ -19,17 +19,20 @@
 
 @property (strong) FileTreeNode *rootNode;
 @property (strong) FileDatum *rootDirectory;
+@property (strong) NSString *conflictMessageTemplate;
+
+/* variables store status during Drag an Drop */
+@property (strong) NSEnumerator *dndEnumerator;
+@property (strong) NSURL *promisedDragDestination;
+@property (strong) NSArray *draggedNodes;
+@property (strong) NSInvocation *afterCopyInvocation;
+@property (strong) NSMutableArray *nodesToDelete;
 @property (strong) NSInvocation *afterSheetInvocation;
 @property (strong) NSIndexPath *destinationIndexPath;
 @property (strong) FileTreeNode *destinationNode;
 @property (strong) NSString *destinationPath;
 @property (strong) NSMutableArray *processedNodes;
-@property (strong) NSMutableArray *nodesToDelete;
-@property (strong) NSString *conflictMessageTemplate;
-@property (strong) NSEnumerator *dndEnumerator;
-@property (strong) NSURL *promisedDragDestination;
-@property (strong) NSArray *draggedNodes;
-@property (strong) NSInvocation *afterCopyInvocation;
+
 
 - (IBAction)conflictErrorAction:(id)sender;
 - (IBAction)deleteSelection:(id)sender;

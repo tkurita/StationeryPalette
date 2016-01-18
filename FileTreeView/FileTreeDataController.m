@@ -603,6 +603,7 @@ skip:
         if (!src) {
             [treeController removeObjectsAtArrangedObjectIndexPaths:
              [_nodesToDelete valueForKeyPath:@"indexPath"]];
+            [_destinationNode.representedObject saveOrder];
             return;
         }
         NSURL *dst = [_promisedDragDestination
