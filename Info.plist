@@ -18,6 +18,8 @@
 	<string>StationeryPaletteHelp</string>
 	<key>CFBundleIconFile</key>
 	<string>StationeryPalette</string>
+	<key>CFBundleHelpBookName</key>
+	<string>Scriptfactory.StationeryPalette.help</string>
 	<key>CFBundleIdentifier</key>
 	<string>StationeryPalette</string>
 	<key>CFBundleInfoDictionaryVersion</key>

@@ -45,6 +45,7 @@
 		2C458C920B37F88B0020C796 /* FileTreeWindow.nib in Resources */ = {isa = PBXBuildFile; fileRef = 2C458C900B37F88B0020C796 /* FileTreeWindow.nib */; };
 		2C58A4390B0A090F003E345E /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C58A4380B0A090F003E345E /* Carbon.framework */; };
 		2C65B3BC1BECA4230009D27D /* ImageAndTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C65B3BB1BECA4230009D27D /* ImageAndTextCell.m */; };
+		2C7C39F11C4E79300057BA1F /* StationeryPaletteHelp in Resources */ = {isa = PBXBuildFile; fileRef = 2C7C39F01C4E79300057BA1F /* StationeryPaletteHelp */; };
 		2C88F5CC1C465F3000037F94 /* FileDatum.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C88F5C51C465F3000037F94 /* FileDatum.m */; };
 		2C88F5CD1C465F3000037F94 /* FileTreeDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C88F5C71C465F3000037F94 /* FileTreeDataController.m */; };
 		2C88F5CE1C465F3000037F94 /* FileTreeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C88F5C91C465F3000037F94 /* FileTreeNode.m */; };
@@ -132,6 +133,7 @@
 		2C58A4380B0A090F003E345E /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
 		2C65B3BA1BECA4230009D27D /* ImageAndTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageAndTextCell.h; sourceTree = "<group>"; };
 		2C65B3BB1BECA4230009D27D /* ImageAndTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageAndTextCell.m; sourceTree = "<group>"; };
+		2C7C39F01C4E79300057BA1F /* StationeryPaletteHelp */ = {isa = PBXFileReference; lastKnownFileType = folder; path = StationeryPaletteHelp; sourceTree = "<group>"; };
 		2C88F5C41C465F3000037F94 /* FileDatum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileDatum.h; sourceTree = "<group>"; };
 		2C88F5C51C465F3000037F94 /* FileDatum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileDatum.m; sourceTree = "<group>"; };
 		2C88F5C61C465F3000037F94 /* FileTreeDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileTreeDataController.h; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2C7C39F01C4E79300057BA1F /* StationeryPaletteHelp */,
 				2CF3F22C1354351D00872A83 /* StationeryPalette.icns */,
 				2C3B462B0F309A38006455BA /* dsa_pub.pem */,
 				2CA09BF20B3FD9250043BE9D /* Stationery.zip */,
@@ -476,6 +479,7 @@
 				2CF3F22D1354351D00872A83 /* StationeryPalette.icns in Resources */,
 				2CF77C0E1C48E6740005F413 /* FileTreeView_Localizable.strings in Resources */,
 				2CF77C201C4926B20005F413 /* PathExtra_Localizable.strings in Resources */,
+				2C7C39F11C4E79300057BA1F /* StationeryPaletteHelp in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
