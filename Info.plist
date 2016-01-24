@@ -8,18 +8,12 @@
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleGetInfoString</key>
 	<string>3.1.8b copyright 1998-2015, Tetsuro KURITA</string>
-	<key>NSHumanReadableCopyright</key>
-	<string>copyright 1998-2015, Tetsuro KURITA</string>
-	<key>CFBundleShortVersionString</key>
-	<string>3.1.8b</string>
-	<key>CFBundleVersion</key>
-	<string>20</string>
 	<key>CFBundleHelpBookFolder</key>
 	<string>StationeryPaletteHelp</string>
-	<key>CFBundleIconFile</key>
-	<string>StationeryPalette</string>
 	<key>CFBundleHelpBookName</key>
 	<string>Scriptfactory.StationeryPalette.help</string>
+	<key>CFBundleIconFile</key>
+	<string>StationeryPalette</string>
 	<key>CFBundleIdentifier</key>
 	<string>StationeryPalette</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -28,10 +22,16 @@
 	<string>${PRODUCT_NAME}</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>3.2</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>21</string>
 	<key>LSUIElement</key>
 	<string>1</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>copyright 1998-2015, Tetsuro KURITA</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
@@ -58,16 +58,16 @@
 				<key>NSTextContent</key>
 				<string>FilePath</string>
 			</dict>
-			<key>NSSendTypes</key>
-			<array>
-				<string>NSFilenamesPboardType</string>
-			</array>
 			<key>NSSendFileTypes</key>
 			<array>
 				<string>public.item</string>
 				<string>public.folder</string>
 				<string>public.symlink</string>
 				<string>com.apple.alias-file</string>
+			</array>
+			<key>NSSendTypes</key>
+			<array>
+				<string>NSFilenamesPboardType</string>
 			</array>
 		</dict>
 	</array>
