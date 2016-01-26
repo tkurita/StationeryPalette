@@ -780,8 +780,6 @@ skip:
     if (-1 == target_row) {
         target_row = [outlineView selectedRow];
     }
-	NSTableColumn *column = [outlineView tableColumnWithIdentifier:column_id];
-	[column setEditable:YES];
 	[outlineView editColumn:[outlineView columnWithIdentifier:column_id] 
 								row:target_row withEvent:nil select:YES];
 }
