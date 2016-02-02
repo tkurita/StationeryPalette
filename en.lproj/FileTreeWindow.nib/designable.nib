@@ -59,7 +59,7 @@
 			<object class="NSWindowTemplate" id="1054689418">
 				<int key="NSWindowStyleMask">271</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{344, 354}, {421, 562}}</string>
+				<string key="NSWindowRect">{{0, 0}, {421, 562}}</string>
 				<int key="NSWTFlags">1886912512</int>
 				<string key="NSWindowTitle">StationeryPalette</string>
 				<string key="NSWindowClass">NSWindow</string>
@@ -1061,7 +1061,7 @@ d2FudCB0byByZXBsYWNlIGl0IHdpdGggdGhlIG9uZSB5b3UgYXJlICVAID8</string>
 				<bool key="NSWindowIsRestorable">YES</bool>
 			</object>
 			<object class="NSCustomView" id="110383170">
-				<nil key="NSNextResponder"/>
+				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">300</int>
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="NSButton" id="415547799">
@@ -1069,6 +1069,7 @@ d2FudCB0byByZXBsYWNlIGl0IHdpdGggdGhlIG9uZSB5b3UgYXJlICVAID8</string>
 						<int key="NSvFlags">301</int>
 						<string key="NSFrame">{{2, 4}, {21, 23}}</string>
 						<reference key="NSSuperview" ref="110383170"/>
+						<reference key="NSNextKeyView"/>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSButtonCell" key="NSCell" id="878499609">
 							<int key="NSCellFlags">67108864</int>
@@ -1090,6 +1091,7 @@ d2FudCB0byByZXBsYWNlIGl0IHdpdGggdGhlIG9uZSB5b3UgYXJlICVAID8</string>
 					</object>
 				</array>
 				<string key="NSFrameSize">{24, 32}</string>
+				<reference key="NSSuperview"/>
 				<reference key="NSNextKeyView" ref="415547799"/>
 				<string key="NSClassName">NSView</string>
 				<string key="NSExtension">NSResponder</string>

@@ -1,5 +1,5 @@
-nibs = MainMenu.nib FileTreeWindow.nib
-#target_lang = ja # specify in comannd line aruments
+# nibs = MainMenu.nib FileTreeWindow.nib # specify in comannd line aruments
+# target_lang = ja # specify in comannd line aruments
 target_nibs = $(nibs:%.nib=$(target_lang).lproj/%.nib)
 strings_files = $(target_nibs:%.nib=%.strings)
 

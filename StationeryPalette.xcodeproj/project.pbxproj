@@ -123,8 +123,6 @@
 		2C3B462B0F309A38006455BA /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		2C3B46300F309B01006455BA /* CheckForUpdates.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CheckForUpdates.png; sourceTree = "<group>"; };
 		2C3C5F480B54887D00F5AEC3 /* HelpSetup.plist */ = {isa = PBXFileReference; explicitFileType = text.plist; fileEncoding = 4; path = HelpSetup.plist; sourceTree = "<group>"; };
-		2C4493B80B3BD77800D6F290 /* KeyedUnarchiveFromDataTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KeyedUnarchiveFromDataTransformer.h; path = FileTreeView/KeyedUnarchiveFromDataTransformer.h; sourceTree = "<group>"; };
-		2C4493B90B3BD77800D6F290 /* KeyedUnarchiveFromDataTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KeyedUnarchiveFromDataTransformer.m; path = FileTreeView/KeyedUnarchiveFromDataTransformer.m; sourceTree = "<group>"; };
 		2C458ABB0B37E6A70020C796 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
 		2C458ABC0B37E6A70020C796 /* AppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
 		2C458AD70B37F1450020C796 /* FactorySettings.plist */ = {isa = PBXFileReference; explicitFileType = text.plist; fileEncoding = 4; path = FactorySettings.plist; sourceTree = "<group>"; };
@@ -244,7 +242,6 @@
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				2C24B1331C3E94D100F074EF /* LocalizeTools */,
-				2CD68A6D0B3D7A21008B45F9 /* Unused Sources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 				2C1DC0C41BEC95570071AF1C /* DonationReminder.xcodeproj */,
@@ -350,15 +347,6 @@
 				2CF77C101C48E6740005F413 /* FileTreeView_Localizable.strings */,
 			);
 			path = FileTreeView;
-			sourceTree = "<group>";
-		};
-		2CD68A6D0B3D7A21008B45F9 /* Unused Sources */ = {
-			isa = PBXGroup;
-			children = (
-				2C4493B80B3BD77800D6F290 /* KeyedUnarchiveFromDataTransformer.h */,
-				2C4493B90B3BD77800D6F290 /* KeyedUnarchiveFromDataTransformer.m */,
-			);
-			name = "Unused Sources";
 			sourceTree = "<group>";
 		};
 		2CF70C041BEC3F4200786EBD /* DropBox */ = {
@@ -497,7 +485,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = "/bin/bash -l";
-			shellScript = "if [ \"$CONFIGURATION\" = 'Release' ]; then\ncd \"$BUILT_PRODUCTS_DIR\"\nSetupHelpBook \"$FULL_PRODUCT_NAME\"\nfi\n";
+			shellScript = "if [ ! \"$CONFIGURATION\" = 'Release' ]; then\necho \"HelpBook setup script will run only with Release configuration\";\nexit 0\nfi\n\ncd \"$BUILT_PRODUCTS_DIR\"\nSetupHelpBook \"$FULL_PRODUCT_NAME\"\n\n";
 		};
 		2CEF6BB614EC2C7000C9A9B3 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -510,7 +498,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "make -f LocalizeTools/localize.mk target_lang=ja\n\n\n";
+			shellScript = "make -f LocalizeTools/localize.mk target_lang=ja nibs='MainMenu.nib FileTreeWindow.nib'\n\n\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
