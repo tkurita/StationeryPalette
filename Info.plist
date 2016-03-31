@@ -6,8 +6,6 @@
 	<string>English</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
-	<key>NSHumanReadableCopyright</key>
-	<string>copyright 1998-2016, Tetsuro KURITA</string>
 	<key>CFBundleGetInfoString</key>
 	<string>3.2 copyright 1998-2016, Tetsuro KURITA</string>
 	<key>CFBundleHelpBookFolder</key>
@@ -25,13 +23,15 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>3.2</string>
+	<string>3.2.1</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>21</string>
+	<string>22</string>
 	<key>LSUIElement</key>
 	<string>1</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>copyright 1998-2016, Tetsuro KURITA</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>

@@ -233,11 +233,6 @@ void cleanupFolderContents(NSString *path)
 {
 	[self showWindow:sender];
 	NSDictionary *error_dict = nil;
-    /* for 10.8's Finder's insertion location bug */
-    [NSApp activateIgnoringOtherApps:YES];
-    [NSRunningApplication activateAppOfIdentifier:@"com.apple.finder"];
-    [NSApp activateIgnoringOtherApps:YES];
-    /* end for 10.8 */
 	NSAppleEventDescriptor *scriptResult = [_insertionLocationScript executeAndReturnError:&error_dict];
 	if (error_dict != nil) {
 		#if useLog
