@@ -26,7 +26,6 @@
 		2C1DC0CC1BEC95B60071AF1C /* DonationReminder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C1DC0C91BEC95580071AF1C /* DonationReminder.framework */; };
 		2C1DC0CD1BEC95CA0071AF1C /* DonationReminder.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2C1DC0C91BEC95580071AF1C /* DonationReminder.framework */; };
 		2C1DC0D51BEC97C80071AF1C /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2C1DC0D11BEC97550071AF1C /* Sparkle.framework */; };
-		2C1DC0D61BEC98330071AF1C /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C1DC0D11BEC97550071AF1C /* Sparkle.framework */; };
 		2C1E943D0B38B4680086DB87 /* Reload.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C1E943A0B38B4670086DB87 /* Reload.png */; };
 		2C270B080B38BEBC00955F77 /* new_folder.icns in Resources */ = {isa = PBXBuildFile; fileRef = 2C270B070B38BEBC00955F77 /* new_folder.icns */; };
 		2C270B0C0B38BFAB00955F77 /* rename.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C270B0B0B38BFAB00955F77 /* rename.png */; };
@@ -52,6 +51,7 @@
 		2C88F5CF1C465F3000037F94 /* NSIndexPath_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C88F5CB1C465F3000037F94 /* NSIndexPath_Extensions.m */; };
 		2C92324017FA5AE100C47BAB /* FileNameComboBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C92323E17FA5AE100C47BAB /* FileNameComboBox.m */; };
 		2CA09BF30B3FD9250043BE9D /* Stationery.zip in Resources */ = {isa = PBXBuildFile; fileRef = 2CA09BF20B3FD9250043BE9D /* Stationery.zip */; };
+		2CA595851CACF53B00904B65 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C1DC0D11BEC97550071AF1C /* Sparkle.framework */; };
 		2CB056390B3AA04E00315976 /* InsertionLocation.applescript in AppleScript */ = {isa = PBXBuildFile; fileRef = 2CB0558A0B3A9EE400315976 /* InsertionLocation.applescript */; settings = {ATTRIBUTES = (Debug, ); }; };
 		2CF3F22D1354351D00872A83 /* StationeryPalette.icns in Resources */ = {isa = PBXBuildFile; fileRef = 2CF3F22C1354351D00872A83 /* StationeryPalette.icns */; };
 		2CF70C0D1BEC3F4200786EBD /* DropBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF70C061BEC3F4200786EBD /* DropBox.m */; };
@@ -179,7 +179,7 @@
 				2C1DC0CC1BEC95B60071AF1C /* DonationReminder.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				2C58A4390B0A090F003E345E /* Carbon.framework in Frameworks */,
-				2C1DC0D61BEC98330071AF1C /* Sparkle.framework in Frameworks */,
+				2CA595851CACF53B00904B65 /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,7 +402,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0730;
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "StationeryPalette" */;
 			compatibilityVersion = "Xcode 6.3";
@@ -604,7 +604,6 @@
 		C01FCF4B08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
@@ -614,26 +613,23 @@
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
+					"$(PROJECT_DIR)",
 				);
-				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/..\"";
-				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)\"";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = /Applications;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = Scriptfactory.StationeryPalette;
 				PRODUCT_NAME = StationeryPalette;
-				SDKROOT = macosx10.8;
 				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;
-				ZERO_LINK = YES;
 			};
 			name = Debug;
 		};
 		C01FCF4C08A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 22;
@@ -641,14 +637,13 @@
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+					"$(PROJECT_DIR)",
 				);
-				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)/..\"";
-				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)\"";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = /Applications;
+				PRODUCT_BUNDLE_IDENTIFIER = Scriptfactory.StationeryPalette;
 				PRODUCT_NAME = StationeryPalette;
-				SDKROOT = macosx10.8;
 				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;
 			};
@@ -657,25 +652,26 @@
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};

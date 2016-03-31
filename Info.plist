@@ -15,7 +15,7 @@
 	<key>CFBundleIconFile</key>
 	<string>StationeryPalette</string>
 	<key>CFBundleIdentifier</key>
-	<string>StationeryPalette</string>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
