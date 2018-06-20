@@ -658,7 +658,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = /Applications;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = Scriptfactory.StationeryPalette;
+				PRODUCT_BUNDLE_IDENTIFIER = "net.script-factory.StationeryPalette";
 				PRODUCT_NAME = StationeryPalette;
 				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;
@@ -681,7 +681,7 @@
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = /Applications;
-				PRODUCT_BUNDLE_IDENTIFIER = Scriptfactory.StationeryPalette;
+				PRODUCT_BUNDLE_IDENTIFIER = "net.script-factory.StationeryPalette";
 				PRODUCT_NAME = StationeryPalette;
 				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;
