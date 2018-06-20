@@ -3,21 +3,8 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 47;
+	objectVersion = 48;
 	objects = {
-
-/* Begin PBXAppleScriptBuildPhase section */
-		2CB056360B3AA04500315976 /* AppleScript */ = {
-			isa = PBXAppleScriptBuildPhase;
-			buildActionMask = 2147483647;
-			contextName = "";
-			files = (
-				2CB056390B3AA04E00315976 /* InsertionLocation.applescript in AppleScript */,
-			);
-			isSharedContext = 0;
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXAppleScriptBuildPhase section */
 
 /* Begin PBXBuildFile section */
 		2C17FD290C1AFE75008E63D6 /* ServicesMenu.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2C17FD280C1AFE75008E63D6 /* ServicesMenu.strings */; };
@@ -25,7 +12,6 @@
 		2C1DC0C31BEC93E90071AF1C /* NSString+StationeryFlag.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1DC0C11BEC93E90071AF1C /* NSString+StationeryFlag.m */; };
 		2C1DC0CC1BEC95B60071AF1C /* DonationReminder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C1DC0C91BEC95580071AF1C /* DonationReminder.framework */; };
 		2C1DC0CD1BEC95CA0071AF1C /* DonationReminder.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2C1DC0C91BEC95580071AF1C /* DonationReminder.framework */; };
-		2C1DC0D51BEC97C80071AF1C /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2C1DC0D11BEC97550071AF1C /* Sparkle.framework */; };
 		2C1E943D0B38B4680086DB87 /* Reload.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C1E943A0B38B4670086DB87 /* Reload.png */; };
 		2C270B080B38BEBC00955F77 /* new_folder.icns in Resources */ = {isa = PBXBuildFile; fileRef = 2C270B070B38BEBC00955F77 /* new_folder.icns */; };
 		2C270B0C0B38BFAB00955F77 /* rename.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C270B0B0B38BFAB00955F77 /* rename.png */; };
@@ -51,8 +37,7 @@
 		2C88F5CF1C465F3000037F94 /* NSIndexPath_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C88F5CB1C465F3000037F94 /* NSIndexPath_Extensions.m */; };
 		2C92324017FA5AE100C47BAB /* FileNameComboBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C92323E17FA5AE100C47BAB /* FileNameComboBox.m */; };
 		2CA09BF30B3FD9250043BE9D /* Stationery.zip in Resources */ = {isa = PBXBuildFile; fileRef = 2CA09BF20B3FD9250043BE9D /* Stationery.zip */; };
-		2CA595851CACF53B00904B65 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C1DC0D11BEC97550071AF1C /* Sparkle.framework */; };
-		2CB056390B3AA04E00315976 /* InsertionLocation.applescript in AppleScript */ = {isa = PBXBuildFile; fileRef = 2CB0558A0B3A9EE400315976 /* InsertionLocation.applescript */; settings = {ATTRIBUTES = (Debug, ); }; };
+		2CB056390B3AA04E00315976 /* InsertionLocation.applescript in Sources */ = {isa = PBXBuildFile; fileRef = 2CB0558A0B3A9EE400315976 /* InsertionLocation.applescript */; settings = {ATTRIBUTES = (Debug, ); }; };
 		2CF3F22D1354351D00872A83 /* StationeryPalette.icns in Resources */ = {isa = PBXBuildFile; fileRef = 2CF3F22C1354351D00872A83 /* StationeryPalette.icns */; };
 		2CF70C0D1BEC3F4200786EBD /* DropBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF70C061BEC3F4200786EBD /* DropBox.m */; };
 		2CF70C0F1BEC3F4200786EBD /* HFSTypeUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF70C081BEC3F4200786EBD /* HFSTypeUtils.m */; };
@@ -63,6 +48,7 @@
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		9A6694796EF38DEB3CEE4E55 /* libPods-StationeryPalette.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 23A6B0FE93060B3CF7E4059D /* libPods-StationeryPalette.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,7 +76,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				2C1DC0CD1BEC95CA0071AF1C /* DonationReminder.framework in CopyFiles */,
-				2C1DC0D51BEC97C80071AF1C /* Sparkle.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +84,7 @@
 /* Begin PBXFileReference section */
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		23A6B0FE93060B3CF7E4059D /* libPods-StationeryPalette.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StationeryPalette.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
@@ -107,7 +93,6 @@
 		2C1DC0C01BEC93E90071AF1C /* NSString+StationeryFlag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+StationeryFlag.h"; sourceTree = "<group>"; };
 		2C1DC0C11BEC93E90071AF1C /* NSString+StationeryFlag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+StationeryFlag.m"; sourceTree = "<group>"; };
 		2C1DC0C41BEC95570071AF1C /* DonationReminder.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DonationReminder.xcodeproj; path = DonationReminder/DonationReminder.xcodeproj; sourceTree = "<group>"; };
-		2C1DC0D11BEC97550071AF1C /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		2C1E943A0B38B4670086DB87 /* Reload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Reload.png; sourceTree = "<group>"; };
 		2C24B1341C3E94D200F074EF /* localize.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = localize.mk; sourceTree = "<group>"; };
 		2C24B1351C3E94D200F074EF /* localize_ib.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = localize_ib.mk; sourceTree = "<group>"; };
@@ -167,8 +152,10 @@
 		2CF77C211C4926B20005F413 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PathExtra_Localizable.strings; sourceTree = "<group>"; };
 		2CF77C231C4926B50005F413 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/PathExtra_Localizable.strings; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* StationeryPalette_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationeryPalette_Prefix.pch; sourceTree = "<group>"; };
+		3707D7E8D72E24D17B313C3F /* Pods-StationeryPalette.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StationeryPalette.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StationeryPalette/Pods-StationeryPalette.debug.xcconfig"; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; explicitFileType = text.plist; fileEncoding = 4; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* StationeryPalette.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StationeryPalette.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4E23BC533541FDE0F49C599 /* Pods-StationeryPalette.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StationeryPalette.release.xcconfig"; path = "Pods/Target Support Files/Pods-StationeryPalette/Pods-StationeryPalette.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,7 +166,7 @@
 				2C1DC0CC1BEC95B60071AF1C /* DonationReminder.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				2C58A4390B0A090F003E345E /* Carbon.framework in Frameworks */,
-				2CA595851CACF53B00904B65 /* Sparkle.framework in Frameworks */,
+				9A6694796EF38DEB3CEE4E55 /* libPods-StationeryPalette.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,7 +217,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		29B97314FDCFA39411CA2CEA /* FileListTest */ = {
+		29B97314FDCFA39411CA2CEA = {
 			isa = PBXGroup;
 			children = (
 				2CA09BF10B3FCF000043BE9D /* History.rd */,
@@ -245,6 +232,7 @@
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 				2C1DC0C41BEC95570071AF1C /* DonationReminder.xcodeproj */,
+				468DD4AB45682AD65EFC1405 /* Pods */,
 			);
 			name = FileListTest;
 			sourceTree = "<group>";
@@ -282,9 +270,9 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2C1DC0D11BEC97550071AF1C /* Sparkle.framework */,
 				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
+				23A6B0FE93060B3CF7E4059D /* libPods-StationeryPalette.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -370,6 +358,15 @@
 			path = PathExtra;
 			sourceTree = "<group>";
 		};
+		468DD4AB45682AD65EFC1405 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3707D7E8D72E24D17B313C3F /* Pods-StationeryPalette.debug.xcconfig */,
+				A4E23BC533541FDE0F49C599 /* Pods-StationeryPalette.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -377,13 +374,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "StationeryPalette" */;
 			buildPhases = (
+				625128F3F86340ED9036DC6C /* [CP] Check Pods Manifest.lock */,
 				2CEF6BB614EC2C7000C9A9B3 /* ShellScript */,
 				8D1107290486CEB800E47090 /* Resources */,
 				8D11072C0486CEB800E47090 /* Sources */,
 				8D11072E0486CEB800E47090 /* Frameworks */,
-				2CB056360B3AA04500315976 /* AppleScript */,
 				2CEBB1440B40040600040DD0 /* CopyFiles */,
 				2CE1A18814F286BD00CD5808 /* ShellScript */,
+				C2FDB9B77677CA499D9AE6B3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -405,7 +403,7 @@
 				LastUpgradeCheck = 0730;
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "StationeryPalette" */;
-			compatibilityVersion = "Xcode 6.3";
+			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
@@ -416,7 +414,8 @@
 				en,
 				ja,
 			);
-			mainGroup = 29B97314FDCFA39411CA2CEA /* FileListTest */;
+			mainGroup = 29B97314FDCFA39411CA2CEA;
+			productRefGroup = 19C28FACFE9D520D11CA2CBB /* Products */;
 			projectDirPath = "";
 			projectReferences = (
 				{
@@ -500,6 +499,44 @@
 			shellPath = /bin/sh;
 			shellScript = "make -f LocalizeTools/localize.mk target_lang=ja nibs='MainMenu.nib FileTreeWindow.nib'\n\n\n";
 		};
+		625128F3F86340ED9036DC6C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-StationeryPalette-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C2FDB9B77677CA499D9AE6B3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-StationeryPalette/Pods-StationeryPalette-frameworks.sh",
+				"${PODS_ROOT}/Sparkle/Sparkle.framework",
+				"${PODS_ROOT}/Sparkle/Sparkle.framework.dSYM",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Sparkle.framework",
+				"${DWARF_DSYM_FOLDER_PATH}/Sparkle.framework.dSYM",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StationeryPalette/Pods-StationeryPalette-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -521,6 +558,7 @@
 				2C88F5CD1C465F3000037F94 /* FileTreeDataController.m in Sources */,
 				2C88F5CE1C465F3000037F94 /* FileTreeNode.m in Sources */,
 				2C88F5CF1C465F3000037F94 /* NSIndexPath_Extensions.m in Sources */,
+				2CB056390B3AA04E00315976 /* InsertionLocation.applescript in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -603,6 +641,7 @@
 /* Begin XCBuildConfiguration section */
 		C01FCF4B08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3707D7E8D72E24D17B313C3F /* Pods-StationeryPalette.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -629,6 +668,7 @@
 		};
 		C01FCF4C08A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A4E23BC533541FDE0F49C599 /* Pods-StationeryPalette.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COMBINE_HIDPI_IMAGES = YES;
