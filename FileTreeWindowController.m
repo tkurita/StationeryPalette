@@ -322,7 +322,7 @@ void cleanupFolderContents(NSString *path)
 	/*set up AppleScript InsertionLocation*/
 	NSBundle *bundle = [NSBundle mainBundle];
 	NSString *scriptPath = [bundle pathForResource:@"InsertionLocation" 
-									ofType:@"scpt" inDirectory:@"Scripts"];
+									ofType:@"scpt"];
 	NSURL *scriptURL = [NSURL fileURLWithPath:scriptPath];
 	NSDictionary *error_dict = nil;
 	self.insertionLocationScript = [[NSAppleScript alloc] initWithContentsOfURL:scriptURL

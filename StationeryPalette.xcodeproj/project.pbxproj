@@ -11,7 +11,7 @@
 		2C1DC0BF1BEC8F680071AF1C /* NSRunningApplication+SmartActivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1DC0BD1BEC8F680071AF1C /* NSRunningApplication+SmartActivate.m */; };
 		2C1DC0C31BEC93E90071AF1C /* NSString+StationeryFlag.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1DC0C11BEC93E90071AF1C /* NSString+StationeryFlag.m */; };
 		2C1DC0CC1BEC95B60071AF1C /* DonationReminder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C1DC0C91BEC95580071AF1C /* DonationReminder.framework */; };
-		2C1DC0CD1BEC95CA0071AF1C /* DonationReminder.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2C1DC0C91BEC95580071AF1C /* DonationReminder.framework */; };
+		2C1DC0CD1BEC95CA0071AF1C /* DonationReminder.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2C1DC0C91BEC95580071AF1C /* DonationReminder.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		2C1E943D0B38B4680086DB87 /* Reload.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C1E943A0B38B4670086DB87 /* Reload.png */; };
 		2C270B080B38BEBC00955F77 /* new_folder.icns in Resources */ = {isa = PBXBuildFile; fileRef = 2C270B070B38BEBC00955F77 /* new_folder.icns */; };
 		2C270B0C0B38BFAB00955F77 /* rename.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C270B0B0B38BFAB00955F77 /* rename.png */; };
@@ -105,6 +105,9 @@
 		2C270C820B39794B00955F77 /* DarkBlueReload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DarkBlueReload.png; sourceTree = "<group>"; };
 		2C270C840B39795900955F77 /* ToolbarDeleteIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = ToolbarDeleteIcon.icns; sourceTree = "<group>"; };
 		2C270C870B3979A300955F77 /* MakeFolder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MakeFolder.png; sourceTree = "<group>"; };
+		2C35115C20DA5B3C00EB3D34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = Base.lproj/FileTreeWindow.nib; sourceTree = "<group>"; };
+		2C35115D20DA5B3C00EB3D34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = Base.lproj/MainMenu.nib; sourceTree = "<group>"; };
+		2C35115E20DA5C3400EB3D34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/PathExtra_Localizable.strings; sourceTree = "<group>"; };
 		2C3B462B0F309A38006455BA /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		2C3B46300F309B01006455BA /* CheckForUpdates.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CheckForUpdates.png; sourceTree = "<group>"; };
 		2C3C5F480B54887D00F5AEC3 /* HelpSetup.plist */ = {isa = PBXFileReference; explicitFileType = text.plist; fileEncoding = 4; path = HelpSetup.plist; sourceTree = "<group>"; };
@@ -140,8 +143,6 @@
 		2CF77C0F1C48E6740005F413 /* ja */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/FileTreeView_Localizable.strings; sourceTree = "<group>"; };
 		2CF77C111C48E6900005F413 /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/FileTreeView_Localizable.strings; sourceTree = "<group>"; };
 		2CF77C121C48EAD40005F413 /* ja */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = ja; path = ja.lproj/FileTreeWindow.nib; sourceTree = "<group>"; };
-		2CF77C131C48EAE70005F413 /* en */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = en; path = en.lproj/FileTreeWindow.nib; sourceTree = "<group>"; };
-		2CF77C161C48EB0F0005F413 /* en */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = en; path = en.lproj/MainMenu.nib; sourceTree = "<group>"; };
 		2CF77C171C48EB160005F413 /* ja */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = ja; path = ja.lproj/MainMenu.nib; sourceTree = "<group>"; };
 		2CF77C181C48EB200005F413 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2CF77C191C48EB280005F413 /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -149,7 +150,6 @@
 		2CF77C1B1C48EB360005F413 /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ServicesMenu.strings; sourceTree = "<group>"; };
 		2CF77C1C1C48EB420005F413 /* ja */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2CF77C1D1C48EB460005F413 /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		2CF77C211C4926B20005F413 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PathExtra_Localizable.strings; sourceTree = "<group>"; };
 		2CF77C231C4926B50005F413 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/PathExtra_Localizable.strings; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* StationeryPalette_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationeryPalette_Prefix.pch; sourceTree = "<group>"; };
 		3707D7E8D72E24D17B313C3F /* Pods-StationeryPalette.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StationeryPalette.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StationeryPalette/Pods-StationeryPalette.debug.xcconfig"; sourceTree = "<group>"; };
@@ -217,7 +217,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		29B97314FDCFA39411CA2CEA = {
+		29B97314FDCFA39411CA2CEA /* FileListTest */ = {
 			isa = PBXGroup;
 			children = (
 				2CA09BF10B3FCF000043BE9D /* History.rd */,
@@ -400,21 +400,20 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0820;
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "StationeryPalette" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
-				English,
-				Japanese,
 				French,
 				German,
 				en,
 				ja,
+				Base,
 			);
-			mainGroup = 29B97314FDCFA39411CA2CEA;
+			mainGroup = 29B97314FDCFA39411CA2CEA /* FileListTest */;
 			productRefGroup = 19C28FACFE9D520D11CA2CBB /* Products */;
 			projectDirPath = "";
 			projectReferences = (
@@ -497,7 +496,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "make -f LocalizeTools/localize.mk target_lang=ja nibs='MainMenu.nib FileTreeWindow.nib'\n\n\n";
+			shellScript = "# make -f LocalizeTools/localize.mk target_lang=ja nibs='MainMenu.nib FileTreeWindow.nib'\n\n\n";
 		};
 		625128F3F86340ED9036DC6C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -585,8 +584,8 @@
 		29B97318FDCFA39411CA2CEA /* MainMenu.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				2CF77C161C48EB0F0005F413 /* en */,
 				2CF77C171C48EB160005F413 /* ja */,
+				2C35115D20DA5B3C00EB3D34 /* Base */,
 			);
 			name = MainMenu.nib;
 			sourceTree = "<group>";
@@ -613,7 +612,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				2CF77C121C48EAD40005F413 /* ja */,
-				2CF77C131C48EAE70005F413 /* en */,
+				2C35115C20DA5B3C00EB3D34 /* Base */,
 			);
 			name = FileTreeWindow.nib;
 			sourceTree = "<group>";
@@ -630,8 +629,8 @@
 		2CF77C221C4926B20005F413 /* PathExtra_Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				2CF77C211C4926B20005F413 /* en */,
 				2CF77C231C4926B50005F413 /* ja */,
+				2C35115E20DA5C3400EB3D34 /* Base */,
 			);
 			name = PathExtra_Localizable.strings;
 			sourceTree = "<group>";
@@ -692,12 +691,28 @@
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
@@ -706,11 +721,27 @@
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				SDKROOT = macosx;
 			};
 			name = Release;
