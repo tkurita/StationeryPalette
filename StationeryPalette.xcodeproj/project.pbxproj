@@ -94,10 +94,6 @@
 		2C1DC0C11BEC93E90071AF1C /* NSString+StationeryFlag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+StationeryFlag.m"; sourceTree = "<group>"; };
 		2C1DC0C41BEC95570071AF1C /* DonationReminder.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DonationReminder.xcodeproj; path = DonationReminder/DonationReminder.xcodeproj; sourceTree = "<group>"; };
 		2C1E943A0B38B4670086DB87 /* Reload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Reload.png; sourceTree = "<group>"; };
-		2C24B1341C3E94D200F074EF /* localize.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = localize.mk; sourceTree = "<group>"; };
-		2C24B1351C3E94D200F074EF /* localize_ib.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = localize_ib.mk; sourceTree = "<group>"; };
-		2C24B1361C3E94D200F074EF /* localize_ib.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = localize_ib.sh; sourceTree = "<group>"; };
-		2C24B1371C3E94D200F074EF /* require_strings_file.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = require_strings_file.sh; sourceTree = "<group>"; };
 		2C270B070B38BEBC00955F77 /* new_folder.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = new_folder.icns; sourceTree = "<group>"; };
 		2C270B0B0B38BFAB00955F77 /* rename.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rename.png; sourceTree = "<group>"; };
 		2C270C7E0B39794000955F77 /* AddItem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AddItem.png; sourceTree = "<group>"; };
@@ -229,7 +225,6 @@
 				2C88F5C31C465F3000037F94 /* FileTreeView */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
-				2C24B1331C3E94D100F074EF /* LocalizeTools */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 				2C35116020DA613E00EB3D34 /* Makefile */,
@@ -303,17 +298,6 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
-		2C24B1331C3E94D100F074EF /* LocalizeTools */ = {
-			isa = PBXGroup;
-			children = (
-				2C24B1341C3E94D200F074EF /* localize.mk */,
-				2C24B1351C3E94D200F074EF /* localize_ib.mk */,
-				2C24B1361C3E94D200F074EF /* localize_ib.sh */,
-				2C24B1371C3E94D200F074EF /* require_strings_file.sh */,
-			);
-			path = LocalizeTools;
-			sourceTree = "<group>";
-		};
 		2C65B3B91BECA4230009D27D /* ImageAndTextCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -377,7 +361,6 @@
 			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "StationeryPalette" */;
 			buildPhases = (
 				625128F3F86340ED9036DC6C /* [CP] Check Pods Manifest.lock */,
-				2CEF6BB614EC2C7000C9A9B3 /* ShellScript */,
 				8D1107290486CEB800E47090 /* Resources */,
 				8D11072C0486CEB800E47090 /* Sources */,
 				8D11072E0486CEB800E47090 /* Frameworks */,
@@ -491,19 +474,6 @@
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = "/bin/bash -l";
 			shellScript = "if [ ! \"$CONFIGURATION\" = 'Release' ]; then\necho \"HelpBook setup script will run only with Release configuration\";\nexit 0\nfi\n\ncd \"$BUILT_PRODUCTS_DIR\"\nSetupHelpBook \"$FULL_PRODUCT_NAME\"\n\n";
-		};
-		2CEF6BB614EC2C7000C9A9B3 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# make -f LocalizeTools/localize.mk target_lang=ja nibs='MainMenu.nib FileTreeWindow.nib'\n\n\n";
 		};
 		625128F3F86340ED9036DC6C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
