@@ -19,8 +19,8 @@ void showScriptError(NSDictionary *errorDict)
 	];
 	[alert setInformativeText:errorDict[NSAppleScriptErrorMessage]];
 	[alert setAlertStyle:NSWarningAlertStyle];
-//	if ([alert runModal] == NSAlertFirstButtonReturn) {
-//	} 
+	if ([alert runModal] == NSAlertFirstButtonReturn) {
+	} 
 }
 
 @implementation FileTreeWindowController

@@ -7,7 +7,7 @@
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleGetInfoString</key>
-	<string>3.2 copyright 1998-2016, Tetsuro KURITA</string>
+	<string>${PRODUCT_VERSION} ${COPYRIGHT}</string>
 	<key>CFBundleHelpBookFolder</key>
 	<string>StationeryPaletteHelp</string>
 	<key>CFBundleHelpBookName</key>
@@ -23,15 +23,20 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>3.2.1</string>
+	<string>${PRODUCT_VERSION}</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>22</string>
 	<key>LSUIElement</key>
-	<string>1</string>
+	<string>YES</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>NSHumanReadableCopyright</key>
-	<string>copyright 1998-2016, Tetsuro KURITA</string>
+	<string>${COPYRIGHT}</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
@@ -77,10 +82,5 @@
 	<string>http://www.script-factory.net/appcast/StationeryPalette.xml</string>
 	<key>SUPublicDSAKeyFile</key>
 	<string>dsa_pub.pem</string>
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSAllowsArbitraryLoads</key>
-		<true/>
-	</dict>
 </dict>
 </plist>
