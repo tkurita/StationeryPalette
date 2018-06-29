@@ -66,7 +66,7 @@
 "338.title" = "ファイル名:";
 
 /* Class = "NSTextFieldCell"; title = "Small System Font Text"; ObjectID = "339"; */
-"339.title" = "Small System Font Text";
+"339.title" = "保存場所未設定";
 
 /* Class = "NSButtonCell"; title = "置き換え"; ObjectID = "341"; */
 "341.title" = "置き換え";

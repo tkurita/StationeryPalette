@@ -229,6 +229,24 @@ void cleanupFolderContents(NSString *path)
 }
 
 #pragma mark override NSWindowController
+- (void)chooseLocation
+{
+    NSOpenPanel *open_panel = [NSOpenPanel openPanel];
+    [open_panel setMessage:NSLocalizedString(@"Choose a location to save a file :", @"")];
+    open_panel.canChooseFiles = NO;
+    open_panel.canChooseDirectories = YES;
+    [[self window] orderFront:self];
+    [open_panel beginSheetModalForWindow:[self window] completionHandler:^(NSInteger result)
+    {
+        if (result == NSOKButton) {
+            NSString *path = [[open_panel URL] path];
+            [self setInsertionLocation:path];
+            [saveLocationField setStringValue:path];
+        } else {
+            [self close];
+        }
+    }];
+}
 - (void)showWindowWithFinderSelection:(id)sender
 {
 	[self showWindow:sender];
@@ -242,11 +260,11 @@ void cleanupFolderContents(NSString *path)
 	}
 	NSString *path = [scriptResult stringValue];
     if (! path) {
-        
+        [self chooseLocation];
+        return;
     }
 	[self setInsertionLocation:path];
 	[saveLocationField setStringValue:path];
-
 }
 
 - (void)showWindowWithDirectory:(NSString *)folderPath

@@ -2,3 +2,4 @@
 "Choose copy or move" = "コピーするか移動するか選択してください。";
 "Can't change the file name" = "ファイル名を変更できません。";
 "The name %@ have been used. Choose the other file name." = "\"%@\"という項目が既に存在します。他のファイル名を選んでください。";
+"Choose a location to save a file :" = "ファイルの保存場所を選択してください :";

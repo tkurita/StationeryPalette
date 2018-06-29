@@ -188,7 +188,7 @@ Gw
                                 <textField verticalHuggingPriority="750" id="273">
                                     <rect key="frame" x="15" y="8" width="361" height="39"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Small System Font Text" id="339">
+                                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Save location is not selected." id="339">
                                         <font key="font" metaFont="smallSystem"/>
                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
