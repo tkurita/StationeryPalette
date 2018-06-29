@@ -241,6 +241,9 @@ void cleanupFolderContents(NSString *path)
 		showScriptError(error_dict);
 	}
 	NSString *path = [scriptResult stringValue];
+    if (! path) {
+        
+    }
 	[self setInsertionLocation:path];
 	[saveLocationField setStringValue:path];
 

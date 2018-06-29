@@ -10,3 +10,6 @@
 [submodule "ImageAndTextCell"]
 	path = ImageAndTextCell
 	url = https://github.com/tkurita/ImageAndTextCell.git
+[submodule "LibraryScripts/InsertionLocator.scptd"]
+	path = LibraryScripts/InsertionLocator.scptd
+	url = https://github.com/tkurita/InsertionLocator.scptd
