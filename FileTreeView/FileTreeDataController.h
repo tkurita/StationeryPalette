@@ -14,7 +14,7 @@
 		
 	//related move and copy with drag&drop
 	BOOL applyAllFlag;
-	unsigned int restItemsCount;
+	NSUInteger restItemsCount;
 }
 
 @property (strong) FileTreeNode *rootNode;

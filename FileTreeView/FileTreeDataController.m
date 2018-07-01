@@ -680,6 +680,13 @@ skip:
 		case NSDragOperationDelete:
 			[self trashPromisedFiles];
 			break;
+        case NSDragOperationNone:
+        case NSDragOperationPrivate:
+        case NSDragOperationLink:
+        case NSDragOperationMove:
+        case NSDragOperationAll:
+        case NSDragOperationEvery:
+            break;
 	}
 }
 
@@ -747,7 +754,7 @@ skip:
 		NSString *dir_path = [a_path stringByDeletingLastPathComponent];
 		NSString *a_name = [a_path lastPathComponent];
 		[workspace performFileOperation:NSWorkspaceRecycleOperation
-								 source:dir_path destination:nil
+								 source:dir_path destination:@""
 								  files:@[a_name] tag:nil];
 
         FileTreeNode *parent_node = (FileTreeNode *)file_tree_node.parentNode;

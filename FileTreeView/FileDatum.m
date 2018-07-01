@@ -364,7 +364,7 @@ bail:
 - (NSString *)typeCode
 {
 	return NSFileTypeForHFSTypeCode([_attributes[NSFileHFSTypeCode]
-									 unsignedLongValue]);
+									 unsignedIntValue]);
 }
 
 - (NSString *)typeForPboard
