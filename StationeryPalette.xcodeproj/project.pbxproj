@@ -622,7 +622,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				COPYRIGHT = "Copyright 1998-2018, Tetsuro KURITA";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 23;
 				DEVELOPMENT_TEAM = N3YK2F43T4;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -638,7 +638,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "net.script-factory.StationeryPalette";
 				PRODUCT_NAME = StationeryPalette;
-				PRODUCT_VERSION = 3.2.1;
+				PRODUCT_VERSION = 3.2.2;
 				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;
 			};
@@ -652,7 +652,7 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPYRIGHT = "Copyright 1998-2018, Tetsuro KURITA";
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 23;
 				DEVELOPMENT_TEAM = N3YK2F43T4;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -665,7 +665,7 @@
 				INSTALL_PATH = /Applications;
 				PRODUCT_BUNDLE_IDENTIFIER = "net.script-factory.StationeryPalette";
 				PRODUCT_NAME = StationeryPalette;
-				PRODUCT_VERSION = 3.2.1;
+				PRODUCT_VERSION = 3.2.2;
 				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;
 			};
