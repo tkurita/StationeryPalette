@@ -82,7 +82,7 @@
 				<string>New File from Template</string>
 			</dict>
 			<key>NSMessage</key>
-			<string>showWindowForFolder</string>
+			<string>showWindowForFinderSelection</string>
 			<key>NSPortName</key>
 			<string>${PRODUCT_NAME}</string>
 			<key>NSRequiredContext</key>

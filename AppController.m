@@ -4,7 +4,7 @@
 #import "FileTreeWindowController.h"
 #import "DonationReminder/DonationReminder.h"
 
-#define useLog 0
+#define useLog 1
 
 @implementation AppController
 
@@ -103,18 +103,28 @@ NSString *resolveContainerPath(NSString *path)
 
 - (void)showWindowForFolder:(NSPasteboard *)pboard userData:(NSString *)data error:(NSString **)error
 {
-	NSArray *types = [pboard types];
+#if useLog
+    NSLog(@"%@", @"startshowWindowForFolder");
+#endif
+    NSArray *types = [pboard types];
 	NSArray *file_names;
 	if (![types containsObject:NSFilenamesPboardType] 
 			|| !(file_names = [pboard propertyListForType:NSFilenamesPboardType])) {
         *error = NSLocalizedString(@"Error: Pasteboard doesn't contain file paths.",
 								   @"Pasteboard couldn't give string.");
+        NSLog(@"%@", *error);
         return;
     }
 	
 	NSString *file_path = resolveContainerPath([file_names lastObject]);
 	[_windowController showWindowWithDirectory:file_path];
 	[NSApp activateIgnoringOtherApps:YES];
+}
+
+- (void)showWindowForFinderSelection:(NSPasteboard *)pboard userData:(NSString *)data error:(NSString **)error
+{
+    [_windowController showWindowWithFinderSelection:self];
+    [NSApp activateIgnoringOtherApps:YES];
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
