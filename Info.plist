@@ -7,11 +7,11 @@
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleGetInfoString</key>
-	<string>${PRODUCT_VERSION} ${COPYRIGHT}</string>
+	<string>$(MARKETING_VERSION) ${COPYRIGHT}</string>
 	<key>CFBundleHelpBookFolder</key>
 	<string>StationeryPaletteHelp</string>
 	<key>CFBundleHelpBookName</key>
-	<string>Scriptfactory.StationeryPalette.help</string>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER).help</string>
 	<key>CFBundleIconFile</key>
 	<string>StationeryPalette</string>
 	<key>CFBundleIdentifier</key>
@@ -23,11 +23,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>${PRODUCT_VERSION}</string>
+	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>23</string>
+	<string>24</string>
 	<key>LSUIElement</key>
 	<string>YES</string>
 	<key>NSAppTransportSecurity</key>
@@ -95,8 +95,10 @@
 	<key>SUCheckAtStartup</key>
 	<true/>
 	<key>SUFeedURL</key>
-	<string>http://www.script-factory.net/appcast/StationeryPalette.xml</string>
+	<string>https://www.script-factory.net/appcast/StationeryPalette.xml</string>
 	<key>SUPublicDSAKeyFile</key>
 	<string>dsa_pub.pem</string>
+	<key>NSAppleEventsUsageDescription</key>
+	<string>This application needs to control other applications to run.</string>
 </dict>
 </plist>
