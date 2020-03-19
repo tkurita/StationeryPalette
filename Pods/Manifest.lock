@@ -1,5 +1,5 @@
 PODS:
-  - Sparkle (1.19.0)
+  - Sparkle (1.23.0)
 
 DEPENDENCIES:
   - Sparkle
@@ -9,7 +9,7 @@ SPEC REPOS:
     - Sparkle
 
 SPEC CHECKSUMS:
-  Sparkle: 8486d2493599665e466b5076e72b28849776e32f
+  Sparkle: 55b1a87ba69d56913375a281546b7c82dec95bb0
 
 PODFILE CHECKSUM: 1f348072aa3ec304550683cf662433b2bb81c331
 
