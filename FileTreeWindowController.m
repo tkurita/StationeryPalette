@@ -209,7 +209,7 @@ void cleanupFolderContents(NSString *path)
                                     completionHandler:^(NSInteger result)
      {
          if (result == NSOKButton) {
-             [fileTreeDataController insertCopyingURLs:[op URLs]];
+             [self->fileTreeDataController insertCopyingURLs:[op URLs]];
          }
      }];
 }
@@ -241,15 +241,21 @@ void cleanupFolderContents(NSString *path)
         if (result == NSOKButton) {
             NSString *path = [[open_panel URL] path];
             [self setInsertionLocation:path];
-            [saveLocationField setStringValue:path];
+            [self->saveLocationField setStringValue:path];
         } else {
             [self close];
         }
     }];
 }
+
 - (void)showWindowWithFinderSelection:(id)sender
 {
-	[self showWindow:sender];
+    NSDictionary *opts = @{(__bridge id) kAXTrustedCheckOptionPrompt : @YES};
+    if (!AXIsProcessTrustedWithOptions((__bridge CFDictionaryRef)opts)) {
+        return;
+    }
+
+    [self showWindow:sender];
 	NSDictionary *error_dict = nil;
 	NSAppleEventDescriptor *scriptResult = [_insertionLocationScript executeAndReturnError:&error_dict];
 	if (error_dict != nil) {

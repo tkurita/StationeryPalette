@@ -2,7 +2,7 @@ property InsertionLocator : "@module"
 property _ : script "ModuleLoader"'s setup(me)
 
 tell (make InsertionLocator)
-    set_use_gui_scripting(false)
+    set_use_gui_scripting(true)
     set_allow_closed_folder(false)
     set a_location to do()
 end tell
