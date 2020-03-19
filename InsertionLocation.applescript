@@ -1,5 +1,5 @@
-property InsertionLocator : module
-property loader : boot (module loader of application (get "StationeryPaletteLib")) for me
+property InsertionLocator : "@module"
+property _ : script "ModuleLoader"'s setup(me)
 
 tell (make InsertionLocator)
     set_use_gui_scripting(false)

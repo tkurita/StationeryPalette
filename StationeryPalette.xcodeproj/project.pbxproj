@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -49,6 +49,24 @@
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		9A6694796EF38DEB3CEE4E55 /* libPods-StationeryPalette.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 23A6B0FE93060B3CF7E4059D /* libPods-StationeryPalette.a */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXBuildRule section */
+		2CB8C8242423C28C00380A47 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			filePatterns = "*.applescript";
+			fileType = pattern.proxy;
+			inputFiles = (
+				"$(SRCROOT)/InsertionLocation.applescript",
+			);
+			isEditable = 1;
+			outputFiles = (
+				"$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/$(INPUT_FILE_BASE).scpt",
+			);
+			runOncePerArchitecture = 0;
+			script = "#printenv\ncd \"$INPUT_FILE_DIR\"\n/usr/bin/osacompile -l AppleScript -d -o \"$TARGET_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/$INPUT_FILE_BASE.scpt\" \"$INPUT_FILE_NAME\"\n";
+		};
+/* End PBXBuildRule section */
 
 /* Begin PBXContainerItemProxy section */
 		2C1DC0C81BEC95580071AF1C /* PBXContainerItemProxy */ = {
@@ -368,6 +386,7 @@
 				C2FDB9B77677CA499D9AE6B3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
+				2CB8C8242423C28C00380A47 /* PBXBuildRule */,
 			);
 			dependencies = (
 				2C1DC0CB1BEC958E0071AF1C /* PBXTargetDependency */,
@@ -396,6 +415,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
+				English,
 				French,
 				German,
 				en,
@@ -623,7 +643,7 @@
 				COPYRIGHT = "Copyright 1998-2018, Tetsuro KURITA";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 23;
-				DEVELOPMENT_TEAM = N3YK2F43T4;
+				DEVELOPMENT_TEAM = 5VBC6385DN;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
@@ -653,7 +673,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				COPYRIGHT = "Copyright 1998-2018, Tetsuro KURITA";
 				CURRENT_PROJECT_VERSION = 23;
-				DEVELOPMENT_TEAM = N3YK2F43T4;
+				DEVELOPMENT_TEAM = 5VBC6385DN;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",

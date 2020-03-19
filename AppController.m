@@ -4,7 +4,7 @@
 #import "FileTreeWindowController.h"
 #import "DonationReminder/DonationReminder.h"
 
-#define useLog 1
+#define useLog 0
 
 @implementation AppController
 
@@ -123,6 +123,9 @@ NSString *resolveContainerPath(NSString *path)
 
 - (void)showWindowForFinderSelection:(NSPasteboard *)pboard userData:(NSString *)data error:(NSString **)error
 {
+#if useLog
+    NSLog(@"%@", @"showWindowForFinderSelection");
+#endif
     [_windowController showWindowWithFinderSelection:self];
     [NSApp activateIgnoringOtherApps:YES];
 }
