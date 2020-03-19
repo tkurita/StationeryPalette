@@ -152,6 +152,7 @@
 		2CA09BF10B3FCF000043BE9D /* History.rd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = History.rd; path = ../History.rd; sourceTree = SOURCE_ROOT; };
 		2CA09BF20B3FD9250043BE9D /* Stationery.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = Stationery.zip; sourceTree = "<group>"; };
 		2CB0558A0B3A9EE400315976 /* InsertionLocation.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; path = InsertionLocation.applescript; sourceTree = "<group>"; };
+		2CCE45352423D40200A2D9BA /* StationeryPalette.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StationeryPalette.entitlements; sourceTree = "<group>"; };
 		2CF3F22C1354351D00872A83 /* StationeryPalette.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = StationeryPalette.icns; sourceTree = "<group>"; };
 		2CF70C051BEC3F4200786EBD /* DropBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropBox.h; sourceTree = "<group>"; };
 		2CF70C061BEC3F4200786EBD /* DropBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropBox.m; sourceTree = "<group>"; };
@@ -234,6 +235,7 @@
 		29B97314FDCFA39411CA2CEA /* FileListTest */ = {
 			isa = PBXGroup;
 			children = (
+				2CCE45352423D40200A2D9BA /* StationeryPalette.entitlements */,
 				2CA09BF10B3FCF000043BE9D /* History.rd */,
 				2C65B3B91BECA4230009D27D /* ImageAndTextCell */,
 				2CF70C041BEC3F4200786EBD /* DropBox */,
@@ -635,6 +637,7 @@
 			baseConfigurationReference = 3707D7E8D72E24D17B313C3F /* Pods-StationeryPalette.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_ENTITLEMENTS = StationeryPalette.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPYRIGHT = "Copyright 1998-2018, Tetsuro KURITA";
@@ -668,6 +671,7 @@
 			baseConfigurationReference = A4E23BC533541FDE0F49C599 /* Pods-StationeryPalette.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_ENTITLEMENTS = StationeryPalette.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPYRIGHT = "Copyright 1998-2018, Tetsuro KURITA";
